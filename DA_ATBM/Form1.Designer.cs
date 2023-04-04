@@ -89,7 +89,6 @@ namespace DA_ATBM
             this.timkiemuserbtn = new System.Windows.Forms.Button();
             this.timkiemuserlbl = new System.Windows.Forms.Label();
             this.timkiemusertb = new System.Windows.Forms.TextBox();
-            this.thongtinupdatedg = new System.Windows.Forms.DataGridView();
             this.thongtinquyendg = new System.Windows.Forms.DataGridView();
             this.danhsachuserdg = new System.Windows.Forms.DataGridView();
             this.timkiemuserrolelbl = new System.Windows.Forms.Label();
@@ -99,6 +98,12 @@ namespace DA_ATBM
             this.tab1 = new System.Windows.Forms.TabPage();
             this.danhsachroledg = new System.Windows.Forms.DataGridView();
             this.tab = new System.Windows.Forms.TabControl();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.timkiemroles = new System.Windows.Forms.TextBox();
+            this.timkiemrole = new System.Windows.Forms.Button();
             this.tabPage3.SuspendLayout();
             this.cauquyengb.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -112,7 +117,6 @@ namespace DA_ATBM
             this.usergb.SuspendLayout();
             this.rolegb.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.thongtinupdatedg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thongtinquyendg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachuserdg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachuserroledg)).BeginInit();
@@ -152,7 +156,7 @@ namespace DA_ATBM
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(503, 390);
+            this.tabPage3.Size = new System.Drawing.Size(554, 454);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Cấp quyền";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -356,7 +360,7 @@ namespace DA_ATBM
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(503, 390);
+            this.tabPage4.Size = new System.Drawing.Size(554, 454);
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = " Thu quyền";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -599,7 +603,7 @@ namespace DA_ATBM
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(503, 390);
+            this.tabPage1.Size = new System.Drawing.Size(554, 454);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Tạo, xóa, sửa user/role";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -703,22 +707,24 @@ namespace DA_ATBM
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.timkiemrole);
+            this.tabPage2.Controls.Add(this.timkiemroles);
+            this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.timkiemuserbtn);
             this.tabPage2.Controls.Add(this.timkiemuserlbl);
             this.tabPage2.Controls.Add(this.timkiemusertb);
-            this.tabPage2.Controls.Add(this.thongtinupdatedg);
             this.tabPage2.Controls.Add(this.thongtinquyendg);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(503, 390);
+            this.tabPage2.Size = new System.Drawing.Size(554, 454);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Thông tin quyền";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // timkiemuserbtn
             // 
-            this.timkiemuserbtn.Location = new System.Drawing.Point(187, 14);
+            this.timkiemuserbtn.Location = new System.Drawing.Point(161, 14);
             this.timkiemuserbtn.Name = "timkiemuserbtn";
             this.timkiemuserbtn.Size = new System.Drawing.Size(75, 23);
             this.timkiemuserbtn.TabIndex = 4;
@@ -743,26 +749,18 @@ namespace DA_ATBM
             this.timkiemusertb.Size = new System.Drawing.Size(100, 20);
             this.timkiemusertb.TabIndex = 2;
             // 
-            // thongtinupdatedg
-            // 
-            this.thongtinupdatedg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.thongtinupdatedg.Location = new System.Drawing.Point(6, 213);
-            this.thongtinupdatedg.Name = "thongtinupdatedg";
-            this.thongtinupdatedg.Size = new System.Drawing.Size(490, 166);
-            this.thongtinupdatedg.TabIndex = 1;
-            // 
             // thongtinquyendg
             // 
             this.thongtinquyendg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.thongtinquyendg.Location = new System.Drawing.Point(6, 40);
             this.thongtinquyendg.Name = "thongtinquyendg";
-            this.thongtinquyendg.Size = new System.Drawing.Size(491, 167);
+            this.thongtinquyendg.Size = new System.Drawing.Size(540, 417);
             this.thongtinquyendg.TabIndex = 0;
             // 
             // danhsachuserdg
             // 
             this.danhsachuserdg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.danhsachuserdg.Location = new System.Drawing.Point(3, 37);
+            this.danhsachuserdg.Location = new System.Drawing.Point(9, 61);
             this.danhsachuserdg.Name = "danhsachuserdg";
             this.danhsachuserdg.Size = new System.Drawing.Size(278, 168);
             this.danhsachuserdg.TabIndex = 0;
@@ -786,9 +784,9 @@ namespace DA_ATBM
             // danhsachuserroledg
             // 
             this.danhsachuserroledg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.danhsachuserroledg.Location = new System.Drawing.Point(293, 40);
+            this.danhsachuserroledg.Location = new System.Drawing.Point(335, 61);
             this.danhsachuserroledg.Name = "danhsachuserroledg";
-            this.danhsachuserroledg.Size = new System.Drawing.Size(204, 335);
+            this.danhsachuserroledg.Size = new System.Drawing.Size(204, 366);
             this.danhsachuserroledg.TabIndex = 5;
             // 
             // button1
@@ -803,6 +801,9 @@ namespace DA_ATBM
             // 
             // tab1
             // 
+            this.tab1.Controls.Add(this.label3);
+            this.tab1.Controls.Add(this.label2);
+            this.tab1.Controls.Add(this.label1);
             this.tab1.Controls.Add(this.danhsachuserroledg);
             this.tab1.Controls.Add(this.button1);
             this.tab1.Controls.Add(this.timkiemuserrolelbl);
@@ -812,7 +813,7 @@ namespace DA_ATBM
             this.tab1.Location = new System.Drawing.Point(4, 22);
             this.tab1.Name = "tab1";
             this.tab1.Padding = new System.Windows.Forms.Padding(3);
-            this.tab1.Size = new System.Drawing.Size(503, 390);
+            this.tab1.Size = new System.Drawing.Size(557, 454);
             this.tab1.TabIndex = 0;
             this.tab1.Text = "Danh sách user";
             this.tab1.UseVisualStyleBackColor = true;
@@ -820,7 +821,7 @@ namespace DA_ATBM
             // danhsachroledg
             // 
             this.danhsachroledg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.danhsachroledg.Location = new System.Drawing.Point(3, 211);
+            this.danhsachroledg.Location = new System.Drawing.Point(9, 262);
             this.danhsachroledg.Name = "danhsachroledg";
             this.danhsachroledg.Size = new System.Drawing.Size(278, 165);
             this.danhsachroledg.TabIndex = 1;
@@ -835,14 +836,69 @@ namespace DA_ATBM
             this.tab.Location = new System.Drawing.Point(12, 12);
             this.tab.Name = "tab";
             this.tab.SelectedIndex = 0;
-            this.tab.Size = new System.Drawing.Size(511, 416);
+            this.tab.Size = new System.Drawing.Size(565, 480);
             this.tab.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Danh sách User";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 246);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Danh sách Role";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(332, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(158, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Danh sách quyền cấp cho User";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(301, 17);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Roles:";
+            // 
+            // timkiemroles
+            // 
+            this.timkiemroles.Location = new System.Drawing.Point(344, 14);
+            this.timkiemroles.Name = "timkiemroles";
+            this.timkiemroles.Size = new System.Drawing.Size(100, 20);
+            this.timkiemroles.TabIndex = 7;
+            // 
+            // timkiemrole
+            // 
+            this.timkiemrole.Location = new System.Drawing.Point(462, 11);
+            this.timkiemrole.Name = "timkiemrole";
+            this.timkiemrole.Size = new System.Drawing.Size(75, 23);
+            this.timkiemrole.TabIndex = 8;
+            this.timkiemrole.Text = "Tìm kiếm";
+            this.timkiemrole.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.timkiemrole.UseVisualStyleBackColor = true;
+            this.timkiemrole.Click += new System.EventHandler(this.timkiemrole_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 450);
+            this.ClientSize = new System.Drawing.Size(577, 494);
             this.Controls.Add(this.tab);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -869,7 +925,6 @@ namespace DA_ATBM
             this.rolegb.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.thongtinupdatedg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thongtinquyendg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachuserdg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachuserroledg)).EndInit();
@@ -943,7 +998,6 @@ namespace DA_ATBM
         private System.Windows.Forms.Button timkiemuserbtn;
         private System.Windows.Forms.Label timkiemuserlbl;
         private System.Windows.Forms.TextBox timkiemusertb;
-        private System.Windows.Forms.DataGridView thongtinupdatedg;
         private System.Windows.Forms.DataGridView thongtinquyendg;
         private System.Windows.Forms.DataGridView danhsachuserdg;
         private System.Windows.Forms.Label timkiemuserrolelbl;
@@ -953,6 +1007,12 @@ namespace DA_ATBM
         private System.Windows.Forms.TabPage tab1;
         private System.Windows.Forms.DataGridView danhsachroledg;
         private System.Windows.Forms.TabControl tab;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button timkiemrole;
+        private System.Windows.Forms.TextBox timkiemroles;
+        private System.Windows.Forms.Label label4;
     }
 }
 

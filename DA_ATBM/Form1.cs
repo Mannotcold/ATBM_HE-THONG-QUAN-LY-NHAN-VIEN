@@ -20,100 +20,10 @@ namespace DA_ATBM
             InitializeComponent();
         }
 
-        //Thông tin quyền của user
-        private void ThongTinQuyen()
-        {
-            OracleConnection con_ttq = new OracleConnection();
-            con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=SYSTEM;PASSWORD=Man2082002@;Connection Timeout=120;";
-
-            DataSet dataSet_ttq = new DataSet();
-            OracleCommand cmd_ttq;
-            if (timkiemusertb.Text == "")
-                cmd_ttq = new OracleCommand("Select * from user_tab_privs ", con_ttq);
-            else
-                cmd_ttq = new OracleCommand("Select * from user_tab_privs  where grantee = '" + timkiemusertb.Text.ToUpper() + "'", con_ttq);
-            //dba_sys_privs 
-            //user_tab_privs
-            cmd_ttq.CommandType = CommandType.Text;
-            con_ttq.Open();
-            using (OracleDataReader reader = cmd_ttq.ExecuteReader())
-            {
-                DataTable dataTable = new DataTable();
-                dataTable.Load(reader);
-                thongtinquyendg.DataSource = dataTable;
-            }
-
-            //bảng lấy ra các cộ có quyền update
-            OracleCommand cmd_update;
-            if (timkiemusertb.Text == "")
-                cmd_update = new OracleCommand("Select * from USER_COL_PRIVS_MADE", con_ttq);
-            else
-                cmd_update = new OracleCommand("Select * from USER_COL_PRIVS_MADE where grantee = '" + timkiemusertb.Text.ToUpper() + "'", con_ttq);
-
-            using (OracleDataReader reader = cmd_update.ExecuteReader())
-            {
-                DataTable dataTable = new DataTable();
-                dataTable.Load(reader);
-                thongtinupdatedg.DataSource = dataTable;
-            }
-            con_ttq.Close();
-        }
-        private void timkiemuserbtn_Click(object sender, EventArgs e)
-        {
-            ThongTinQuyen();
-        }
-
+        //Hiển thị danh sách user/role
         private void button1_Click(object sender, EventArgs e)
         {
-            //Xem bảng 
-
-            ////DBA PRIVILEGE = SYSDBA; TNS_ADMIN = C:\Users\ACER\Oracle\network\admin; USER ID = SYS; DATA SOURCE = localhost:1521 / XE
-            ////string conStr = "DATA SOURCE = localhost:1521 / XE; USER ID = SYSDBA;PASSWORD=Man2082002@";
-            //string conStr = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID = GIAMDOC;PASSWORD=123 ;Connection Timeout=120;";
-
-            //con = new OracleConnection(conStr);
-            ////MessageBox.Show("888jhhh8559");
-            //con.Open();
-            //OracleCommand getEmps = con.CreateCommand();
-            //getEmps.CommandText = "Select * FROM SYS.NHANVIEN";
-            //getEmps.CommandType = CommandType.Text;
-            //OracleDataReader empDR = getEmps.ExecuteReader();
-            //DataTable empDT = new DataTable();
-            //empDT.Load(empDR);
-            //danhsachuserroledg.DataSource = empDT;
-            //con.Close();
-
-            //OracleConnection con_ds = new OracleConnection();
-            //con_ds.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID = SYSTEM;PASSWORD=Man2082002@ ;Connection Timeout=120;";
-            //DataSet dataSet_ds = new DataSet();
-            //OracleCommand cmd_ds;
-            //if (timkiemuserroletb.Text == "")
-            //    cmd_ds = new OracleCommand("Select * from all_users", con_ds);
-            //else
-            //    cmd_ds = new OracleCommand("Select * from all_users where username = '" + timkiemuserroletb.Text.ToUpper() + "'", con_ds);
-            //cmd_ds.CommandType = CommandType.Text;
-            //con_ds.Open();
-            //using (OracleDataReader reader = cmd_ds.ExecuteReader())
-            //{
-            //    DataTable dataTable = new DataTable();
-            //    dataTable.Load(reader);
-            //    //danhsachuserdg = null;
-            //    danhsachuserdg.DataSource = dataTable;
-            //}
-
-            ////danh sách các role 
-            //OracleCommand cmd_role;
-            //if (timkiemuserroletb.Text == "")
-            //    cmd_role = new OracleCommand("SELECT * FROM dba_roles", con_ds);
-            //else
-            //    cmd_role = new OracleCommand("SELECT * FROM dba_roles where role = '" + timkiemuserroletb.Text.ToUpper() + "'", con_ds);
-
-            //using (OracleDataReader reader = cmd_role.ExecuteReader())
-            //{
-            //    DataTable dataTable = new DataTable();
-            //    dataTable.Load(reader);
-            //    danhsachroledg.DataSource = dataTable;
-            //}
+            
             DanhSachUser();
 
         }
@@ -134,7 +44,6 @@ namespace DA_ATBM
             {
                 DataTable dataTable = new DataTable();
                 dataTable.Load(reader);
-                //danhsachuserdg = null;
                 danhsachuserdg.DataSource = dataTable;
             }
 
@@ -190,5 +99,128 @@ namespace DA_ATBM
                 return 0; //chưa tồn tại
             return 1; //đã tồn tại 
         }
+
+
+
+        //Thông tin quyền của user
+        private void ThongTinQuyen()
+        {
+            OracleConnection con_ttq = new OracleConnection();
+            con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=SYSTEM;PASSWORD=Man2082002@;Connection Timeout=120;";
+
+            DataSet dataSet_ttq = new DataSet();
+            OracleCommand cmd_ttq;
+            if (timkiemusertb.Text == "")
+                cmd_ttq = new OracleCommand("Select owner, grantee, privilege, table_name, grantable from user_tab_privs ", con_ttq);
+            else
+                cmd_ttq = new OracleCommand("Select  owner, grantee, privilege, table_name, grantable from user_tab_privs  WHERE owner = '" + timkiemusertb.Text.ToUpper() + "'", con_ttq);
+            //dba_sys_privs 
+            //user_tab_privs
+            cmd_ttq.CommandType = CommandType.Text;
+            con_ttq.Open();
+            using (OracleDataReader reader = cmd_ttq.ExecuteReader())
+            {
+                DataTable dataTable = new DataTable();
+                dataTable.Load(reader);
+                thongtinquyendg.DataSource = dataTable;
+            }
+
+            con_ttq.Close();
+        }
+        //Thông tin quyền của roles
+        private void ThongTinQuyenRoles()
+        {
+            OracleConnection con_ttq = new OracleConnection();
+            con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=SYSTEM;PASSWORD=Man2082002@;Connection Timeout=120;";
+
+            DataSet dataSet_ttq = new DataSet();
+            OracleCommand cmd_ttq;
+            if (timkiemusertb.Text == "")
+                cmd_ttq = new OracleCommand("SELECT grantee, privilege, owner, table_name, grantable FROM dba_tab_privs WHERE grantee = '" + timkiemroles.Text.ToUpper() + "' AND grantee IN(SELECT role FROM dba_roles)", con_ttq);
+            else
+                cmd_ttq = new OracleCommand("Select  owner, grantee, privilege, table_name, grantable from user_tab_privs  WHERE grantee = '" + timkiemroles.Text.ToUpper() + "'", con_ttq);
+            //dba_sys_privs 
+            //user_tab_privs
+            cmd_ttq.CommandType = CommandType.Text;
+            con_ttq.Open();
+            using (OracleDataReader reader = cmd_ttq.ExecuteReader())
+            {
+                DataTable dataTable = new DataTable();
+                dataTable.Load(reader);
+                thongtinquyendg.DataSource = dataTable;
+            }
+
+            con_ttq.Close();
+        }
+        private void timkiemrole_Click(object sender, EventArgs e)
+        {
+            ThongTinQuyenRoles();
+        }
+
+        private void timkiemuserbtn_Click(object sender, EventArgs e)
+        {
+            ThongTinQuyen();
+        }
+
+
+        private void XemBangCua1TaiKhoan()
+        {
+            //Xem bảng 
+
+            ////DBA PRIVILEGE = SYSDBA; TNS_ADMIN = C:\Users\ACER\Oracle\network\admin; USER ID = SYS; DATA SOURCE = localhost:1521 / XE
+            ////string conStr = "DATA SOURCE = localhost:1521 / XE; USER ID = SYSDBA;PASSWORD=Man2082002@";
+            //string conStr = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID = GIAMDOC;PASSWORD=123 ;Connection Timeout=120;";
+
+            //con = new OracleConnection(conStr);
+            ////MessageBox.Show("888jhhh8559");
+            //con.Open();
+            //OracleCommand getEmps = con.CreateCommand();
+            //getEmps.CommandText = "Select * FROM SYS.NHANVIEN";
+            //getEmps.CommandType = CommandType.Text;
+            //OracleDataReader empDR = getEmps.ExecuteReader();
+            //DataTable empDT = new DataTable();
+            //empDT.Load(empDR);
+            //danhsachuserroledg.DataSource = empDT;
+            //con.Close();
+
+            //OracleConnection con_ds = new OracleConnection();
+            //con_ds.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID = SYSTEM;PASSWORD=Man2082002@ ;Connection Timeout=120;";
+            //DataSet dataSet_ds = new DataSet();
+            //OracleCommand cmd_ds;
+            //if (timkiemuserroletb.Text == "")
+            //    cmd_ds = new OracleCommand("Select * from all_users", con_ds);
+            //else
+            //    cmd_ds = new OracleCommand("Select * from all_users where username = '" + timkiemuserroletb.Text.ToUpper() + "'", con_ds);
+            //cmd_ds.CommandType = CommandType.Text;
+            //con_ds.Open();
+            //using (OracleDataReader reader = cmd_ds.ExecuteReader())
+            //{
+            //    DataTable dataTable = new DataTable();
+            //    dataTable.Load(reader);
+            //    //danhsachuserdg = null;
+            //    danhsachuserdg.DataSource = dataTable;
+            //}
+
+            ////danh sách các role 
+            //OracleCommand cmd_role;
+            //if (timkiemuserroletb.Text == "")
+            //    cmd_role = new OracleCommand("SELECT * FROM dba_roles", con_ds);
+            //else
+            //    cmd_role = new OracleCommand("SELECT * FROM dba_roles where role = '" + timkiemuserroletb.Text.ToUpper() + "'", con_ds);
+
+            //using (OracleDataReader reader = cmd_role.ExecuteReader())
+            //{
+            //    DataTable dataTable = new DataTable();
+            //    dataTable.Load(reader);
+            //    danhsachroledg.DataSource = dataTable;
+            //}
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }
