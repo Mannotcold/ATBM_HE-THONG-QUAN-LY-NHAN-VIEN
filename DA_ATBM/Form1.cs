@@ -311,7 +311,7 @@ namespace DA_ATBM
                 }*/
                 cmd_insert.CommandType = CommandType.Text;
                 cmd_insert.ExecuteNonQuery();
-                MessageBox.Show("Cấp quyền insert thành công");
+                MessageBox.Show("Cấp quyền INSERT thành công");
                 //load lại thong tin quyền
                 ThongTinQuyen();
             }
@@ -369,8 +369,7 @@ namespace DA_ATBM
         private void deletebtn_Click(object sender, EventArgs e)
         {
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = DESKTOP-E896G02)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = orcl)));;User ID=QuanLyLopHoc;Password=123;Connection Timeout=120;";
-
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
             if (capquyenrolerb.Checked)
             {
                 if (CheckRole(tenuserroletb.Text.ToUpper()) == 0)
@@ -378,6 +377,7 @@ namespace DA_ATBM
                     MessageBox.Show("Role không tồn tại.");
                     con.Close();
                     return;
+
                 }
             }
             else
@@ -392,35 +392,67 @@ namespace DA_ATBM
             con.Open();
             if (nhanvienrb.Checked) //delete trên bảng nhanvien
             {
-                OracleCommand cmd_delete = new OracleCommand();
-                cmd_delete.Connection = con;
-                cmd_delete.CommandText = "grant delete on sys.NHANVIEN to " + tenuserroletb.Text.ToUpper();
+                OracleCommand cmd_insert = new OracleCommand();
+                cmd_insert.Connection = con;
+                cmd_insert.CommandText = "grant delete on sys.NHANVIEN to " + tenuserroletb.Text.ToUpper();
                 if (wgo.Checked)//có with grant option
                 {
-                    cmd_delete.CommandText += " WITH GRANT OPTION";
+                    cmd_insert.CommandText += " WITH GRANT OPTION";
                 }
-                cmd_delete.CommandType = CommandType.Text;
-                cmd_delete.ExecuteNonQuery();
+                cmd_insert.CommandType = CommandType.Text;
+                cmd_insert.ExecuteNonQuery();
                 MessageBox.Show("Cấp quyền delete thành công");
-
                 //load lại thong tin quyền
                 ThongTinQuyen();
             }
-            else //delete trên bảng lop
+            if (phongbanrb.Checked) //delete trên bảng phongban
             {
-                OracleCommand cmd_delete = new OracleCommand();
-                cmd_delete.Connection = con;
-                cmd_delete.CommandText = "grant delete on sys.PHONGBAN7 to " + tenuserroletb.Text.ToUpper();
+
+                OracleCommand cmd_insert = new OracleCommand();
+                cmd_insert.Connection = con;
+                cmd_insert.CommandText = "grant delete on sys.PHONGBAN to " + tenuserroletb.Text.ToUpper();
+                MessageBox.Show(tenuserroletb.Text.ToUpper());
                 if (wgo.Checked)//có with grant option
                 {
-                    cmd_delete.CommandText += " WITH GRANT OPTION";
+                    cmd_insert.CommandText += " WITH GRANT OPTION";
                 }
-                cmd_delete.CommandType = CommandType.Text;
-                cmd_delete.ExecuteNonQuery();
+                cmd_insert.CommandType = CommandType.Text;
+                cmd_insert.ExecuteNonQuery();
                 MessageBox.Show("Cấp quyền delete thành công");
                 //load lại thong tin quyền
                 ThongTinQuyen();
             }
+            if (deanrb.Checked) //delete trên bảng dean
+            {
+                OracleCommand cmd_insert = new OracleCommand();
+                cmd_insert.Connection = con;
+                cmd_insert.CommandText = "grant delete on sys.DEAN to " + tenuserroletb.Text.ToUpper();
+                if (wgo.Checked)//có with grant option
+                {
+                    cmd_insert.CommandText += " WITH GRANT OPTION";
+                }
+                cmd_insert.CommandType = CommandType.Text;
+                cmd_insert.ExecuteNonQuery();
+                MessageBox.Show("Cấp quyền delete thành công");
+                //load lại thong tin quyền
+                ThongTinQuyen();
+            }
+            if (phancongrb.Checked) //delete trên bảng phancong
+            {
+                OracleCommand cmd_insert = new OracleCommand();
+                cmd_insert.Connection = con;
+                cmd_insert.CommandText = "grant delete on sys.PHANCONG to " + tenuserroletb.Text.ToUpper();
+                if (wgo.Checked)//có with grant option
+                {
+                    cmd_insert.CommandText += " WITH GRANT OPTION";
+                }
+                cmd_insert.CommandType = CommandType.Text;
+                cmd_insert.ExecuteNonQuery();
+                MessageBox.Show("Cấp quyền delete thành công");
+                //load lại thong tin quyền
+                ThongTinQuyen();
+            }
+
             con.Close();
         }
 
@@ -428,7 +460,7 @@ namespace DA_ATBM
         private void selectbtn_Click(object sender, EventArgs e)
         {
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = DESKTOP-E896G02)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = orcl)));;User ID=QuanLyLopHoc;Password=123;Connection Timeout=120;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
 
             if (capquyenrolerb.Checked)
             {
@@ -453,14 +485,15 @@ namespace DA_ATBM
             {
                 OracleCommand cmd_select = new OracleCommand();
                 cmd_select.Connection = con;
-                if (NHANVIEN.CheckedItems.Count == 0 || NHANVIEN.CheckedItems.Count == 5) //cấp quyền select trên cả bảng
+                if (NHANVIEN.CheckedItems.Count == 0 || NHANVIEN.CheckedItems.Count == 11) //cấp quyền select trên cả bảng
                 {
-                    cmd_select.CommandText = "grant select on HocSinh to " + tenuserroletb.Text.ToUpper();
+                    cmd_select.CommandText = "grant select on sys.NHANVIEN to " + tenuserroletb.Text.ToUpper();
                 }
                 else
                 {
                     //những cột viết tắt để tạo view không bị lỗi view quá dài
-                    string[] short_name = { "MHS", "THS", "GT", "DC", "ML" };
+                    string[] short_name = { "MNV", "TNV", "GT", "NGS", "DC", "SDT", "LG", "PC", "VT", "MQL", "PHG"};
+                    //MVN: MANV, TNV: TENNV, GT: PHAI, NGS:NGAYSINH, DC: DIACHI, STD: SODT, PC: PHUCAP, VT: VAITRO, MQL: MANQL
                     //kiểm tra cấp quyền select trên những cột nào
                     string column = "";
                     //chọn ra những cột để select
@@ -476,8 +509,8 @@ namespace DA_ATBM
                     //xóa dấu , ở cuối (để bỏ váo câu lệnh select)
                     select_column = select_column.TrimEnd(',');
 
-                    //them HS vào cuối để biết là view từ bàng HS
-                    column += "HS";
+                    //them NV vào cuối để biết là view từ bàng NHANVIEN
+                    column += "NV";
 
                     //kiểm tra view có tồn tại hay chưa
                     if (CheckView(column) == 0)//chưa tồn tại
@@ -485,7 +518,7 @@ namespace DA_ATBM
                         //tạo view mới
                         OracleCommand cmd_taoview = new OracleCommand();
                         cmd_taoview.Connection = con;
-                        cmd_taoview.CommandText = "create view " + column + " as select " + select_column + " from HOCSINH";
+                        cmd_taoview.CommandText = "create view " + column + " as select " + select_column + " from NHANVIEN";
                         cmd_taoview.CommandType = CommandType.Text;
                         cmd_taoview.ExecuteNonQuery();
                     }
@@ -504,20 +537,21 @@ namespace DA_ATBM
                 //load lại thong tin quyền
                 ThongTinQuyen();
             }
-            else //select trên bảng phong ban
+            if(phongbanrb.Checked) //select trên bảng phong ban
             {
                 OracleCommand cmd_select = new OracleCommand();
                 cmd_select.Connection = con;
 
-                if (PHONGBAN.CheckedItems.Count == 0 || PHANCONG.CheckedItems.Count == 5) //cấp quyền select trên cả bảng
+                if (PHONGBAN.CheckedItems.Count == 0 || PHONGBAN.CheckedItems.Count == 3) //cấp quyền select trên cả bảng
                 {
-                    cmd_select.CommandText = "grant select on Lop to " + tenuserroletb.Text.ToUpper();
+                    cmd_select.CommandText = "grant select on sys.PHONGBAN to " + tenuserroletb.Text.ToUpper();
                 }
                 else
                 {
                     //kiểm tra cấp quyền select trên những cột nào
                     //những cột viết tắt để tạo view không bị lỗi view quá dài
-                    string[] short_name = { "ML", "TL", "SHSTD" };
+                    string[] short_name = { "MPB", "TPB", "TRPHG" };
+                    //MPB: MAPB, TPB: TENPB
                     //kiểm tra cấp quyền select trên những cột nào
                     string column = "";
                     //chọn ra những cột để select
@@ -533,8 +567,8 @@ namespace DA_ATBM
                     //xóa dấu , ở cuối (để bỏ váo câu lệnh select)
                     select_column = select_column.TrimEnd(',');
 
-                    //them  vào cuối để biết là view từ bàng Lop
-                    column += "L";
+                    //them  vào cuối để biết là view từ bàng PHONGBAN
+                    column += "PB";
 
                     //kiểm tra view có tồn tại?
                     if (CheckView(column) == 0)//chưa tồn tại
@@ -558,13 +592,123 @@ namespace DA_ATBM
                 //load lại thong tin quyền
                 ThongTinQuyen();
             }
+            if (deanrb.Checked) //select trên bảng de an
+            {
+                OracleCommand cmd_select = new OracleCommand();
+                cmd_select.Connection = con;
+
+                if (DEAN.CheckedItems.Count == 0 || DEAN.CheckedItems.Count == 4) //cấp quyền select trên cả bảng
+                {
+                    cmd_select.CommandText = "grant select on sys.DEAN to " + tenuserroletb.Text.ToUpper();
+                }
+                else
+                {
+                    //kiểm tra cấp quyền select trên những cột nào
+                    //những cột viết tắt để tạo view không bị lỗi view quá dài
+                    string[] short_name = { "MDA", "TDA", "NGBD", "PG" };
+                    //MDA: MADA, TDA:TENDA, NGBD: NGAYBD, PG: PHONG
+                    //kiểm tra cấp quyền select trên những cột nào
+                    string column = "";
+                    //chọn ra những cột để select
+                    string select_column = "";
+                    for (int i = 0; i < DEAN.Items.Count; i++)
+                    {
+                        if (DEAN.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += short_name[i] + "_";
+                            select_column += DEAN.Items[i].ToString() + ",";
+                        }
+                    }
+                    //xóa dấu , ở cuối (để bỏ váo câu lệnh select)
+                    select_column = select_column.TrimEnd(',');
+
+                    //them  vào cuối để biết là view từ bàng PHONGBAN
+                    column += "DA";
+
+                    //kiểm tra view có tồn tại?
+                    if (CheckView(column) == 0)//chưa tồn tại
+                    {
+                        //tạo view mới
+                        OracleCommand cmd_taoview = new OracleCommand();
+                        cmd_taoview.Connection = con;
+                        cmd_taoview.CommandText = "create view " + column + " as select " + select_column + " from DEAN";
+                        cmd_taoview.CommandType = CommandType.Text;
+                        cmd_taoview.ExecuteNonQuery();
+                    }
+                    cmd_select.CommandText = "grant select on " + column + " to " + tenuserroletb.Text.ToUpper();
+                }
+                if (wgo.Checked)//có with grant option
+                {
+                    cmd_select.CommandText += " WITH GRANT OPTION";
+                }
+                cmd_select.CommandType = CommandType.Text;
+                cmd_select.ExecuteNonQuery();
+                MessageBox.Show("Cấp quyền select thành công");
+                //load lại thong tin quyền
+                ThongTinQuyen();
+            }
+            if (phancongrb.Checked) //select trên bảng phan cong
+            {
+                OracleCommand cmd_select = new OracleCommand();
+                cmd_select.Connection = con;
+
+                if (PHONGBAN.CheckedItems.Count == 0 || PHONGBAN.CheckedItems.Count == 5) //cấp quyền select trên cả bảng
+                {
+                    cmd_select.CommandText = "grant select on sys.PHANCONG to " + tenuserroletb.Text.ToUpper();
+                }
+                else
+                {
+                    //kiểm tra cấp quyền select trên những cột nào
+                    //những cột viết tắt để tạo view không bị lỗi view quá dài
+                    string[] short_name = { "MNV", "MDA", "TG" };
+                    //MPB: MNV: MANV, MDA: MADA, TG: THOIGIAN
+                    //kiểm tra cấp quyền select trên những cột nào
+                    string column = "";
+                    //chọn ra những cột để select
+                    string select_column = "";
+                    for (int i = 0; i < PHANCONG.Items.Count; i++)
+                    {
+                        if (PHANCONG.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += short_name[i] + "_";
+                            select_column += PHANCONG.Items[i].ToString() + ",";
+                        }
+                    }
+                    //xóa dấu , ở cuối (để bỏ váo câu lệnh select)
+                    select_column = select_column.TrimEnd(',');
+
+                    //them  vào cuối để biết là view từ bàng PHONGBAN
+                    column += "PC";
+
+                    //kiểm tra view có tồn tại?
+                    if (CheckView(column) == 0)//chưa tồn tại
+                    {
+                        //tạo view mới
+                        OracleCommand cmd_taoview = new OracleCommand();
+                        cmd_taoview.Connection = con;
+                        cmd_taoview.CommandText = "create view " + column + " as select " + select_column + " from PHANCONG";
+                        cmd_taoview.CommandType = CommandType.Text;
+                        cmd_taoview.ExecuteNonQuery();
+                    }
+                    cmd_select.CommandText = "grant select on " + column + " to " + tenuserroletb.Text.ToUpper();
+                }
+                if (wgo.Checked)//có with grant option
+                {
+                    cmd_select.CommandText += " WITH GRANT OPTION";
+                }
+                cmd_select.CommandType = CommandType.Text;
+                cmd_select.ExecuteNonQuery();
+                MessageBox.Show("Cấp quyền select thành công");
+                //load lại thong tin quyền
+                ThongTinQuyen();
+            }
             con.Close();
         }
 
         private void updatebtn_Click(object sender, EventArgs e)
         {
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = DESKTOP-E896G02)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = orcl)));;User ID=QuanLyLopHoc;Password=123;Connection Timeout=120;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
 
             if (capquyenrolerb.Checked)
             {
@@ -589,9 +733,9 @@ namespace DA_ATBM
             {
                 OracleCommand cmd_update = new OracleCommand();
                 cmd_update.Connection = con;
-                if (NHANVIEN.CheckedItems.Count == 0 || NHANVIEN.CheckedItems.Count == 5) //cấp quyền upate trên cả bảng
+                if (NHANVIEN.CheckedItems.Count == 0 || NHANVIEN.CheckedItems.Count == 11) //cấp quyền upate trên cả bảng
                 {
-                    cmd_update.CommandText = "grant update on HocSinh to " + tenuserroletb.Text.ToUpper();
+                    cmd_update.CommandText = "grant update on sys.NHANVIEN to " + tenuserroletb.Text.ToUpper();
                 }
                 else
                 {
@@ -606,7 +750,7 @@ namespace DA_ATBM
                     }
                     //xóa dấu , ở cuối
                     column = column.TrimEnd(',');
-                    cmd_update.CommandText = "grant update(" + column + ") on HocSinh to " + tenuserroletb.Text.ToUpper();
+                    cmd_update.CommandText = "grant update(" + column + ") on sys.NHANVIEN to " + tenuserroletb.Text.ToUpper();
                 }
 
                 if (wgo.Checked)//có with grant option
@@ -620,14 +764,14 @@ namespace DA_ATBM
                 //load lại thong tin quyền
                 ThongTinQuyen();
             }
-            else //update trên bảng lop
+            if(phongbanrb.Checked) //update trên bảng phongban
             {
                 OracleCommand cmd_update = new OracleCommand();
                 cmd_update.Connection = con;
 
-                if (PHONGBAN.CheckedItems.Count == 0 || PHONGBAN.CheckedItems.Count == 5) //cấp quyền upate trên cả bảng
+                if (PHONGBAN.CheckedItems.Count == 0 || PHONGBAN.CheckedItems.Count == 3) //cấp quyền upate trên cả bảng
                 {
-                    cmd_update.CommandText = "grant update on Lop to " + tenuserroletb.Text.ToUpper();
+                    cmd_update.CommandText = "grant update on sys.PHONGBAN to " + tenuserroletb.Text.ToUpper();
                 }
                 else
                 {
@@ -641,8 +785,79 @@ namespace DA_ATBM
                         }
                     }
                     //xóa dấu , ở cuối
+                  
+                    
                     column = column.TrimEnd(',');
-                    cmd_update.CommandText = "grant update(" + column + ") on LOP to " + tenuserroletb.Text.ToUpper();
+                 
+                    cmd_update.CommandText = "grant update(" +column+ ") on sys.PHONGBAN to " + tenuserroletb.Text.ToUpper();
+                }
+                if (wgo.Checked)//có with grant option
+                {
+                    cmd_update.CommandText += " WITH GRANT OPTION";
+                }
+                cmd_update.CommandType = CommandType.Text;
+                cmd_update.ExecuteNonQuery();
+                MessageBox.Show("Cấp quyền update thành công");
+                //load lại thong tin quyền
+                ThongTinQuyen();
+            }
+            if (deanrb.Checked) //update trên bảng dean
+            {
+                OracleCommand cmd_update = new OracleCommand();
+                cmd_update.Connection = con;
+
+                if (DEAN.CheckedItems.Count == 0 || DEAN.CheckedItems.Count == 4) //cấp quyền upate trên cả bảng
+                {
+                    cmd_update.CommandText = "grant update on sys.DEAN to " + tenuserroletb.Text.ToUpper();
+                }
+                else
+                {
+                    //kiểm tra cấp quyền update trên những cột nào
+                    string column = "";
+                    for (int i = 0; i < DEAN.Items.Count; i++)
+                    {
+                        if (DEAN.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += DEAN.Items[i].ToString() + ",";
+                        }
+                    }
+                    //xóa dấu , ở cuối
+                    column = column.TrimEnd(',');
+                    cmd_update.CommandText = "grant update(" + column + ") on sys.DEAN to " + tenuserroletb.Text.ToUpper();
+                }
+                if (wgo.Checked)//có with grant option
+                {
+                    cmd_update.CommandText += " WITH GRANT OPTION";
+                }
+                cmd_update.CommandType = CommandType.Text;
+                cmd_update.ExecuteNonQuery();
+                MessageBox.Show("Cấp quyền update thành công");
+                //load lại thong tin quyền
+                ThongTinQuyen();
+            }
+            if (phancongrb.Checked) //update trên bảng phancong
+            {
+                OracleCommand cmd_update = new OracleCommand();
+                cmd_update.Connection = con;
+
+                if (PHANCONG.CheckedItems.Count == 0 || PHANCONG.CheckedItems.Count == 3) //cấp quyền upate trên cả bảng
+                {
+                    cmd_update.CommandText = "grant update on sys.PHANCONG to " + tenuserroletb.Text.ToUpper();
+                }
+                else
+                {
+                    //kiểm tra cấp quyền update trên những cột nào
+                    string column = "";
+                    for (int i = 0; i < PHANCONG.Items.Count; i++)
+                    {
+                        if (PHANCONG.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += PHANCONG.Items[i].ToString() + ",";
+                        }
+                    }
+                    //xóa dấu , ở cuối
+                    column = column.TrimEnd(',');
+                    cmd_update.CommandText = "grant update(" + column + ") on sys.PHANCONG to " + tenuserroletb.Text.ToUpper();
                 }
                 if (wgo.Checked)//có with grant option
                 {
