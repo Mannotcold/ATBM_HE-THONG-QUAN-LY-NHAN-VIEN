@@ -33,3 +33,39 @@ D:\Năm3\K2-N3\ATBM\DA_ATBM\DA_ATBM\obj\x64\Debug\DA_ATBM.csproj.CoreCompileInpu
 D:\Năm3\K2-N3\ATBM\DA_ATBM\DA_ATBM\obj\x64\Debug\DA_ATBM.csproj.CopyComplete
 D:\Năm3\K2-N3\ATBM\DA_ATBM\DA_ATBM\obj\x64\Debug\DA_ATBM.exe
 D:\Năm3\K2-N3\ATBM\DA_ATBM\DA_ATBM\obj\x64\Debug\DA_ATBM.pdb
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\DA_ATBM.exe.config
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\DA_ATBM.exe
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\DA_ATBM.pdb
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\EntityFramework.dll
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\EntityFramework.SqlServer.dll
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\System.Buffers.dll
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\System.Memory.dll
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\System.Numerics.Vectors.dll
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\System.Text.Encodings.Web.dll
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\System.Text.Json.dll
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\System.ValueTuple.dll
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\EntityFramework.xml
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\EntityFramework.SqlServer.xml
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\System.Buffers.xml
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\System.Memory.xml
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\System.Numerics.Vectors.xml
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\System.Text.Encodings.Web.xml
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\System.Text.Json.xml
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\bin\x64\Debug\System.ValueTuple.xml
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\obj\x64\Debug\DA_ATBM.csproj.AssemblyReference.cache
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\obj\x64\Debug\DA_ATBM.csproj.SuggestedBindingRedirects.cache
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\obj\x64\Debug\DA_ATBM.Form1.resources
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\obj\x64\Debug\DA_ATBM.Properties.Resources.resources
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\obj\x64\Debug\DA_ATBM.csproj.GenerateResource.cache
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\obj\x64\Debug\DA_ATBM.csproj.CoreCompileInputs.cache
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\obj\x64\Debug\DA_ATBM.csproj.CopyComplete
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\obj\x64\Debug\DA_ATBM.exe
+C:\Users\LE HOANG\Documents\ProjectATBMTT\ATBM_HE-THONG-QUAN-LY-NHAN-VIEN\DA_ATBM\obj\x64\Debug\DA_ATBM.pdb
