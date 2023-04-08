@@ -884,5 +884,281 @@ namespace DA_ATBM
         {
 
         }
+
+
+
+
+
+
+        
+
+
+        private void Revoke(string tablename, string privilege, string grantee)
+        {
+            OracleConnection con = new OracleConnection();
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.Open();
+            OracleCommand cmd_revoke = new OracleCommand();
+            cmd_revoke.Connection = con;
+            cmd_revoke.CommandText = "revoke " + privilege + " on " + tablename + " from " + grantee;
+            cmd_revoke.CommandType = CommandType.Text;
+            cmd_revoke.ExecuteNonQuery();
+            con.Close();
+        }
+
+        private int CheckPrivilege(string tablename, string privilege, string grantee)
+        {
+            OracleConnection con = new OracleConnection();
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.Open();
+
+            if (privilege != "UPDATE")
+            {
+                OracleCommand cmd_checkprivilege = new OracleCommand();
+                cmd_checkprivilege.Connection = con;
+                cmd_checkprivilege.CommandText = "select count(*) from user_tab_privs where table_name = '" + tablename + "' and privilege = '" + privilege + "' and grantee='" + grantee + "'";
+                cmd_checkprivilege.CommandType = CommandType.Text;
+                object count = cmd_checkprivilege.ExecuteScalar();
+                if (count.ToString() == "0")
+                    return 0; //chưa tồn tại
+                return 1; //đã tồn tại 
+            }
+            else
+            {
+                //kiểm tra có cấp quyền UPDATE trên toàn bảng
+                OracleCommand cmd_checkprivilege1 = new OracleCommand();
+                cmd_checkprivilege1.Connection = con;
+                cmd_checkprivilege1.CommandText = "select count(*) from user_tab_privs where table_name = '" + tablename + "' and privilege = '" + privilege + "' and grantee='" + grantee + "'";
+                cmd_checkprivilege1.CommandType = CommandType.Text;
+                object count1 = cmd_checkprivilege1.ExecuteScalar();
+
+                //kiểm tra có cấp quyền UPDATE trên mức cột
+                OracleCommand cmd_checkprivilege2 = new OracleCommand();
+                cmd_checkprivilege2.Connection = con;
+                cmd_checkprivilege2.CommandText = "select count(*) FROM USER_COL_PRIVS_MADE where table_name = '" + tablename + "' and privilege = '" + privilege + "' and grantee='" + grantee + "'";
+                cmd_checkprivilege2.CommandType = CommandType.Text;
+                object count2 = cmd_checkprivilege2.ExecuteScalar();
+
+                if (count1.ToString() == "0" && count2.ToString() == "0") //hoàn toàn chưa được cấp quyền UPDATE
+                    return 0; //chưa tồn tại
+                return 1; //đã tồn tại 
+            }
+        }
+
+
+
+
+        private void NV1_CheckedChanged(object sender, EventArgs e)
+        {
+            NHANVIEN_TQ.Enabled = true;
+            PHONGBAN_TQ.Enabled = false;
+            DEAN_TQ.Enabled = false;
+            PHANCONG_TQ.Enabled = false;
+        }
+
+        private void PB1_CheckedChanged(object sender, EventArgs e)
+        {
+            NHANVIEN_TQ.Enabled = false;
+            PHONGBAN_TQ.Enabled = true;
+            DEAN_TQ.Enabled = false;
+            PHANCONG.Enabled = false;
+        }
+
+        private void DA1_CheckedChanged(object sender, EventArgs e)
+        {
+            NHANVIEN_TQ.Enabled = false;
+            PHONGBAN_TQ.Enabled = false;
+            DEAN_TQ.Enabled = true;
+            PHANCONG_TQ.Enabled = false;
+        }
+
+        private void PC1_CheckedChanged(object sender, EventArgs e)
+        {
+            NHANVIEN_TQ.Enabled = false;
+            PHONGBAN_TQ.Enabled = false;
+            DEAN_TQ.Enabled = false;
+            PHANCONG_TQ.Enabled = true;
+        }
+
+
+        private void selecttq_Click(object sender, EventArgs e)
+        {
+            if (thuquyenrole.Checked)
+            {
+                if (CheckRole(tenuserroletq.Text.ToUpper()) == 0)
+                {
+                    MessageBox.Show("Role không tồn tại.");
+                    //con.Close();
+                    return;
+                }
+            }
+            else
+            {
+                if (CheckUser(tenuserroletq.Text.ToUpper()) == 0)
+                {
+                    MessageBox.Show("User không tồn tại.");
+                    //con.Close();
+                    return;
+                }
+            }
+
+            if (NV1.Checked)//thu quyền SELECT trên bảng NHANVIEN
+            {
+                //những cột viết tắt để tạo view không bị lỗi view quá dài
+                string[] short_name = { "MNV", "TNV", "GT", "NGS", "DC", "SDT", "LG", "PC", "VT", "MQL", "PHG" };
+                //MVN: MANV, TNV: TENNV, GT: PHAI, NGS:NGAYSINH, DC: DIACHI, STD: SODT, PC: PHUCAP, VT: VAITRO, MQL: MANQL
+                //kiểm tra cấp quyền select trên những cột nào
+                string column = "";
+                //chọn ra những cột để select
+                string select_column = "";
+
+                //nếu cấp quyền đọc trên toàn bảng
+                if (NHANVIEN_TQ.CheckedItems.Count != 0 && NHANVIEN_TQ.CheckedItems.Count != 11)
+                {
+                    for (int i = 0; i < NHANVIEN_TQ.Items.Count; i++)
+                    {
+                        if (NHANVIEN_TQ.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += short_name[i] + "_";
+                        }
+                    }
+                    //them HS vào cuối để biết là view từ bàng HS
+                    column += "NV";
+                }
+                else
+                    column = "NHANVIEN";
+                //kiểm tra có cấp quyền select trên bảng column??
+                if (CheckPrivilege(column, "SELECT", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                {
+                    MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
+                    //con.Close();
+                    return;
+                }
+                else
+                {
+                    //thực hiện thu quyền
+                    Revoke(column, "SELECT", tenuserroletq.Text.ToUpper());
+                    MessageBox.Show("Thu quyền thành công.");
+                }
+
+                ThongTinQuyen();
+            }
+            else if (PB1.Checked) //thu quyền SELECT trên bảng PHONGBAN
+            {
+
+                //kiểm tra cấp quyền select trên những cột nào
+                //những cột viết tắt để tạo view không bị lỗi view quá dài
+                string[] short_name = { "MPB", "TPB", "TRPHG" };
+                //kiểm tra cấp quyền select trên những cột nào
+                string column = "";
+                if (PHONGBAN_TQ.CheckedItems.Count != 0 && PHONGBAN_TQ.CheckedItems.Count != 3)
+                {
+                    for (int i = 0; i < PHONGBAN_TQ.Items.Count; i++)
+                    {
+                        if (PHONGBAN_TQ.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += short_name[i] + "_";
+                        }
+                    }
+                    //them  vào cuối để biết là view từ bàng Lop
+                    column += "PB";
+                }
+                else
+                    column = "PHONGBAN";
+
+                //kiểm tra có cấp quyền select trên view column?
+                if (CheckPrivilege(column, "SELECT", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                {
+                    MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
+                    //con.Close();
+                    return;
+                }
+                else
+                {
+                    //thực hiện thu quyền
+                    Revoke(column, "SELECT", tenuserroletq.Text.ToUpper());
+                    MessageBox.Show("Thu quyền thành công.");
+                }
+            }
+            else if (DA1.Checked) //thu quyền SELECT trên bảng PHONGBAN
+            {
+
+                //kiểm tra cấp quyền select trên những cột nào
+                //những cột viết tắt để tạo view không bị lỗi view quá dài
+                string[] short_name = { "MDA", "TDA", "NGBD", "PG" };
+                //kiểm tra cấp quyền select trên những cột nào
+                string column = "";
+                if (DEAN_TQ.CheckedItems.Count != 0 && DEAN_TQ.CheckedItems.Count != 3)
+                {
+                    for (int i = 0; i < DEAN_TQ.Items.Count; i++)
+                    {
+                        if (DEAN_TQ.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += short_name[i] + "_";
+                        }
+                    }
+                    //them  vào cuối để biết là view từ bàng Lop
+                    column += "DA";
+                }
+                else
+                    column = "DEAN";
+
+                //kiểm tra có cấp quyền select trên view column?
+                if (CheckPrivilege(column, "SELECT", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                {
+                    MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
+                    //con.Close();
+                    return;
+                }
+                else
+                {
+                    //thực hiện thu quyền
+                    Revoke(column, "SELECT", tenuserroletq.Text.ToUpper());
+                    MessageBox.Show("Thu quyền thành công.");
+                }
+            }
+            else if (PC1.Checked) //thu quyền SELECT trên bảng PHONGBAN
+            {
+
+                //kiểm tra cấp quyền select trên những cột nào
+                //những cột viết tắt để tạo view không bị lỗi view quá dài
+                string[] short_name = { "MNV", "MDA", "TG" };
+                //kiểm tra cấp quyền select trên những cột nào
+                string column = "";
+                if (PHANCONG_TQ.CheckedItems.Count != 0 && PHANCONG_TQ.CheckedItems.Count != 3)
+                {
+                    for (int i = 0; i < PHANCONG_TQ.Items.Count; i++)
+                    {
+                        if (PHANCONG_TQ.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += short_name[i] + "_";
+                        }
+                    }
+                    //them  vào cuối để biết là view từ bàng Lop
+                    column += "PC";
+                }
+                else
+                    column = "PHANCONG";
+
+                //kiểm tra có cấp quyền select trên view column?
+                if (CheckPrivilege(column, "SELECT", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                {
+                    MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
+                    //con.Close();
+                    return;
+                }
+                else
+                {
+                    //thực hiện thu quyền
+                    Revoke(column, "SELECT", tenuserroletq.Text.ToUpper());
+                    MessageBox.Show("Thu quyền thành công.");
+                }
+            }
+
+            //load lại thong tin quyền
+            ThongTinQuyen();
+        }
+
     }
+
 }
