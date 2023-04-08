@@ -151,7 +151,7 @@ namespace DA_ATBM
         private int CheckView(string viewname)
         {
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = DESKTOP-E896G02)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = orcl)));;User ID=QuanLyLopHoc;Password=123;Connection Timeout=120;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=QuanLy;Password=12345;Connection Timeout=120;";
             con.Open();
             OracleCommand cmd_checkview = new OracleCommand();
             cmd_checkview.Connection = con;
@@ -175,7 +175,7 @@ namespace DA_ATBM
             ////MessageBox.Show("888jhhh8559");
             //con.Open();
             //OracleCommand getEmps = con.CreateCommand();
-            //getEmps.CommandText = "Select * FROM SYS.NHANVIEN";
+            //getEmps.CommandText = "Select * FROM NHANVIEN";
             //getEmps.CommandType = CommandType.Text;
             //OracleDataReader empDR = getEmps.ExecuteReader();
             //DataTable empDT = new DataTable();
@@ -219,7 +219,7 @@ namespace DA_ATBM
         private int CheckUser(string username)
         {
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=SYSTEM;PASSWORD=abcd123;Connection Timeout=10;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QuanLy;Password=12345;Connection Timeout=10;";
             con.Open();
             OracleCommand cmd_checkuser = new OracleCommand();
             cmd_checkuser.Connection = con;
@@ -234,7 +234,7 @@ namespace DA_ATBM
         private int CheckRole(string rolename)
         {
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=SYSTEM;Password=abcd123;Connection Timeout=120;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QuanLy;Password=12345;Connection Timeout=120;";
             con.Open();
             OracleCommand cmd_checkrole = new OracleCommand();
             cmd_checkrole.Connection = con;
@@ -304,7 +304,7 @@ namespace DA_ATBM
             {
                 OracleCommand cmd_insert = new OracleCommand();
                 cmd_insert.Connection = con;
-                cmd_insert.CommandText = "grant insert on sys.NHANVIEN to " + tenuserroletb.Text.ToUpper();
+                cmd_insert.CommandText = "grant insert on NHANVIEN to " + tenuserroletb.Text.ToUpper();
                 /*if (wgo.Checked)//có with grant option
                 {
                     cmd_insert.CommandText += " WITH GRANT OPTION";
@@ -320,7 +320,7 @@ namespace DA_ATBM
 
                 OracleCommand cmd_insert = new OracleCommand();
                 cmd_insert.Connection = con;
-                cmd_insert.CommandText = "grant insert on sys.PHONGBAN to " + tenuserroletb.Text.ToUpper();
+                cmd_insert.CommandText = "grant insert on PHONGBAN to " + tenuserroletb.Text.ToUpper();
                 MessageBox.Show(tenuserroletb.Text.ToUpper());
                 if (wgo.Checked)//có with grant option
                 {
@@ -336,7 +336,7 @@ namespace DA_ATBM
             {
                 OracleCommand cmd_insert = new OracleCommand();
                 cmd_insert.Connection = con;
-                cmd_insert.CommandText = "grant insert on sys.DEAN to " + tenuserroletb.Text.ToUpper();
+                cmd_insert.CommandText = "grant insert on DEAN to " + tenuserroletb.Text.ToUpper();
                 if (wgo.Checked)//có with grant option
                 {
                     cmd_insert.CommandText += " WITH GRANT OPTION";
@@ -351,7 +351,7 @@ namespace DA_ATBM
             {
                 OracleCommand cmd_insert = new OracleCommand();
                 cmd_insert.Connection = con;
-                cmd_insert.CommandText = "grant insert on sys.PHANCONG to " + tenuserroletb.Text.ToUpper();
+                cmd_insert.CommandText = "grant insert on PHANCONG to " + tenuserroletb.Text.ToUpper();
                 if (wgo.Checked)//có with grant option
                 {
                     cmd_insert.CommandText += " WITH GRANT OPTION";
@@ -394,7 +394,7 @@ namespace DA_ATBM
             {
                 OracleCommand cmd_insert = new OracleCommand();
                 cmd_insert.Connection = con;
-                cmd_insert.CommandText = "grant delete on sys.NHANVIEN to " + tenuserroletb.Text.ToUpper();
+                cmd_insert.CommandText = "grant delete on NHANVIEN to " + tenuserroletb.Text.ToUpper();
                 if (wgo.Checked)//có with grant option
                 {
                     cmd_insert.CommandText += " WITH GRANT OPTION";
@@ -410,7 +410,7 @@ namespace DA_ATBM
 
                 OracleCommand cmd_insert = new OracleCommand();
                 cmd_insert.Connection = con;
-                cmd_insert.CommandText = "grant delete on sys.PHONGBAN to " + tenuserroletb.Text.ToUpper();
+                cmd_insert.CommandText = "grant delete on PHONGBAN to " + tenuserroletb.Text.ToUpper();
                 MessageBox.Show(tenuserroletb.Text.ToUpper());
                 if (wgo.Checked)//có with grant option
                 {
@@ -426,7 +426,7 @@ namespace DA_ATBM
             {
                 OracleCommand cmd_insert = new OracleCommand();
                 cmd_insert.Connection = con;
-                cmd_insert.CommandText = "grant delete on sys.DEAN to " + tenuserroletb.Text.ToUpper();
+                cmd_insert.CommandText = "grant delete on DEAN to " + tenuserroletb.Text.ToUpper();
                 if (wgo.Checked)//có with grant option
                 {
                     cmd_insert.CommandText += " WITH GRANT OPTION";
@@ -441,7 +441,7 @@ namespace DA_ATBM
             {
                 OracleCommand cmd_insert = new OracleCommand();
                 cmd_insert.Connection = con;
-                cmd_insert.CommandText = "grant delete on sys.PHANCONG to " + tenuserroletb.Text.ToUpper();
+                cmd_insert.CommandText = "grant delete on PHANCONG to " + tenuserroletb.Text.ToUpper();
                 if (wgo.Checked)//có with grant option
                 {
                     cmd_insert.CommandText += " WITH GRANT OPTION";
@@ -487,7 +487,7 @@ namespace DA_ATBM
                 cmd_select.Connection = con;
                 if (NHANVIEN.CheckedItems.Count == 0 || NHANVIEN.CheckedItems.Count == 11) //cấp quyền select trên cả bảng
                 {
-                    cmd_select.CommandText = "grant select on sys.NHANVIEN to " + tenuserroletb.Text.ToUpper();
+                    cmd_select.CommandText = "grant select on NHANVIEN to " + tenuserroletb.Text.ToUpper();
                 }
                 else
                 {
@@ -544,7 +544,7 @@ namespace DA_ATBM
 
                 if (PHONGBAN.CheckedItems.Count == 0 || PHONGBAN.CheckedItems.Count == 3) //cấp quyền select trên cả bảng
                 {
-                    cmd_select.CommandText = "grant select on sys.PHONGBAN to " + tenuserroletb.Text.ToUpper();
+                    cmd_select.CommandText = "grant select on PHONGBAN to " + tenuserroletb.Text.ToUpper();
                 }
                 else
                 {
@@ -576,7 +576,7 @@ namespace DA_ATBM
                         //tạo view mới
                         OracleCommand cmd_taoview = new OracleCommand();
                         cmd_taoview.Connection = con;
-                        cmd_taoview.CommandText = "create view " + column + " as select " + select_column + " from LOP";
+                        cmd_taoview.CommandText = "create view " + column + " as select " + select_column + " from PHONGBAN";
                         cmd_taoview.CommandType = CommandType.Text;
                         cmd_taoview.ExecuteNonQuery();
                     }
@@ -599,7 +599,7 @@ namespace DA_ATBM
 
                 if (DEAN.CheckedItems.Count == 0 || DEAN.CheckedItems.Count == 4) //cấp quyền select trên cả bảng
                 {
-                    cmd_select.CommandText = "grant select on sys.DEAN to " + tenuserroletb.Text.ToUpper();
+                    cmd_select.CommandText = "grant select on DEAN to " + tenuserroletb.Text.ToUpper();
                 }
                 else
                 {
@@ -654,7 +654,7 @@ namespace DA_ATBM
 
                 if (PHONGBAN.CheckedItems.Count == 0 || PHONGBAN.CheckedItems.Count == 5) //cấp quyền select trên cả bảng
                 {
-                    cmd_select.CommandText = "grant select on sys.PHANCONG to " + tenuserroletb.Text.ToUpper();
+                    cmd_select.CommandText = "grant select on PHANCONG to " + tenuserroletb.Text.ToUpper();
                 }
                 else
                 {
@@ -735,7 +735,7 @@ namespace DA_ATBM
                 cmd_update.Connection = con;
                 if (NHANVIEN.CheckedItems.Count == 0 || NHANVIEN.CheckedItems.Count == 11) //cấp quyền upate trên cả bảng
                 {
-                    cmd_update.CommandText = "grant update on sys.NHANVIEN to " + tenuserroletb.Text.ToUpper();
+                    cmd_update.CommandText = "grant update on NHANVIEN to " + tenuserroletb.Text.ToUpper();
                 }
                 else
                 {
@@ -750,7 +750,7 @@ namespace DA_ATBM
                     }
                     //xóa dấu , ở cuối
                     column = column.TrimEnd(',');
-                    cmd_update.CommandText = "grant update(" + column + ") on sys.NHANVIEN to " + tenuserroletb.Text.ToUpper();
+                    cmd_update.CommandText = "grant update(" + column + ") on NHANVIEN to " + tenuserroletb.Text.ToUpper();
                 }
 
                 if (wgo.Checked)//có with grant option
@@ -771,7 +771,7 @@ namespace DA_ATBM
 
                 if (PHONGBAN.CheckedItems.Count == 0 || PHONGBAN.CheckedItems.Count == 3) //cấp quyền upate trên cả bảng
                 {
-                    cmd_update.CommandText = "grant update on sys.PHONGBAN to " + tenuserroletb.Text.ToUpper();
+                    cmd_update.CommandText = "grant update on PHONGBAN to " + tenuserroletb.Text.ToUpper();
                 }
                 else
                 {
@@ -789,7 +789,7 @@ namespace DA_ATBM
                     
                     column = column.TrimEnd(',');
                  
-                    cmd_update.CommandText = "grant update(" +column+ ") on sys.PHONGBAN to " + tenuserroletb.Text.ToUpper();
+                    cmd_update.CommandText = "grant update(" +column+ ") on PHONGBAN to " + tenuserroletb.Text.ToUpper();
                 }
                 if (wgo.Checked)//có with grant option
                 {
@@ -808,7 +808,7 @@ namespace DA_ATBM
 
                 if (DEAN.CheckedItems.Count == 0 || DEAN.CheckedItems.Count == 4) //cấp quyền upate trên cả bảng
                 {
-                    cmd_update.CommandText = "grant update on sys.DEAN to " + tenuserroletb.Text.ToUpper();
+                    cmd_update.CommandText = "grant update on DEAN to " + tenuserroletb.Text.ToUpper();
                 }
                 else
                 {
@@ -823,7 +823,7 @@ namespace DA_ATBM
                     }
                     //xóa dấu , ở cuối
                     column = column.TrimEnd(',');
-                    cmd_update.CommandText = "grant update(" + column + ") on sys.DEAN to " + tenuserroletb.Text.ToUpper();
+                    cmd_update.CommandText = "grant update(" + column + ") on DEAN to " + tenuserroletb.Text.ToUpper();
                 }
                 if (wgo.Checked)//có with grant option
                 {
@@ -842,7 +842,7 @@ namespace DA_ATBM
 
                 if (PHANCONG.CheckedItems.Count == 0 || PHANCONG.CheckedItems.Count == 3) //cấp quyền upate trên cả bảng
                 {
-                    cmd_update.CommandText = "grant update on sys.PHANCONG to " + tenuserroletb.Text.ToUpper();
+                    cmd_update.CommandText = "grant update on PHANCONG to " + tenuserroletb.Text.ToUpper();
                 }
                 else
                 {
@@ -857,7 +857,7 @@ namespace DA_ATBM
                     }
                     //xóa dấu , ở cuối
                     column = column.TrimEnd(',');
-                    cmd_update.CommandText = "grant update(" + column + ") on sys.PHANCONG to " + tenuserroletb.Text.ToUpper();
+                    cmd_update.CommandText = "grant update(" + column + ") on PHANCONG to " + tenuserroletb.Text.ToUpper();
                 }
                 if (wgo.Checked)//có with grant option
                 {
