@@ -220,6 +220,7 @@ namespace DA_ATBM
             PHONGBAN_TQ.Enabled = false;
             DEAN_TQ.Enabled = false;
             PHANCONG_TQ.Enabled = false;
+
         }
 
         private void phongban_CheckedChanged(object sender, EventArgs e)
@@ -1498,6 +1499,7 @@ namespace DA_ATBM
             ThongTinQuyen();
         }
 
+
         private void taorolebtn_Click(object sender, EventArgs e)
         {
             if (tenroletb.Text == "")
@@ -1512,9 +1514,15 @@ namespace DA_ATBM
             {
                 OracleCommand cmd_themrole = new OracleCommand();
                 cmd_themrole.Connection = con;
-                cmd_themrole.CommandText = "create role " + tenroletb.Text.ToUpper();
+                cmd_themrole.CommandText = "alter session set \"_ORACLE_SCRIPT\"=true"; 
                 cmd_themrole.CommandType = CommandType.Text;
                 cmd_themrole.ExecuteNonQuery();
+
+                OracleCommand cmd_themrole1 = new OracleCommand();
+                cmd_themrole1.Connection = con;
+                cmd_themrole1.CommandText = "create role " + tenroletb.Text.ToUpper();
+                cmd_themrole1.CommandType = CommandType.Text;
+                cmd_themrole1.ExecuteNonQuery();
                 MessageBox.Show("Thêm role mới thành công.");
                 //load lại danh sách role
                 DanhSachUser();
@@ -1542,6 +1550,12 @@ namespace DA_ATBM
             }
             else
             {
+                OracleCommand cmd_themrole = new OracleCommand();
+                cmd_themrole.Connection = con;
+                cmd_themrole.CommandText = "alter session set \"_ORACLE_SCRIPT\"=true";
+                cmd_themrole.CommandType = CommandType.Text;
+                cmd_themrole.ExecuteNonQuery();
+
                 OracleCommand cmd_xoarole = new OracleCommand();
                 cmd_xoarole.Connection = con;
                 cmd_xoarole.CommandText = "drop role " + tenroletb.Text.ToUpper();
@@ -1568,6 +1582,11 @@ namespace DA_ATBM
             con.Open();
             if (CheckRole(tendangnhaptb.Text.ToUpper()) == 0 && CheckUser(tendangnhaptb.Text.ToUpper()) == 0)
             {
+                OracleCommand cmd_themrole1 = new OracleCommand();
+                cmd_themrole1.Connection = con;
+                cmd_themrole1.CommandText = "alter session set \"_ORACLE_SCRIPT\"=true";
+                cmd_themrole1.CommandType = CommandType.Text;
+                cmd_themrole1.ExecuteNonQuery();
                 //tạo user
                 OracleCommand cmd_themrole = new OracleCommand();
                 cmd_themrole.Connection = con;
@@ -1609,6 +1628,12 @@ namespace DA_ATBM
             }
             else
             {
+                OracleCommand cmd_themrole1 = new OracleCommand();
+                cmd_themrole1.Connection = con;
+                cmd_themrole1.CommandText = "alter session set \"_ORACLE_SCRIPT\"=true";
+                cmd_themrole1.CommandType = CommandType.Text;
+                cmd_themrole1.ExecuteNonQuery();
+
                 OracleCommand cmd_chinhuser = new OracleCommand();
                 cmd_chinhuser.Connection = con;
                 cmd_chinhuser.CommandText = "alter user " + tendangnhaptb.Text.ToUpper() + " identified by " + matkhautb.Text;
@@ -1635,6 +1660,12 @@ namespace DA_ATBM
             }
             else
             {
+                OracleCommand cmd_themrole1 = new OracleCommand();
+                cmd_themrole1.Connection = con;
+                cmd_themrole1.CommandText = "alter session set \"_ORACLE_SCRIPT\"=true";
+                cmd_themrole1.CommandType = CommandType.Text;
+                cmd_themrole1.ExecuteNonQuery();
+
                 OracleCommand cmd_xoauser = new OracleCommand();
                 cmd_xoauser.Connection = con;
                 cmd_xoauser.CommandText = "drop user " + tendangnhaptb.Text.ToUpper();
@@ -1665,6 +1696,12 @@ namespace DA_ATBM
             }
             else
             {
+                OracleCommand cmd_themrole1 = new OracleCommand();
+                cmd_themrole1.Connection = con;
+                cmd_themrole1.CommandText = "alter session set \"_ORACLE_SCRIPT\"=true";
+                cmd_themrole1.CommandType = CommandType.Text;
+                cmd_themrole1.ExecuteNonQuery();
+
                 OracleCommand cmd_caprolechouser = new OracleCommand();
                 cmd_caprolechouser.Connection = con;
                 cmd_caprolechouser.CommandText = "grant " + caproletb.Text.ToUpper() + " to " + chousertb.Text;

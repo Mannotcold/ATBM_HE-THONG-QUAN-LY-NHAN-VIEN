@@ -134,18 +134,16 @@ namespace DA_ATBM
             // 
             // tenroletb
             // 
-            this.tenroletb.Location = new System.Drawing.Point(252, 45);
-            this.tenroletb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tenroletb.Location = new System.Drawing.Point(168, 29);
             this.tenroletb.Name = "tenroletb";
-            this.tenroletb.Size = new System.Drawing.Size(208, 26);
+            this.tenroletb.Size = new System.Drawing.Size(140, 20);
             this.tenroletb.TabIndex = 5;
             // 
             // taorolebtn
             // 
-            this.taorolebtn.Location = new System.Drawing.Point(60, 97);
-            this.taorolebtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.taorolebtn.Location = new System.Drawing.Point(40, 63);
             this.taorolebtn.Name = "taorolebtn";
-            this.taorolebtn.Size = new System.Drawing.Size(123, 35);
+            this.taorolebtn.Size = new System.Drawing.Size(82, 23);
             this.taorolebtn.TabIndex = 0;
             this.taorolebtn.Text = "Tạo";
             this.taorolebtn.UseVisualStyleBackColor = true;
@@ -164,11 +162,10 @@ namespace DA_ATBM
             this.tabPage3.Controls.Add(this.tenuserrolelbl);
             this.tabPage3.Controls.Add(this.tenuserroletb);
             this.tabPage3.Controls.Add(this.doituongcancapquyengb);
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage3.Size = new System.Drawing.Size(840, 705);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Size = new System.Drawing.Size(557, 454);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Cấp quyền";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -181,10 +178,9 @@ namespace DA_ATBM
             "MANV ",
             "MADA ",
             "THOIGIAN"});
-            this.PHANCONG.Location = new System.Drawing.Point(638, 223);
-            this.PHANCONG.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PHANCONG.Location = new System.Drawing.Point(427, 153);
             this.PHANCONG.Name = "PHANCONG";
-            this.PHANCONG.Size = new System.Drawing.Size(172, 73);
+            this.PHANCONG.Size = new System.Drawing.Size(106, 109);
             this.PHANCONG.TabIndex = 26;
             // 
             // DEAN
@@ -195,10 +191,9 @@ namespace DA_ATBM
             "TENDA ",
             "NGAYBD",
             "PHONG"});
-            this.DEAN.Location = new System.Drawing.Point(429, 223);
-            this.DEAN.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DEAN.Location = new System.Drawing.Point(288, 153);
             this.DEAN.Name = "DEAN";
-            this.DEAN.Size = new System.Drawing.Size(172, 73);
+            this.DEAN.Size = new System.Drawing.Size(106, 109);
             this.DEAN.TabIndex = 25;
             // 
             // cauquyengb
@@ -207,21 +202,18 @@ namespace DA_ATBM
             this.cauquyengb.Controls.Add(this.deletebtn);
             this.cauquyengb.Controls.Add(this.insertbtn);
             this.cauquyengb.Controls.Add(this.selectbtn);
-            this.cauquyengb.Location = new System.Drawing.Point(76, 395);
-            this.cauquyengb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cauquyengb.Location = new System.Drawing.Point(49, 306);
             this.cauquyengb.Name = "cauquyengb";
-            this.cauquyengb.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cauquyengb.Size = new System.Drawing.Size(680, 92);
+            this.cauquyengb.Size = new System.Drawing.Size(453, 60);
             this.cauquyengb.TabIndex = 24;
             this.cauquyengb.TabStop = false;
             this.cauquyengb.Text = "Cấp quyền:";
             // 
             // updatebtn
             // 
-            this.updatebtn.Location = new System.Drawing.Point(184, 32);
-            this.updatebtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.updatebtn.Location = new System.Drawing.Point(123, 21);
             this.updatebtn.Name = "updatebtn";
-            this.updatebtn.Size = new System.Drawing.Size(112, 35);
+            this.updatebtn.Size = new System.Drawing.Size(75, 23);
             this.updatebtn.TabIndex = 17;
             this.updatebtn.Text = "Update";
             this.updatebtn.UseVisualStyleBackColor = true;
@@ -229,10 +221,9 @@ namespace DA_ATBM
             // 
             // deletebtn
             // 
-            this.deletebtn.Location = new System.Drawing.Point(554, 32);
-            this.deletebtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.deletebtn.Location = new System.Drawing.Point(369, 21);
             this.deletebtn.Name = "deletebtn";
-            this.deletebtn.Size = new System.Drawing.Size(112, 35);
+            this.deletebtn.Size = new System.Drawing.Size(75, 23);
             this.deletebtn.TabIndex = 16;
             this.deletebtn.Text = "Delete";
             this.deletebtn.UseVisualStyleBackColor = true;
@@ -240,10 +231,9 @@ namespace DA_ATBM
             // 
             // insertbtn
             // 
-            this.insertbtn.Location = new System.Drawing.Point(372, 32);
-            this.insertbtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.insertbtn.Location = new System.Drawing.Point(248, 21);
             this.insertbtn.Name = "insertbtn";
-            this.insertbtn.Size = new System.Drawing.Size(112, 35);
+            this.insertbtn.Size = new System.Drawing.Size(75, 23);
             this.insertbtn.TabIndex = 15;
             this.insertbtn.Text = "Insert";
             this.insertbtn.UseVisualStyleBackColor = true;
@@ -251,10 +241,9 @@ namespace DA_ATBM
             // 
             // selectbtn
             // 
-            this.selectbtn.Location = new System.Drawing.Point(14, 32);
-            this.selectbtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.selectbtn.Location = new System.Drawing.Point(9, 21);
             this.selectbtn.Name = "selectbtn";
-            this.selectbtn.Size = new System.Drawing.Size(112, 35);
+            this.selectbtn.Size = new System.Drawing.Size(75, 23);
             this.selectbtn.TabIndex = 14;
             this.selectbtn.Text = "Select";
             this.selectbtn.UseVisualStyleBackColor = true;
@@ -266,19 +255,17 @@ namespace DA_ATBM
             this.panel1.Controls.Add(this.deanrb);
             this.panel1.Controls.Add(this.phongbanrb);
             this.panel1.Controls.Add(this.nhanvienrb);
-            this.panel1.Location = new System.Drawing.Point(9, 166);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel1.Location = new System.Drawing.Point(6, 108);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(806, 46);
+            this.panel1.Size = new System.Drawing.Size(537, 30);
             this.panel1.TabIndex = 23;
             // 
             // phancongrb
             // 
             this.phancongrb.AutoSize = true;
-            this.phancongrb.Location = new System.Drawing.Point(632, 5);
-            this.phancongrb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.phancongrb.Location = new System.Drawing.Point(421, 3);
             this.phancongrb.Name = "phancongrb";
-            this.phancongrb.Size = new System.Drawing.Size(109, 24);
+            this.phancongrb.Size = new System.Drawing.Size(75, 17);
             this.phancongrb.TabIndex = 24;
             this.phancongrb.Text = "PhanCong";
             this.phancongrb.UseVisualStyleBackColor = true;
@@ -287,10 +274,9 @@ namespace DA_ATBM
             // deanrb
             // 
             this.deanrb.AutoSize = true;
-            this.deanrb.Location = new System.Drawing.Point(452, 5);
-            this.deanrb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.deanrb.Location = new System.Drawing.Point(301, 3);
             this.deanrb.Name = "deanrb";
-            this.deanrb.Size = new System.Drawing.Size(75, 24);
+            this.deanrb.Size = new System.Drawing.Size(52, 17);
             this.deanrb.TabIndex = 23;
             this.deanrb.Text = "DeAn";
             this.deanrb.UseVisualStyleBackColor = true;
@@ -299,10 +285,9 @@ namespace DA_ATBM
             // phongbanrb
             // 
             this.phongbanrb.AutoSize = true;
-            this.phongbanrb.Location = new System.Drawing.Point(225, 5);
-            this.phongbanrb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.phongbanrb.Location = new System.Drawing.Point(150, 3);
             this.phongbanrb.Name = "phongbanrb";
-            this.phongbanrb.Size = new System.Drawing.Size(109, 24);
+            this.phongbanrb.Size = new System.Drawing.Size(75, 17);
             this.phongbanrb.TabIndex = 22;
             this.phongbanrb.Text = "PhongBan";
             this.phongbanrb.UseVisualStyleBackColor = true;
@@ -312,10 +297,9 @@ namespace DA_ATBM
             // 
             this.nhanvienrb.AutoSize = true;
             this.nhanvienrb.Checked = true;
-            this.nhanvienrb.Location = new System.Drawing.Point(18, 5);
-            this.nhanvienrb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nhanvienrb.Location = new System.Drawing.Point(12, 3);
             this.nhanvienrb.Name = "nhanvienrb";
-            this.nhanvienrb.Size = new System.Drawing.Size(104, 24);
+            this.nhanvienrb.Size = new System.Drawing.Size(72, 17);
             this.nhanvienrb.TabIndex = 21;
             this.nhanvienrb.TabStop = true;
             this.nhanvienrb.Text = "NhanVien";
@@ -325,22 +309,20 @@ namespace DA_ATBM
             // wgo
             // 
             this.wgo.AutoSize = true;
-            this.wgo.Location = new System.Drawing.Point(316, 360);
-            this.wgo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.wgo.Location = new System.Drawing.Point(218, 271);
             this.wgo.Name = "wgo";
-            this.wgo.Size = new System.Drawing.Size(156, 24);
+            this.wgo.Size = new System.Drawing.Size(107, 17);
             this.wgo.TabIndex = 19;
             this.wgo.Text = "With grant option";
             this.wgo.UseVisualStyleBackColor = true;
             // 
             // luuytb
             // 
-            this.luuytb.Location = new System.Drawing.Point(92, 518);
-            this.luuytb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.luuytb.Location = new System.Drawing.Point(60, 398);
             this.luuytb.Multiline = true;
             this.luuytb.Name = "luuytb";
             this.luuytb.ReadOnly = true;
-            this.luuytb.Size = new System.Drawing.Size(650, 55);
+            this.luuytb.Size = new System.Drawing.Size(435, 37);
             this.luuytb.TabIndex = 18;
             this.luuytb.Text = "Với Select, Update thì có thể chọn cột.\r\nVới Insert, Delete thì không cần chọn cộ" +
     "t (nếu chọn vẫn hiểu là áp dụng cho toàn bảng).";
@@ -352,10 +334,9 @@ namespace DA_ATBM
             "MAPB ",
             "TENPB ",
             "TRPHG"});
-            this.PHONGBAN.Location = new System.Drawing.Point(219, 223);
-            this.PHONGBAN.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PHONGBAN.Location = new System.Drawing.Point(148, 153);
             this.PHONGBAN.Name = "PHONGBAN";
-            this.PHONGBAN.Size = new System.Drawing.Size(172, 73);
+            this.PHONGBAN.Size = new System.Drawing.Size(106, 109);
             this.PHONGBAN.TabIndex = 11;
             // 
             // NHANVIEN
@@ -373,40 +354,35 @@ namespace DA_ATBM
             "VAITRO ",
             "MANQL ",
             "PHG "});
-            this.NHANVIEN.Location = new System.Drawing.Point(22, 223);
-            this.NHANVIEN.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NHANVIEN.Location = new System.Drawing.Point(17, 153);
             this.NHANVIEN.Name = "NHANVIEN";
-            this.NHANVIEN.Size = new System.Drawing.Size(170, 73);
+            this.NHANVIEN.Size = new System.Drawing.Size(105, 109);
             this.NHANVIEN.TabIndex = 10;
             // 
             // tenuserrolelbl
             // 
             this.tenuserrolelbl.AutoSize = true;
-            this.tenuserrolelbl.Location = new System.Drawing.Point(352, 103);
-            this.tenuserrolelbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.tenuserrolelbl.Location = new System.Drawing.Point(235, 67);
             this.tenuserrolelbl.Name = "tenuserrolelbl";
-            this.tenuserrolelbl.Size = new System.Drawing.Size(101, 20);
+            this.tenuserrolelbl.Size = new System.Drawing.Size(71, 13);
             this.tenuserrolelbl.TabIndex = 8;
             this.tenuserrolelbl.Text = "Tên user/role";
             this.tenuserrolelbl.Click += new System.EventHandler(this.tenuserrolelbl_Click);
             // 
             // tenuserroletb
             // 
-            this.tenuserroletb.Location = new System.Drawing.Point(298, 129);
-            this.tenuserroletb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tenuserroletb.Location = new System.Drawing.Point(199, 84);
             this.tenuserroletb.Name = "tenuserroletb";
-            this.tenuserroletb.Size = new System.Drawing.Size(222, 26);
+            this.tenuserroletb.Size = new System.Drawing.Size(149, 20);
             this.tenuserroletb.TabIndex = 7;
             // 
             // doituongcancapquyengb
             // 
             this.doituongcancapquyengb.Controls.Add(this.capquyenuserrb);
             this.doituongcancapquyengb.Controls.Add(this.capquyenrolerb);
-            this.doituongcancapquyengb.Location = new System.Drawing.Point(296, 37);
-            this.doituongcancapquyengb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.doituongcancapquyengb.Location = new System.Drawing.Point(197, 24);
             this.doituongcancapquyengb.Name = "doituongcancapquyengb";
-            this.doituongcancapquyengb.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.doituongcancapquyengb.Size = new System.Drawing.Size(224, 60);
+            this.doituongcancapquyengb.Size = new System.Drawing.Size(149, 39);
             this.doituongcancapquyengb.TabIndex = 6;
             this.doituongcancapquyengb.TabStop = false;
             this.doituongcancapquyengb.Text = "Đối tượng cần cấp quyền";
@@ -414,10 +390,9 @@ namespace DA_ATBM
             // capquyenuserrb
             // 
             this.capquyenuserrb.AutoSize = true;
-            this.capquyenuserrb.Location = new System.Drawing.Point(144, 20);
-            this.capquyenuserrb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.capquyenuserrb.Location = new System.Drawing.Point(96, 13);
             this.capquyenuserrb.Name = "capquyenuserrb";
-            this.capquyenuserrb.Size = new System.Drawing.Size(68, 24);
+            this.capquyenuserrb.Size = new System.Drawing.Size(47, 17);
             this.capquyenuserrb.TabIndex = 5;
             this.capquyenuserrb.Text = "User";
             this.capquyenuserrb.UseVisualStyleBackColor = true;
@@ -426,10 +401,9 @@ namespace DA_ATBM
             // 
             this.capquyenrolerb.AutoSize = true;
             this.capquyenrolerb.Checked = true;
-            this.capquyenrolerb.Location = new System.Drawing.Point(9, 20);
-            this.capquyenrolerb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.capquyenrolerb.Location = new System.Drawing.Point(6, 13);
             this.capquyenrolerb.Name = "capquyenrolerb";
-            this.capquyenrolerb.Size = new System.Drawing.Size(67, 24);
+            this.capquyenrolerb.Size = new System.Drawing.Size(47, 17);
             this.capquyenrolerb.TabIndex = 4;
             this.capquyenrolerb.TabStop = true;
             this.capquyenrolerb.Text = "Role";
@@ -447,11 +421,10 @@ namespace DA_ATBM
             this.tabPage4.Controls.Add(this.label5);
             this.tabPage4.Controls.Add(this.tenuserroletq);
             this.tabPage4.Controls.Add(this.groupBox2);
-            this.tabPage4.Location = new System.Drawing.Point(4, 29);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage4.Size = new System.Drawing.Size(840, 705);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Size = new System.Drawing.Size(557, 454);
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = " Thu quyền";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -463,10 +436,9 @@ namespace DA_ATBM
             "MANV ",
             "MADA ",
             "THOIGIAN"});
-            this.PHANCONG_TQ.Location = new System.Drawing.Point(644, 266);
-            this.PHANCONG_TQ.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PHANCONG_TQ.Location = new System.Drawing.Point(429, 173);
             this.PHANCONG_TQ.Name = "PHANCONG_TQ";
-            this.PHANCONG_TQ.Size = new System.Drawing.Size(172, 73);
+            this.PHANCONG_TQ.Size = new System.Drawing.Size(118, 109);
             this.PHANCONG_TQ.TabIndex = 37;
             // 
             // DEAN_TQ
@@ -477,10 +449,9 @@ namespace DA_ATBM
             "TENDA ",
             "NGAYBD",
             "PHONG"});
-            this.DEAN_TQ.Location = new System.Drawing.Point(435, 266);
-            this.DEAN_TQ.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DEAN_TQ.Location = new System.Drawing.Point(290, 173);
             this.DEAN_TQ.Name = "DEAN_TQ";
-            this.DEAN_TQ.Size = new System.Drawing.Size(172, 73);
+            this.DEAN_TQ.Size = new System.Drawing.Size(118, 109);
             this.DEAN_TQ.TabIndex = 36;
             // 
             // groupBox1
@@ -489,21 +460,18 @@ namespace DA_ATBM
             this.groupBox1.Controls.Add(this.deletetq);
             this.groupBox1.Controls.Add(this.inserttq);
             this.groupBox1.Controls.Add(this.selecttq);
-            this.groupBox1.Location = new System.Drawing.Point(82, 438);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Location = new System.Drawing.Point(53, 302);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(680, 92);
+            this.groupBox1.Size = new System.Drawing.Size(453, 60);
             this.groupBox1.TabIndex = 35;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Cấp quyền:";
+            this.groupBox1.Text = "Thu quyền:";
             // 
             // updatetq
             // 
-            this.updatetq.Location = new System.Drawing.Point(184, 32);
-            this.updatetq.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.updatetq.Location = new System.Drawing.Point(123, 21);
             this.updatetq.Name = "updatetq";
-            this.updatetq.Size = new System.Drawing.Size(112, 35);
+            this.updatetq.Size = new System.Drawing.Size(75, 23);
             this.updatetq.TabIndex = 17;
             this.updatetq.Text = "Update";
             this.updatetq.UseVisualStyleBackColor = true;
@@ -511,10 +479,9 @@ namespace DA_ATBM
             // 
             // deletetq
             // 
-            this.deletetq.Location = new System.Drawing.Point(554, 32);
-            this.deletetq.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.deletetq.Location = new System.Drawing.Point(369, 21);
             this.deletetq.Name = "deletetq";
-            this.deletetq.Size = new System.Drawing.Size(112, 35);
+            this.deletetq.Size = new System.Drawing.Size(75, 23);
             this.deletetq.TabIndex = 16;
             this.deletetq.Text = "Delete";
             this.deletetq.UseVisualStyleBackColor = true;
@@ -522,10 +489,9 @@ namespace DA_ATBM
             // 
             // inserttq
             // 
-            this.inserttq.Location = new System.Drawing.Point(372, 32);
-            this.inserttq.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.inserttq.Location = new System.Drawing.Point(248, 21);
             this.inserttq.Name = "inserttq";
-            this.inserttq.Size = new System.Drawing.Size(112, 35);
+            this.inserttq.Size = new System.Drawing.Size(75, 23);
             this.inserttq.TabIndex = 15;
             this.inserttq.Text = "Insert";
             this.inserttq.UseVisualStyleBackColor = true;
@@ -533,10 +499,9 @@ namespace DA_ATBM
             // 
             // selecttq
             // 
-            this.selecttq.Location = new System.Drawing.Point(14, 32);
-            this.selecttq.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.selecttq.Location = new System.Drawing.Point(9, 21);
             this.selecttq.Name = "selecttq";
-            this.selecttq.Size = new System.Drawing.Size(112, 35);
+            this.selecttq.Size = new System.Drawing.Size(75, 23);
             this.selecttq.TabIndex = 14;
             this.selecttq.Text = "Select";
             this.selecttq.UseVisualStyleBackColor = true;
@@ -548,19 +513,17 @@ namespace DA_ATBM
             this.panel2.Controls.Add(this.DA1);
             this.panel2.Controls.Add(this.PB1);
             this.panel2.Controls.Add(this.NV1);
-            this.panel2.Location = new System.Drawing.Point(15, 209);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel2.Location = new System.Drawing.Point(10, 136);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(806, 46);
+            this.panel2.Size = new System.Drawing.Size(537, 30);
             this.panel2.TabIndex = 34;
             // 
             // PC1
             // 
             this.PC1.AutoSize = true;
-            this.PC1.Location = new System.Drawing.Point(632, 5);
-            this.PC1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PC1.Location = new System.Drawing.Point(421, 3);
             this.PC1.Name = "PC1";
-            this.PC1.Size = new System.Drawing.Size(109, 24);
+            this.PC1.Size = new System.Drawing.Size(75, 17);
             this.PC1.TabIndex = 24;
             this.PC1.Text = "PhanCong";
             this.PC1.UseVisualStyleBackColor = true;
@@ -569,10 +532,9 @@ namespace DA_ATBM
             // DA1
             // 
             this.DA1.AutoSize = true;
-            this.DA1.Location = new System.Drawing.Point(452, 5);
-            this.DA1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DA1.Location = new System.Drawing.Point(301, 3);
             this.DA1.Name = "DA1";
-            this.DA1.Size = new System.Drawing.Size(75, 24);
+            this.DA1.Size = new System.Drawing.Size(52, 17);
             this.DA1.TabIndex = 23;
             this.DA1.Text = "DeAn";
             this.DA1.UseVisualStyleBackColor = true;
@@ -581,10 +543,9 @@ namespace DA_ATBM
             // PB1
             // 
             this.PB1.AutoSize = true;
-            this.PB1.Location = new System.Drawing.Point(225, 5);
-            this.PB1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PB1.Location = new System.Drawing.Point(150, 3);
             this.PB1.Name = "PB1";
-            this.PB1.Size = new System.Drawing.Size(109, 24);
+            this.PB1.Size = new System.Drawing.Size(75, 17);
             this.PB1.TabIndex = 22;
             this.PB1.Text = "PhongBan";
             this.PB1.UseVisualStyleBackColor = true;
@@ -594,10 +555,9 @@ namespace DA_ATBM
             // 
             this.NV1.AutoSize = true;
             this.NV1.Checked = true;
-            this.NV1.Location = new System.Drawing.Point(18, 5);
-            this.NV1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NV1.Location = new System.Drawing.Point(12, 3);
             this.NV1.Name = "NV1";
-            this.NV1.Size = new System.Drawing.Size(104, 24);
+            this.NV1.Size = new System.Drawing.Size(72, 17);
             this.NV1.TabIndex = 21;
             this.NV1.TabStop = true;
             this.NV1.Text = "NhanVien";
@@ -606,12 +566,11 @@ namespace DA_ATBM
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(98, 562);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox1.Location = new System.Drawing.Point(63, 382);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(650, 55);
+            this.textBox1.Size = new System.Drawing.Size(435, 37);
             this.textBox1.TabIndex = 32;
             this.textBox1.Text = "Với Select, Update thì có thể chọn cột.\r\nVới Insert, Delete thì không cần chọn cộ" +
     "t (nếu chọn vẫn hiểu là áp dụng cho toàn bảng).";
@@ -623,10 +582,9 @@ namespace DA_ATBM
             "MAPB ",
             "TENPB ",
             "TRPHG"});
-            this.PHONGBAN_TQ.Location = new System.Drawing.Point(225, 266);
-            this.PHONGBAN_TQ.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PHONGBAN_TQ.Location = new System.Drawing.Point(150, 173);
             this.PHONGBAN_TQ.Name = "PHONGBAN_TQ";
-            this.PHONGBAN_TQ.Size = new System.Drawing.Size(172, 73);
+            this.PHONGBAN_TQ.Size = new System.Drawing.Size(118, 109);
             this.PHONGBAN_TQ.TabIndex = 31;
             // 
             // NHANVIEN_TQ
@@ -644,50 +602,44 @@ namespace DA_ATBM
             "VAITRO ",
             "MANQL ",
             "PHG "});
-            this.NHANVIEN_TQ.Location = new System.Drawing.Point(28, 266);
-            this.NHANVIEN_TQ.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NHANVIEN_TQ.Location = new System.Drawing.Point(19, 173);
             this.NHANVIEN_TQ.Name = "NHANVIEN_TQ";
-            this.NHANVIEN_TQ.Size = new System.Drawing.Size(170, 73);
+            this.NHANVIEN_TQ.Size = new System.Drawing.Size(117, 109);
             this.NHANVIEN_TQ.TabIndex = 30;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(358, 146);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(243, 70);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 20);
+            this.label5.Size = new System.Drawing.Size(71, 13);
             this.label5.TabIndex = 29;
             this.label5.Text = "Tên user/role";
             // 
             // tenuserroletq
             // 
-            this.tenuserroletq.Location = new System.Drawing.Point(304, 172);
-            this.tenuserroletq.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tenuserroletq.Location = new System.Drawing.Point(207, 87);
             this.tenuserroletq.Name = "tenuserroletq";
-            this.tenuserroletq.Size = new System.Drawing.Size(222, 26);
+            this.tenuserroletq.Size = new System.Drawing.Size(149, 20);
             this.tenuserroletq.TabIndex = 28;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.thuquyenuser);
             this.groupBox2.Controls.Add(this.thuquyenrole);
-            this.groupBox2.Location = new System.Drawing.Point(302, 80);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Location = new System.Drawing.Point(205, 27);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox2.Size = new System.Drawing.Size(224, 60);
+            this.groupBox2.Size = new System.Drawing.Size(149, 39);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Đối tượng cần cấp quyền";
+            this.groupBox2.Text = "Đối tượng cần thu quyền";
             // 
             // thuquyenuser
             // 
             this.thuquyenuser.AutoSize = true;
-            this.thuquyenuser.Location = new System.Drawing.Point(144, 20);
-            this.thuquyenuser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.thuquyenuser.Location = new System.Drawing.Point(96, 13);
             this.thuquyenuser.Name = "thuquyenuser";
-            this.thuquyenuser.Size = new System.Drawing.Size(68, 24);
+            this.thuquyenuser.Size = new System.Drawing.Size(47, 17);
             this.thuquyenuser.TabIndex = 5;
             this.thuquyenuser.Text = "User";
             this.thuquyenuser.UseVisualStyleBackColor = true;
@@ -696,10 +648,9 @@ namespace DA_ATBM
             // 
             this.thuquyenrole.AutoSize = true;
             this.thuquyenrole.Checked = true;
-            this.thuquyenrole.Location = new System.Drawing.Point(9, 20);
-            this.thuquyenrole.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.thuquyenrole.Location = new System.Drawing.Point(6, 13);
             this.thuquyenrole.Name = "thuquyenrole";
-            this.thuquyenrole.Size = new System.Drawing.Size(67, 24);
+            this.thuquyenrole.Size = new System.Drawing.Size(47, 17);
             this.thuquyenrole.TabIndex = 4;
             this.thuquyenrole.TabStop = true;
             this.thuquyenrole.Text = "Role";
@@ -707,10 +658,9 @@ namespace DA_ATBM
             // 
             // xoarolebtn
             // 
-            this.xoarolebtn.Location = new System.Drawing.Point(554, 97);
-            this.xoarolebtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.xoarolebtn.Location = new System.Drawing.Point(369, 63);
             this.xoarolebtn.Name = "xoarolebtn";
-            this.xoarolebtn.Size = new System.Drawing.Size(123, 35);
+            this.xoarolebtn.Size = new System.Drawing.Size(82, 23);
             this.xoarolebtn.TabIndex = 1;
             this.xoarolebtn.Text = "Xóa";
             this.xoarolebtn.UseVisualStyleBackColor = true;
@@ -718,10 +668,9 @@ namespace DA_ATBM
             // 
             // capbtb
             // 
-            this.capbtb.Location = new System.Drawing.Point(286, 106);
-            this.capbtb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.capbtb.Location = new System.Drawing.Point(191, 69);
             this.capbtb.Name = "capbtb";
-            this.capbtb.Size = new System.Drawing.Size(130, 35);
+            this.capbtb.Size = new System.Drawing.Size(87, 23);
             this.capbtb.TabIndex = 17;
             this.capbtb.Text = "Cấp";
             this.capbtb.UseVisualStyleBackColor = true;
@@ -730,10 +679,9 @@ namespace DA_ATBM
             // caprolelbl
             // 
             this.caprolelbl.AutoSize = true;
-            this.caprolelbl.Location = new System.Drawing.Point(94, 32);
-            this.caprolelbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.caprolelbl.Location = new System.Drawing.Point(63, 21);
             this.caprolelbl.Name = "caprolelbl";
-            this.caprolelbl.Size = new System.Drawing.Size(66, 20);
+            this.caprolelbl.Size = new System.Drawing.Size(46, 13);
             this.caprolelbl.TabIndex = 15;
             this.caprolelbl.Text = "Tên role";
             // 
@@ -744,11 +692,9 @@ namespace DA_ATBM
             this.caprolechousergb.Controls.Add(this.caprolelbl);
             this.caprolechousergb.Controls.Add(this.chousertb);
             this.caprolechousergb.Controls.Add(this.caproletb);
-            this.caprolechousergb.Location = new System.Drawing.Point(32, 388);
-            this.caprolechousergb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.caprolechousergb.Location = new System.Drawing.Point(45, 332);
             this.caprolechousergb.Name = "caprolechousergb";
-            this.caprolechousergb.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.caprolechousergb.Size = new System.Drawing.Size(692, 151);
+            this.caprolechousergb.Size = new System.Drawing.Size(461, 98);
             this.caprolechousergb.TabIndex = 17;
             this.caprolechousergb.TabStop = false;
             this.caprolechousergb.Text = "Cấp role cho user";
@@ -756,27 +702,24 @@ namespace DA_ATBM
             // chouserlbl
             // 
             this.chouserlbl.AutoSize = true;
-            this.chouserlbl.Location = new System.Drawing.Point(440, 32);
-            this.chouserlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.chouserlbl.Location = new System.Drawing.Point(293, 21);
             this.chouserlbl.Name = "chouserlbl";
-            this.chouserlbl.Size = new System.Drawing.Size(71, 20);
+            this.chouserlbl.Size = new System.Drawing.Size(49, 13);
             this.chouserlbl.TabIndex = 16;
             this.chouserlbl.Text = "Tên user";
             // 
             // chousertb
             // 
-            this.chousertb.Location = new System.Drawing.Point(442, 57);
-            this.chousertb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chousertb.Location = new System.Drawing.Point(295, 37);
             this.chousertb.Name = "chousertb";
-            this.chousertb.Size = new System.Drawing.Size(172, 26);
+            this.chousertb.Size = new System.Drawing.Size(116, 20);
             this.chousertb.TabIndex = 14;
             // 
             // caproletb
             // 
-            this.caproletb.Location = new System.Drawing.Point(99, 57);
-            this.caproletb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.caproletb.Location = new System.Drawing.Point(66, 37);
             this.caproletb.Name = "caproletb";
-            this.caproletb.Size = new System.Drawing.Size(172, 26);
+            this.caproletb.Size = new System.Drawing.Size(116, 20);
             this.caproletb.TabIndex = 13;
             // 
             // tabPage1
@@ -784,11 +727,10 @@ namespace DA_ATBM
             this.tabPage1.Controls.Add(this.caprolechousergb);
             this.tabPage1.Controls.Add(this.usergb);
             this.tabPage1.Controls.Add(this.rolegb);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage1.Size = new System.Drawing.Size(840, 705);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(557, 454);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Tạo, xóa, sửa user/role";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -802,11 +744,9 @@ namespace DA_ATBM
             this.usergb.Controls.Add(this.doimatkhauntn);
             this.usergb.Controls.Add(this.xoauserbtn);
             this.usergb.Controls.Add(this.taouserbtn);
-            this.usergb.Location = new System.Drawing.Point(32, 197);
-            this.usergb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.usergb.Location = new System.Drawing.Point(45, 168);
             this.usergb.Name = "usergb";
-            this.usergb.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.usergb.Size = new System.Drawing.Size(704, 168);
+            this.usergb.Size = new System.Drawing.Size(469, 109);
             this.usergb.TabIndex = 12;
             this.usergb.TabStop = false;
             this.usergb.Text = "User";
@@ -814,45 +754,40 @@ namespace DA_ATBM
             // matkhaulbl
             // 
             this.matkhaulbl.AutoSize = true;
-            this.matkhaulbl.Location = new System.Drawing.Point(435, 25);
-            this.matkhaulbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.matkhaulbl.Location = new System.Drawing.Point(290, 16);
             this.matkhaulbl.Name = "matkhaulbl";
-            this.matkhaulbl.Size = new System.Drawing.Size(75, 20);
+            this.matkhaulbl.Size = new System.Drawing.Size(52, 13);
             this.matkhaulbl.TabIndex = 10;
             this.matkhaulbl.Text = "Mật khẩu";
             // 
             // tendangnhaplbl
             // 
             this.tendangnhaplbl.AutoSize = true;
-            this.tendangnhaplbl.Location = new System.Drawing.Point(94, 25);
-            this.tendangnhaplbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.tendangnhaplbl.Location = new System.Drawing.Point(63, 16);
             this.tendangnhaplbl.Name = "tendangnhaplbl";
-            this.tendangnhaplbl.Size = new System.Drawing.Size(116, 20);
+            this.tendangnhaplbl.Size = new System.Drawing.Size(81, 13);
             this.tendangnhaplbl.TabIndex = 9;
             this.tendangnhaplbl.Text = "Tên đăng nhập";
             // 
             // matkhautb
             // 
-            this.matkhautb.Location = new System.Drawing.Point(440, 49);
-            this.matkhautb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.matkhautb.Location = new System.Drawing.Point(293, 32);
             this.matkhautb.Name = "matkhautb";
-            this.matkhautb.Size = new System.Drawing.Size(175, 26);
+            this.matkhautb.Size = new System.Drawing.Size(118, 20);
             this.matkhautb.TabIndex = 7;
             // 
             // tendangnhaptb
             // 
-            this.tendangnhaptb.Location = new System.Drawing.Point(99, 49);
-            this.tendangnhaptb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tendangnhaptb.Location = new System.Drawing.Point(66, 32);
             this.tendangnhaptb.Name = "tendangnhaptb";
-            this.tendangnhaptb.Size = new System.Drawing.Size(172, 26);
+            this.tendangnhaptb.Size = new System.Drawing.Size(116, 20);
             this.tendangnhaptb.TabIndex = 6;
             // 
             // doimatkhauntn
             // 
-            this.doimatkhauntn.Location = new System.Drawing.Point(286, 123);
-            this.doimatkhauntn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.doimatkhauntn.Location = new System.Drawing.Point(191, 80);
             this.doimatkhauntn.Name = "doimatkhauntn";
-            this.doimatkhauntn.Size = new System.Drawing.Size(130, 35);
+            this.doimatkhauntn.Size = new System.Drawing.Size(87, 23);
             this.doimatkhauntn.TabIndex = 4;
             this.doimatkhauntn.Text = "Đổi mật khẩu";
             this.doimatkhauntn.UseVisualStyleBackColor = true;
@@ -860,10 +795,9 @@ namespace DA_ATBM
             // 
             // xoauserbtn
             // 
-            this.xoauserbtn.Location = new System.Drawing.Point(537, 123);
-            this.xoauserbtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.xoauserbtn.Location = new System.Drawing.Point(358, 80);
             this.xoauserbtn.Name = "xoauserbtn";
-            this.xoauserbtn.Size = new System.Drawing.Size(130, 35);
+            this.xoauserbtn.Size = new System.Drawing.Size(87, 23);
             this.xoauserbtn.TabIndex = 3;
             this.xoauserbtn.Text = "Xóa";
             this.xoauserbtn.UseVisualStyleBackColor = true;
@@ -871,10 +805,9 @@ namespace DA_ATBM
             // 
             // taouserbtn
             // 
-            this.taouserbtn.Location = new System.Drawing.Point(51, 123);
-            this.taouserbtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.taouserbtn.Location = new System.Drawing.Point(34, 80);
             this.taouserbtn.Name = "taouserbtn";
-            this.taouserbtn.Size = new System.Drawing.Size(123, 35);
+            this.taouserbtn.Size = new System.Drawing.Size(82, 23);
             this.taouserbtn.TabIndex = 2;
             this.taouserbtn.Text = "Tạo";
             this.taouserbtn.UseVisualStyleBackColor = true;
@@ -886,11 +819,9 @@ namespace DA_ATBM
             this.rolegb.Controls.Add(this.tenroletb);
             this.rolegb.Controls.Add(this.xoarolebtn);
             this.rolegb.Controls.Add(this.taorolebtn);
-            this.rolegb.Location = new System.Drawing.Point(22, 28);
-            this.rolegb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rolegb.Location = new System.Drawing.Point(45, 31);
             this.rolegb.Name = "rolegb";
-            this.rolegb.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rolegb.Size = new System.Drawing.Size(712, 142);
+            this.rolegb.Size = new System.Drawing.Size(475, 92);
             this.rolegb.TabIndex = 11;
             this.rolegb.TabStop = false;
             this.rolegb.Text = "Role";
@@ -898,10 +829,9 @@ namespace DA_ATBM
             // tenrolelbl
             // 
             this.tenrolelbl.AutoSize = true;
-            this.tenrolelbl.Location = new System.Drawing.Point(248, 20);
-            this.tenrolelbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.tenrolelbl.Location = new System.Drawing.Point(165, 13);
             this.tenrolelbl.Name = "tenrolelbl";
-            this.tenrolelbl.Size = new System.Drawing.Size(66, 20);
+            this.tenrolelbl.Size = new System.Drawing.Size(46, 13);
             this.tenrolelbl.TabIndex = 8;
             this.tenrolelbl.Text = "Tên role";
             // 
@@ -914,21 +844,19 @@ namespace DA_ATBM
             this.tabPage2.Controls.Add(this.timkiemuserlbl);
             this.tabPage2.Controls.Add(this.timkiemusertb);
             this.tabPage2.Controls.Add(this.thongtinquyendg);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPage2.Size = new System.Drawing.Size(840, 705);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Size = new System.Drawing.Size(557, 454);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Thông tin quyền";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // timkiemrole
             // 
-            this.timkiemrole.Location = new System.Drawing.Point(693, 17);
-            this.timkiemrole.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.timkiemrole.Location = new System.Drawing.Point(462, 11);
             this.timkiemrole.Name = "timkiemrole";
-            this.timkiemrole.Size = new System.Drawing.Size(112, 35);
+            this.timkiemrole.Size = new System.Drawing.Size(75, 23);
             this.timkiemrole.TabIndex = 8;
             this.timkiemrole.Text = "Tìm kiếm";
             this.timkiemrole.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -937,28 +865,25 @@ namespace DA_ATBM
             // 
             // timkiemroles
             // 
-            this.timkiemroles.Location = new System.Drawing.Point(516, 22);
-            this.timkiemroles.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.timkiemroles.Location = new System.Drawing.Point(344, 14);
             this.timkiemroles.Name = "timkiemroles";
-            this.timkiemroles.Size = new System.Drawing.Size(148, 26);
+            this.timkiemroles.Size = new System.Drawing.Size(100, 20);
             this.timkiemroles.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(452, 26);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(301, 17);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 20);
+            this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Roles:";
             // 
             // timkiemuserbtn
             // 
-            this.timkiemuserbtn.Location = new System.Drawing.Point(242, 22);
-            this.timkiemuserbtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.timkiemuserbtn.Location = new System.Drawing.Point(161, 14);
             this.timkiemuserbtn.Name = "timkiemuserbtn";
-            this.timkiemuserbtn.Size = new System.Drawing.Size(112, 35);
+            this.timkiemuserbtn.Size = new System.Drawing.Size(75, 23);
             this.timkiemuserbtn.TabIndex = 4;
             this.timkiemuserbtn.Text = "Tìm kiếm";
             this.timkiemuserbtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -968,75 +893,67 @@ namespace DA_ATBM
             // timkiemuserlbl
             // 
             this.timkiemuserlbl.AutoSize = true;
-            this.timkiemuserlbl.Location = new System.Drawing.Point(9, 26);
-            this.timkiemuserlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.timkiemuserlbl.Location = new System.Drawing.Point(6, 17);
             this.timkiemuserlbl.Name = "timkiemuserlbl";
-            this.timkiemuserlbl.Size = new System.Drawing.Size(47, 20);
+            this.timkiemuserlbl.Size = new System.Drawing.Size(32, 13);
             this.timkiemuserlbl.TabIndex = 3;
             this.timkiemuserlbl.Text = "User:";
             // 
             // timkiemusertb
             // 
-            this.timkiemusertb.Location = new System.Drawing.Point(66, 22);
-            this.timkiemusertb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.timkiemusertb.Location = new System.Drawing.Point(44, 14);
             this.timkiemusertb.Name = "timkiemusertb";
-            this.timkiemusertb.Size = new System.Drawing.Size(148, 26);
+            this.timkiemusertb.Size = new System.Drawing.Size(100, 20);
             this.timkiemusertb.TabIndex = 2;
             // 
             // thongtinquyendg
             // 
             this.thongtinquyendg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.thongtinquyendg.Location = new System.Drawing.Point(9, 62);
-            this.thongtinquyendg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.thongtinquyendg.Location = new System.Drawing.Point(6, 40);
             this.thongtinquyendg.Name = "thongtinquyendg";
             this.thongtinquyendg.RowHeadersWidth = 51;
-            this.thongtinquyendg.Size = new System.Drawing.Size(810, 642);
+            this.thongtinquyendg.Size = new System.Drawing.Size(540, 417);
             this.thongtinquyendg.TabIndex = 0;
             // 
             // danhsachuserdg
             // 
             this.danhsachuserdg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.danhsachuserdg.Location = new System.Drawing.Point(14, 94);
-            this.danhsachuserdg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.danhsachuserdg.Location = new System.Drawing.Point(9, 61);
             this.danhsachuserdg.Name = "danhsachuserdg";
             this.danhsachuserdg.RowHeadersWidth = 51;
-            this.danhsachuserdg.Size = new System.Drawing.Size(417, 258);
+            this.danhsachuserdg.Size = new System.Drawing.Size(278, 168);
             this.danhsachuserdg.TabIndex = 0;
             // 
             // timkiemuserrolelbl
             // 
             this.timkiemuserrolelbl.AutoSize = true;
-            this.timkiemuserrolelbl.Location = new System.Drawing.Point(9, 22);
-            this.timkiemuserrolelbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.timkiemuserrolelbl.Location = new System.Drawing.Point(6, 14);
             this.timkiemuserrolelbl.Name = "timkiemuserrolelbl";
-            this.timkiemuserrolelbl.Size = new System.Drawing.Size(101, 20);
+            this.timkiemuserrolelbl.Size = new System.Drawing.Size(71, 13);
             this.timkiemuserrolelbl.TabIndex = 3;
             this.timkiemuserrolelbl.Text = "Tên user/role";
             // 
             // timkiemuserroletb
             // 
-            this.timkiemuserroletb.Location = new System.Drawing.Point(132, 17);
-            this.timkiemuserroletb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.timkiemuserroletb.Location = new System.Drawing.Point(88, 11);
             this.timkiemuserroletb.Name = "timkiemuserroletb";
-            this.timkiemuserroletb.Size = new System.Drawing.Size(148, 26);
+            this.timkiemuserroletb.Size = new System.Drawing.Size(100, 20);
             this.timkiemuserroletb.TabIndex = 2;
             // 
             // danhsachuserroledg
             // 
             this.danhsachuserroledg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.danhsachuserroledg.Location = new System.Drawing.Point(502, 94);
-            this.danhsachuserroledg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.danhsachuserroledg.Location = new System.Drawing.Point(335, 61);
             this.danhsachuserroledg.Name = "danhsachuserroledg";
             this.danhsachuserroledg.RowHeadersWidth = 51;
-            this.danhsachuserroledg.Size = new System.Drawing.Size(306, 563);
+            this.danhsachuserroledg.Size = new System.Drawing.Size(204, 366);
             this.danhsachuserroledg.TabIndex = 5;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(370, 17);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Location = new System.Drawing.Point(247, 11);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 35);
+            this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
             this.button1.Text = "Tìm kiếm";
             this.button1.UseVisualStyleBackColor = true;
@@ -1053,11 +970,10 @@ namespace DA_ATBM
             this.tab1.Controls.Add(this.timkiemuserroletb);
             this.tab1.Controls.Add(this.danhsachroledg);
             this.tab1.Controls.Add(this.danhsachuserdg);
-            this.tab1.Location = new System.Drawing.Point(4, 29);
-            this.tab1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tab1.Location = new System.Drawing.Point(4, 22);
             this.tab1.Name = "tab1";
-            this.tab1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tab1.Size = new System.Drawing.Size(840, 705);
+            this.tab1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tab1.Size = new System.Drawing.Size(557, 454);
             this.tab1.TabIndex = 0;
             this.tab1.Text = "Danh sách user";
             this.tab1.UseVisualStyleBackColor = true;
@@ -1065,30 +981,27 @@ namespace DA_ATBM
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(498, 69);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(332, 45);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(231, 20);
+            this.label3.Size = new System.Drawing.Size(158, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "Danh sách quyền cấp cho User";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 378);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(6, 246);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 20);
+            this.label2.Size = new System.Drawing.Size(84, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Danh sách Role";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 69);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(6, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 20);
+            this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Danh sách User";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -1096,11 +1009,10 @@ namespace DA_ATBM
             // danhsachroledg
             // 
             this.danhsachroledg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.danhsachroledg.Location = new System.Drawing.Point(14, 403);
-            this.danhsachroledg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.danhsachroledg.Location = new System.Drawing.Point(9, 262);
             this.danhsachroledg.Name = "danhsachroledg";
             this.danhsachroledg.RowHeadersWidth = 51;
-            this.danhsachroledg.Size = new System.Drawing.Size(417, 254);
+            this.danhsachroledg.Size = new System.Drawing.Size(278, 165);
             this.danhsachroledg.TabIndex = 1;
             // 
             // tab
@@ -1110,22 +1022,20 @@ namespace DA_ATBM
             this.tab.Controls.Add(this.tabPage1);
             this.tab.Controls.Add(this.tabPage3);
             this.tab.Controls.Add(this.tabPage4);
-            this.tab.Location = new System.Drawing.Point(18, 18);
-            this.tab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tab.Location = new System.Drawing.Point(12, 12);
             this.tab.Name = "tab";
             this.tab.SelectedIndex = 0;
-            this.tab.Size = new System.Drawing.Size(848, 738);
+            this.tab.Size = new System.Drawing.Size(565, 480);
             this.tab.TabIndex = 1;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 760);
+            this.ClientSize = new System.Drawing.Size(577, 494);
             this.Controls.Add(this.tab);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Quản lý nhân viên";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
