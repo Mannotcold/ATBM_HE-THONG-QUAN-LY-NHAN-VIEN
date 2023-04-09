@@ -1498,7 +1498,182 @@ namespace DA_ATBM
             ThongTinQuyen();
         }
 
-        
+        private void taorolebtn_Click(object sender, EventArgs e)
+        {
+            if (tenroletb.Text == "")
+            {
+                MessageBox.Show("Nhập tên role muốn tạo : ");
+                return;
+            }
+            OracleConnection con = new OracleConnection();
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.Open();
+            if (CheckRole(tenroletb.Text.ToUpper()) == 0 && CheckUser(tenroletb.Text.ToUpper()) == 0)
+            {
+                OracleCommand cmd_themrole = new OracleCommand();
+                cmd_themrole.Connection = con;
+                cmd_themrole.CommandText = "create role " + tenroletb.Text.ToUpper();
+                cmd_themrole.CommandType = CommandType.Text;
+                cmd_themrole.ExecuteNonQuery();
+                MessageBox.Show("Thêm role mới thành công.");
+                //load lại danh sách role
+                DanhSachUser();
+            }
+            else
+            {
+                MessageBox.Show("Role hoặc User đã tồn tại trong hệ thống.");
+            }
+            con.Close();
+        }
+
+        private void xoarolebtn_Click(object sender, EventArgs e)
+        {
+            if (tenroletb.Text == "")
+            {
+                MessageBox.Show("Lỗi, Chưa nhập tên role");
+                return;
+            }
+            OracleConnection con = new OracleConnection();
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.Open();
+            if (CheckRole(tenroletb.Text.ToUpper()) == 0)
+            {
+                MessageBox.Show("Role không tồn tại.");
+            }
+            else
+            {
+                OracleCommand cmd_xoarole = new OracleCommand();
+                cmd_xoarole.Connection = con;
+                cmd_xoarole.CommandText = "drop role " + tenroletb.Text.ToUpper();
+                cmd_xoarole.CommandType = CommandType.Text;
+                cmd_xoarole.ExecuteNonQuery();
+                MessageBox.Show("Xóa Role thành công.");
+                //load lai Thong thin quye62n
+                ThongTinQuyen();
+                //load lại danh sách role
+                DanhSachUser();
+            }
+            con.Close();
+        }
+
+        private void taouserbtn_Click(object sender, EventArgs e)
+        {
+            if (tendangnhaptb.Text == "" || matkhautb.Text == "")
+            {
+                MessageBox.Show("Lỗi! Chưa nhập đủ thông tin cần tạo của User.");
+                return;
+            }
+            OracleConnection con = new OracleConnection();
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.Open();
+            if (CheckRole(tendangnhaptb.Text.ToUpper()) == 0 && CheckUser(tendangnhaptb.Text.ToUpper()) == 0)
+            {
+                //tạo user
+                OracleCommand cmd_themrole = new OracleCommand();
+                cmd_themrole.Connection = con;
+                cmd_themrole.CommandText = "create user " + tendangnhaptb.Text.ToUpper() + " identified by " + matkhautb.Text;
+                cmd_themrole.CommandType = CommandType.Text;
+                cmd_themrole.ExecuteNonQuery();
+
+                //cấp quyền connect cho user 
+                OracleCommand cmd_connect = new OracleCommand();
+                cmd_connect.Connection = con;
+                cmd_connect.CommandText = "grant connect to " + tendangnhaptb.Text.ToUpper();
+                cmd_connect.CommandType = CommandType.Text;
+                cmd_connect.ExecuteNonQuery();
+                //load lại danh sách user
+                MessageBox.Show("Tạo User thành công.");
+                DanhSachUser();
+
+            }
+            else
+            {
+                MessageBox.Show("Tên đăng nhập hoặc role đã tồn tại trong hệ thống.");
+            }
+            con.Close();
+        }
+
+        private void doimatkhauntn_Click(object sender, EventArgs e)
+        {
+            if (tendangnhaptb.Text == "" || matkhautb.Text == "")
+            {
+                MessageBox.Show("Lỗi! Chưa nhập đủ thông tin");
+                return;
+            }
+            OracleConnection con = new OracleConnection();
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.Open();
+            if (CheckUser(tendangnhaptb.Text.ToUpper()) == 0)
+            {
+                MessageBox.Show("Tên đăng nhập không tồn tại trong hệ thống.");
+            }
+            else
+            {
+                OracleCommand cmd_chinhuser = new OracleCommand();
+                cmd_chinhuser.Connection = con;
+                cmd_chinhuser.CommandText = "alter user " + tendangnhaptb.Text.ToUpper() + " identified by " + matkhautb.Text;
+                cmd_chinhuser.CommandType = CommandType.Text;
+                cmd_chinhuser.ExecuteNonQuery();
+                MessageBox.Show("Đổi mật khẩu User thành công.");
+            }
+            con.Close();
+        }
+
+        private void xoauserbtn_Click(object sender, EventArgs e)
+        {
+            if (tendangnhaptb.Text == "")
+            {
+                MessageBox.Show("Lỗi! Chưa nhập đủ thông tin, xin kiểm tra lại");
+                return;
+            }
+            OracleConnection con = new OracleConnection();
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.Open();
+            if (CheckUser(tendangnhaptb.Text.ToUpper()) == 0)
+            {
+                MessageBox.Show("Tên đăng nhập không tồn tại trong hệ thống, vui lòng kiểm tra lại.");
+            }
+            else
+            {
+                OracleCommand cmd_xoauser = new OracleCommand();
+                cmd_xoauser.Connection = con;
+                cmd_xoauser.CommandText = "drop user " + tendangnhaptb.Text.ToUpper();
+                cmd_xoauser.CommandType = CommandType.Text;
+                cmd_xoauser.ExecuteNonQuery();
+                MessageBox.Show("Xóa User thành công.");
+                //load lại danh sách user
+                DanhSachUser();
+                //load lai Thong thin quye62n
+                ThongTinQuyen();
+            }
+            con.Close();
+        }
+
+        private void capbtb_Click(object sender, EventArgs e)
+        {
+            if (caproletb.Text == "" || chousertb.Text == "")
+            {
+                MessageBox.Show("Chưa nhập đủ thông tin!");
+                return;
+            }
+            OracleConnection con = new OracleConnection();
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.Open();
+            if (CheckRole(caproletb.Text.ToUpper()) == 0 && CheckUser(chousertb.Text.ToUpper()) == 0)
+            {
+                MessageBox.Show("Tên role hoặc tên user không tồn tại trong hệ thống.");
+            }
+            else
+            {
+                OracleCommand cmd_caprolechouser = new OracleCommand();
+                cmd_caprolechouser.Connection = con;
+                cmd_caprolechouser.CommandText = "grant " + caproletb.Text.ToUpper() + " to " + chousertb.Text;
+                cmd_caprolechouser.CommandType = CommandType.Text;
+                cmd_caprolechouser.ExecuteNonQuery();
+                MessageBox.Show(String.Format("Cấp role: {0} cho user:{1} thành công", caproletb.Text.ToUpper(), chousertb.Text.ToUpper()));
+            }
+            con.Close();
+        }
     }
 
 }
