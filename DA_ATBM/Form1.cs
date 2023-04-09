@@ -274,10 +274,10 @@ namespace DA_ATBM
                 OracleCommand cmd_insert = new OracleCommand();
                 cmd_insert.Connection = con;
                 cmd_insert.CommandText = "grant insert on NHANVIEN to " + tenuserroletb.Text.ToUpper();
-                /*if (wgo.Checked)//có with grant option
+                if (wgo.Checked)//có with grant option
                 {
                     cmd_insert.CommandText += " WITH GRANT OPTION";
-                }*/
+                }
                 cmd_insert.CommandType = CommandType.Text;
                 cmd_insert.ExecuteNonQuery();
                 MessageBox.Show("Cấp quyền INSERT thành công");
@@ -591,7 +591,7 @@ namespace DA_ATBM
                     //xóa dấu , ở cuối (để bỏ váo câu lệnh select)
                     select_column = select_column.TrimEnd(',');
 
-                    //them  vào cuối để biết là view từ bàng PHONGBAN
+                    //them  vào cuối để biết là view từ bàng DEAN
                     column += "DA";
 
                     //kiểm tra view có tồn tại?
@@ -621,7 +621,7 @@ namespace DA_ATBM
                 OracleCommand cmd_select = new OracleCommand();
                 cmd_select.Connection = con;
 
-                if (PHONGBAN.CheckedItems.Count == 0 || PHONGBAN.CheckedItems.Count == 5) //cấp quyền select trên cả bảng
+                if (PHONGBAN.CheckedItems.Count == 0 || PHONGBAN.CheckedItems.Count == 3) //cấp quyền select trên cả bảng
                 {
                     cmd_select.CommandText = "grant select on PHANCONG to " + tenuserroletb.Text.ToUpper();
                 }
@@ -646,7 +646,7 @@ namespace DA_ATBM
                     //xóa dấu , ở cuối (để bỏ váo câu lệnh select)
                     select_column = select_column.TrimEnd(',');
 
-                    //them  vào cuối để biết là view từ bàng PHONGBAN
+                    //them  vào cuối để biết là view từ bàng PHANCONG
                     column += "PC";
 
                     //kiểm tra view có tồn tại?
