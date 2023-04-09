@@ -31,7 +31,7 @@ namespace DA_ATBM
         private void DanhSachUser()
         {
             OracleConnection con_ds = new OracleConnection();
-            con_ds.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID = SYSTEM;PASSWORD=Man2082002@ ;Connection Timeout=120;";
+            con_ds.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID = QUANLY;PASSWORD=12345 ;Connection Timeout=120;";
             DataSet dataSet_ds = new DataSet();
             OracleCommand cmd_ds;
             if (timkiemuserroletb.Text == "")
@@ -92,14 +92,14 @@ namespace DA_ATBM
         private void ThongTinQuyen()
         {
             OracleConnection con_ttq = new OracleConnection();
-            con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=SYSTEM;PASSWORD=Man2082002@;Connection Timeout=120;";
+            con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=QUANLY;PASSWORD=12345;Connection Timeout=120;";
 
             DataSet dataSet_ttq = new DataSet();
             OracleCommand cmd_ttq;
             if (timkiemusertb.Text == "")
                 cmd_ttq = new OracleCommand("Select owner, grantee, privilege, table_name, grantable from user_tab_privs ", con_ttq);
             else
-                cmd_ttq = new OracleCommand("Select  owner, grantee, privilege, table_name, grantable from user_tab_privs  WHERE owner = '" + timkiemusertb.Text.ToUpper() + "'", con_ttq);
+                cmd_ttq = new OracleCommand("Select  owner, grantee, privilege, table_name, grantable from user_tab_privs  WHERE grantee = '" + timkiemusertb.Text.ToUpper() + "'", con_ttq);
             //dba_sys_privs 
             //user_tab_privs
             cmd_ttq.CommandType = CommandType.Text;
@@ -117,7 +117,7 @@ namespace DA_ATBM
         private void ThongTinQuyenRoles()
         {
             OracleConnection con_ttq = new OracleConnection();
-            con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=SYSTEM;PASSWORD=Man2082002@;Connection Timeout=120;";
+            con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=QUANLY;PASSWORD=12345;Connection Timeout=120;";
 
             DataSet dataSet_ttq = new DataSet();
             OracleCommand cmd_ttq;

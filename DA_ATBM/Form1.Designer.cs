@@ -164,7 +164,7 @@ namespace DA_ATBM
             this.tabPage3.Controls.Add(this.doituongcancapquyengb);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(557, 454);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Cấp quyền";
@@ -423,7 +423,7 @@ namespace DA_ATBM
             this.tabPage4.Controls.Add(this.groupBox2);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(557, 454);
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = " Thu quyền";
@@ -729,7 +729,7 @@ namespace DA_ATBM
             this.tabPage1.Controls.Add(this.rolegb);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(557, 454);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Tạo, xóa, sửa user/role";
@@ -846,7 +846,7 @@ namespace DA_ATBM
             this.tabPage2.Controls.Add(this.thongtinquyendg);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(557, 454);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Thông tin quyền";
@@ -972,7 +972,7 @@ namespace DA_ATBM
             this.tab1.Controls.Add(this.danhsachuserdg);
             this.tab1.Location = new System.Drawing.Point(4, 22);
             this.tab1.Name = "tab1";
-            this.tab1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tab1.Padding = new System.Windows.Forms.Padding(3);
             this.tab1.Size = new System.Drawing.Size(557, 454);
             this.tab1.TabIndex = 0;
             this.tab1.Text = "Danh sách user";
@@ -983,9 +983,9 @@ namespace DA_ATBM
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(332, 45);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 13);
+            this.label3.Size = new System.Drawing.Size(185, 13);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Danh sách quyền cấp cho User";
+            this.label3.Text = "Danh sách quyền cấp cho User/roles";
             // 
             // label2
             // 
