@@ -1159,6 +1159,539 @@ namespace DA_ATBM
             ThongTinQuyen();
         }
 
+        private void updatetq_Click(object sender, EventArgs e)
+        {
+            if (thuquyenrole.Checked)
+            {
+                if (CheckRole(tenuserroletq.Text.ToUpper()) == 0)
+                {
+                    MessageBox.Show("Role không tồn tại.");
+                    //con.Close();
+                    return;
+                }
+            }
+            else
+            {
+                if (CheckUser(tenuserroletq.Text.ToUpper()) == 0)
+                {
+                    MessageBox.Show("User không tồn tại.");
+                    //con.Close();
+                    return;
+                }
+            }
+
+            if (NV1.Checked)//thu quyền UPDATE trên bảng NHANVIEN
+            {
+                //những cột viết tắt để tạo view không bị lỗi view quá dài
+                string[] short_name = { "MNV", "TNV", "GT", "NGS", "DC", "SDT", "LG", "PC", "VT", "MQL", "PHG" };
+                //MVN: MANV, TNV: TENNV, GT: PHAI, NGS:NGAYSINH, DC: DIACHI, STD: SODT, PC: PHUCAP, VT: VAITRO, MQL: MANQL
+                //kiểm tra cấp quyền UPDATE trên những cột nào
+                string column = "";
+                //chọn ra những cột để UPDATE
+                string UPDATE_column = "";
+
+                //nếu cấp quyền đọc trên toàn bảng
+                if (NHANVIEN_TQ.CheckedItems.Count != 0 && NHANVIEN_TQ.CheckedItems.Count != 11)
+                {
+                    for (int i = 0; i < NHANVIEN_TQ.Items.Count; i++)
+                    {
+                        if (NHANVIEN_TQ.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += short_name[i] + "_";
+                        }
+                    }
+                    //them HS vào cuối để biết là view từ bàng HS
+                    column += "NV";
+                }
+                else
+                    column = "NHANVIEN";
+                //kiểm tra có cấp quyền UPDATE trên bảng column??
+                if (CheckPrivilege(column, "UPDATE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                {
+                    MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
+                    //con.Close();
+                    return;
+                }
+                else
+                {
+                    //thực hiện thu quyền
+                    Revoke(column, "UPDATE", tenuserroletq.Text.ToUpper());
+                    MessageBox.Show("Thu quyền thành công.");
+                }
+
+                ThongTinQuyen();
+            }
+            else if (PB1.Checked) //thu quyền UPDATE trên bảng PHONGBAN
+            {
+
+                //kiểm tra cấp quyền UPDATE trên những cột nào
+                //những cột viết tắt để tạo view không bị lỗi view quá dài
+                string[] short_name = { "MPB", "TPB", "TRPHG" };
+                //kiểm tra cấp quyền UPDATE trên những cột nào
+                string column = "";
+                if (PHONGBAN_TQ.CheckedItems.Count != 0 && PHONGBAN_TQ.CheckedItems.Count != 3)
+                {
+                    for (int i = 0; i < PHONGBAN_TQ.Items.Count; i++)
+                    {
+                        if (PHONGBAN_TQ.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += short_name[i] + "_";
+                        }
+                    }
+                    //them  vào cuối để biết là view từ bàng Lop
+                    column += "PB";
+                }
+                else
+                    column = "PHONGBAN";
+
+                //kiểm tra có cấp quyền UPDATE trên view column?
+                if (CheckPrivilege(column, "UPDATE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                {
+                    MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
+                    //con.Close();
+                    return;
+                }
+                else
+                {
+                    //thực hiện thu quyền
+                    Revoke(column, "UPDATE", tenuserroletq.Text.ToUpper());
+                    MessageBox.Show("Thu quyền thành công.");
+                }
+            }
+            else if (DA1.Checked) //thu quyền UPDATE trên bảng PHONGBAN
+            {
+
+                //kiểm tra cấp quyền UPDATE trên những cột nào
+                //những cột viết tắt để tạo view không bị lỗi view quá dài
+                string[] short_name = { "MDA", "TDA", "NGBD", "PG" };
+                //kiểm tra cấp quyền UPDATE trên những cột nào
+                string column = "";
+                if (DEAN_TQ.CheckedItems.Count != 0 && DEAN_TQ.CheckedItems.Count != 3)
+                {
+                    for (int i = 0; i < DEAN_TQ.Items.Count; i++)
+                    {
+                        if (DEAN_TQ.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += short_name[i] + "_";
+                        }
+                    }
+                    //them  vào cuối để biết là view từ bàng Lop
+                    column += "DA";
+                }
+                else
+                    column = "DEAN";
+
+                //kiểm tra có cấp quyền UPDATE trên view column?
+                if (CheckPrivilege(column, "UPDATE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                {
+                    MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
+                    //con.Close();
+                    return;
+                }
+                else
+                {
+                    //thực hiện thu quyền
+                    Revoke(column, "UPDATE", tenuserroletq.Text.ToUpper());
+                    MessageBox.Show("Thu quyền thành công.");
+                }
+            }
+            else if (PC1.Checked) //thu quyền UPDATE trên bảng PHONGBAN
+            {
+
+                //kiểm tra cấp quyền UPDATE trên những cột nào
+                //những cột viết tắt để tạo view không bị lỗi view quá dài
+                string[] short_name = { "MNV", "MDA", "TG" };
+                //kiểm tra cấp quyền UPDATE trên những cột nào
+                string column = "";
+                if (PHANCONG_TQ.CheckedItems.Count != 0 && PHANCONG_TQ.CheckedItems.Count != 3)
+                {
+                    for (int i = 0; i < PHANCONG_TQ.Items.Count; i++)
+                    {
+                        if (PHANCONG_TQ.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += short_name[i] + "_";
+                        }
+                    }
+                    //them  vào cuối để biết là view từ bàng Lop
+                    column += "PC";
+                }
+                else
+                    column = "PHANCONG";
+
+                //kiểm tra có cấp quyền UPDATE trên view column?
+                if (CheckPrivilege(column, "UPDATE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                {
+                    MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
+                    //con.Close();
+                    return;
+                }
+                else
+                {
+                    //thực hiện thu quyền
+                    Revoke(column, "UPDATE", tenuserroletq.Text.ToUpper());
+                    MessageBox.Show("Thu quyền thành công.");
+                }
+            }
+
+            //load lại thong tin quyền
+            ThongTinQuyen();
+        }
+
+        private void inserttq_Click(object sender, EventArgs e)
+        {
+            if (thuquyenrole.Checked)
+            {
+                if (CheckRole(tenuserroletq.Text.ToUpper()) == 0)
+                {
+                    MessageBox.Show("Role không tồn tại.");
+                    //con.Close();
+                    return;
+                }
+            }
+            else
+            {
+                if (CheckUser(tenuserroletq.Text.ToUpper()) == 0)
+                {
+                    MessageBox.Show("User không tồn tại.");
+                    //con.Close();
+                    return;
+                }
+            }
+
+            if (NV1.Checked)//thu quyền INSERT trên bảng NHANVIEN
+            {
+                //những cột viết tắt để tạo view không bị lỗi view quá dài
+                string[] short_name = { "MNV", "TNV", "GT", "NGS", "DC", "SDT", "LG", "PC", "VT", "MQL", "PHG" };
+                //MVN: MANV, TNV: TENNV, GT: PHAI, NGS:NGAYSINH, DC: DIACHI, STD: SODT, PC: PHUCAP, VT: VAITRO, MQL: MANQL
+                //kiểm tra cấp quyền INSERT trên những cột nào
+                string column = "";
+                //chọn ra những cột để INSERT
+                string INSERT_column = "";
+
+                //nếu cấp quyền đọc trên toàn bảng
+                if (NHANVIEN_TQ.CheckedItems.Count != 0 && NHANVIEN_TQ.CheckedItems.Count != 11)
+                {
+                    for (int i = 0; i < NHANVIEN_TQ.Items.Count; i++)
+                    {
+                        if (NHANVIEN_TQ.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += short_name[i] + "_";
+                        }
+                    }
+                    //them HS vào cuối để biết là view từ bàng HS
+                    column += "NV";
+                }
+                else
+                    column = "NHANVIEN";
+                //kiểm tra có cấp quyền INSERT trên bảng column??
+                if (CheckPrivilege(column, "INSERT", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                {
+                    MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
+                    //con.Close();
+                    return;
+                }
+                else
+                {
+                    //thực hiện thu quyền
+                    Revoke(column, "INSERT", tenuserroletq.Text.ToUpper());
+                    MessageBox.Show("Thu quyền thành công.");
+                }
+
+                ThongTinQuyen();
+            }
+            else if (PB1.Checked) //thu quyền INSERT trên bảng PHONGBAN
+            {
+
+                //kiểm tra cấp quyền INSERT trên những cột nào
+                //những cột viết tắt để tạo view không bị lỗi view quá dài
+                string[] short_name = { "MPB", "TPB", "TRPHG" };
+                //kiểm tra cấp quyền INSERT trên những cột nào
+                string column = "";
+                if (PHONGBAN_TQ.CheckedItems.Count != 0 && PHONGBAN_TQ.CheckedItems.Count != 3)
+                {
+                    for (int i = 0; i < PHONGBAN_TQ.Items.Count; i++)
+                    {
+                        if (PHONGBAN_TQ.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += short_name[i] + "_";
+                        }
+                    }
+                    //them  vào cuối để biết là view từ bàng Lop
+                    column += "PB";
+                }
+                else
+                    column = "PHONGBAN";
+
+                //kiểm tra có cấp quyền INSERT trên view column?
+                if (CheckPrivilege(column, "INSERT", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                {
+                    MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
+                    //con.Close();
+                    return;
+                }
+                else
+                {
+                    //thực hiện thu quyền
+                    Revoke(column, "INSERT", tenuserroletq.Text.ToUpper());
+                    MessageBox.Show("Thu quyền thành công.");
+                }
+            }
+            else if (DA1.Checked) //thu quyền INSERT trên bảng PHONGBAN
+            {
+
+                //kiểm tra cấp quyền INSERT trên những cột nào
+                //những cột viết tắt để tạo view không bị lỗi view quá dài
+                string[] short_name = { "MDA", "TDA", "NGBD", "PG" };
+                //kiểm tra cấp quyền INSERT trên những cột nào
+                string column = "";
+                if (DEAN_TQ.CheckedItems.Count != 0 && DEAN_TQ.CheckedItems.Count != 3)
+                {
+                    for (int i = 0; i < DEAN_TQ.Items.Count; i++)
+                    {
+                        if (DEAN_TQ.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += short_name[i] + "_";
+                        }
+                    }
+                    //them  vào cuối để biết là view từ bàng Lop
+                    column += "DA";
+                }
+                else
+                    column = "DEAN";
+
+                //kiểm tra có cấp quyền INSERT trên view column?
+                if (CheckPrivilege(column, "INSERT", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                {
+                    MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
+                    //con.Close();
+                    return;
+                }
+                else
+                {
+                    //thực hiện thu quyền
+                    Revoke(column, "INSERT", tenuserroletq.Text.ToUpper());
+                    MessageBox.Show("Thu quyền thành công.");
+                }
+            }
+            else if (PC1.Checked) //thu quyền INSERT trên bảng PHONGBAN
+            {
+
+                //kiểm tra cấp quyền INSERT trên những cột nào
+                //những cột viết tắt để tạo view không bị lỗi view quá dài
+                string[] short_name = { "MNV", "MDA", "TG" };
+                //kiểm tra cấp quyền INSERT trên những cột nào
+                string column = "";
+                if (PHANCONG_TQ.CheckedItems.Count != 0 && PHANCONG_TQ.CheckedItems.Count != 3)
+                {
+                    for (int i = 0; i < PHANCONG_TQ.Items.Count; i++)
+                    {
+                        if (PHANCONG_TQ.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += short_name[i] + "_";
+                        }
+                    }
+                    //them  vào cuối để biết là view từ bàng Lop
+                    column += "PC";
+                }
+                else
+                    column = "PHANCONG";
+
+                //kiểm tra có cấp quyền INSERT trên view column?
+                if (CheckPrivilege(column, "INSERT", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                {
+                    MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
+                    //con.Close();
+                    return;
+                }
+                else
+                {
+                    //thực hiện thu quyền
+                    Revoke(column, "INSERT", tenuserroletq.Text.ToUpper());
+                    MessageBox.Show("Thu quyền thành công.");
+                }
+            }
+
+            //load lại thong tin quyền
+            ThongTinQuyen();
+        }
+
+        private void deletetq_Click(object sender, EventArgs e)
+        {
+            if (thuquyenrole.Checked)
+{
+    if (CheckRole(tenuserroletq.Text.ToUpper()) == 0)
+    {
+        MessageBox.Show("Role không tồn tại.");
+        //con.Close();
+        return;
+    }
+}
+            else
+            {
+                if (CheckUser(tenuserroletq.Text.ToUpper()) == 0)
+                {
+                    MessageBox.Show("User không tồn tại.");
+                    //con.Close();
+                    return;
+                }
+            }
+
+            if (NV1.Checked)//thu quyền DELETE trên bảng NHANVIEN
+            {
+                //những cột viết tắt để tạo view không bị lỗi view quá dài
+                string[] short_name = { "MNV", "TNV", "GT", "NGS", "DC", "SDT", "LG", "PC", "VT", "MQL", "PHG" };
+                //MVN: MANV, TNV: TENNV, GT: PHAI, NGS:NGAYSINH, DC: DIACHI, STD: SODT, PC: PHUCAP, VT: VAITRO, MQL: MANQL
+                //kiểm tra cấp quyền DELETE trên những cột nào
+                string column = "";
+                //chọn ra những cột để DELETE
+                string DELETE_column = "";
+
+                //nếu cấp quyền đọc trên toàn bảng
+                if (NHANVIEN_TQ.CheckedItems.Count != 0 && NHANVIEN_TQ.CheckedItems.Count != 11)
+                {
+                    for (int i = 0; i < NHANVIEN_TQ.Items.Count; i++)
+                    {
+                        if (NHANVIEN_TQ.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += short_name[i] + "_";
+                        }
+                    }
+                    //them HS vào cuối để biết là view từ bàng HS
+                    column += "NV";
+                }
+                else
+                    column = "NHANVIEN";
+                //kiểm tra có cấp quyền DELETE trên bảng column??
+                if (CheckPrivilege(column, "DELETE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                {
+                    MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
+                    //con.Close();
+                    return;
+                }
+                else
+                {
+                    //thực hiện thu quyền
+                    Revoke(column, "DELETE", tenuserroletq.Text.ToUpper());
+                    MessageBox.Show("Thu quyền thành công.");
+                }
+
+                ThongTinQuyen();
+            }
+            else if (PB1.Checked) //thu quyền DELETE trên bảng PHONGBAN
+            {
+
+                //kiểm tra cấp quyền DELETE trên những cột nào
+                //những cột viết tắt để tạo view không bị lỗi view quá dài
+                string[] short_name = { "MPB", "TPB", "TRPHG" };
+                //kiểm tra cấp quyền DELETE trên những cột nào
+                string column = "";
+                if (PHONGBAN_TQ.CheckedItems.Count != 0 && PHONGBAN_TQ.CheckedItems.Count != 3)
+                {
+                    for (int i = 0; i < PHONGBAN_TQ.Items.Count; i++)
+                    {
+                        if (PHONGBAN_TQ.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += short_name[i] + "_";
+                        }
+                    }
+                    //them  vào cuối để biết là view từ bàng Lop
+                    column += "PB";
+                }
+                else
+                    column = "PHONGBAN";
+
+                //kiểm tra có cấp quyền DELETE trên view column?
+                if (CheckPrivilege(column, "DELETE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                {
+                    MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
+                    //con.Close();
+                    return;
+                }
+                else
+                {
+                    //thực hiện thu quyền
+                    Revoke(column, "DELETE", tenuserroletq.Text.ToUpper());
+                    MessageBox.Show("Thu quyền thành công.");
+                }
+            }
+            else if (DA1.Checked) //thu quyền DELETE trên bảng PHONGBAN
+            {
+
+                //kiểm tra cấp quyền DELETE trên những cột nào
+                //những cột viết tắt để tạo view không bị lỗi view quá dài
+                string[] short_name = { "MDA", "TDA", "NGBD", "PG" };
+                //kiểm tra cấp quyền DELETE trên những cột nào
+                string column = "";
+                if (DEAN_TQ.CheckedItems.Count != 0 && DEAN_TQ.CheckedItems.Count != 3)
+                {
+                    for (int i = 0; i < DEAN_TQ.Items.Count; i++)
+                    {
+                        if (DEAN_TQ.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += short_name[i] + "_";
+                        }
+                    }
+                    //them  vào cuối để biết là view từ bàng Lop
+                    column += "DA";
+                }
+                else
+                    column = "DEAN";
+
+                //kiểm tra có cấp quyền DELETE trên view column?
+                if (CheckPrivilege(column, "DELETE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                {
+                    MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
+                    //con.Close();
+                    return;
+                }
+                else
+                {
+                    //thực hiện thu quyền
+                    Revoke(column, "DELETE", tenuserroletq.Text.ToUpper());
+                    MessageBox.Show("Thu quyền thành công.");
+                }
+            }
+            else if (PC1.Checked) //thu quyền DELETE trên bảng PHONGBAN
+            {
+
+                //kiểm tra cấp quyền DELETE trên những cột nào
+                //những cột viết tắt để tạo view không bị lỗi view quá dài
+                string[] short_name = { "MNV", "MDA", "TG" };
+                //kiểm tra cấp quyền DELETE trên những cột nào
+                string column = "";
+                if (PHANCONG_TQ.CheckedItems.Count != 0 && PHANCONG_TQ.CheckedItems.Count != 3)
+                {
+                    for (int i = 0; i < PHANCONG_TQ.Items.Count; i++)
+                    {
+                        if (PHANCONG_TQ.GetItemCheckState(i) == CheckState.Checked)
+                        {
+                            column += short_name[i] + "_";
+                        }
+                    }
+                    //them  vào cuối để biết là view từ bàng Lop
+                    column += "PC";
+                }
+                else
+                    column = "PHANCONG";
+
+                //kiểm tra có cấp quyền DELETE trên view column?
+                if (CheckPrivilege(column, "DELETE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                {
+                    MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
+                    //con.Close();
+                    return;
+                }
+                else
+                {
+                    //thực hiện thu quyền
+                    Revoke(column, "DELETE", tenuserroletq.Text.ToUpper());
+                    MessageBox.Show("Thu quyền thành công.");
+                }
+            }
+
+            //load lại thong tin quyền
+            ThongTinQuyen();
+        }
     }
 
 }
