@@ -84,12 +84,11 @@ namespace DA_ATBM
             con_ds.Close();
         }
 
-        //kiểm tra user có tồn tại
        
 
 
 
-        //Thông tin quyền của user
+//Thông tin quyền của user
         private void ThongTinQuyen()
         {
             OracleConnection con_ttq = new OracleConnection();
@@ -114,7 +113,7 @@ namespace DA_ATBM
 
             con_ttq.Close();
         }
-        //Thông tin quyền của roles
+//Thông tin quyền của roles
         private void ThongTinQuyenRoles()
         {
             OracleConnection con_ttq = new OracleConnection();
@@ -148,6 +147,12 @@ namespace DA_ATBM
         {
             ThongTinQuyen();
         }
+
+
+
+//Thuc hiện cấp quyền trên toàn bảng
+
+        //Kiemr tra view có tồn tại hay không
         private int CheckView(string viewname)
         {
             OracleConnection con = new OracleConnection();
@@ -163,59 +168,8 @@ namespace DA_ATBM
             return 1; //đã tồn tại 
         }
 
-        private void XemBangCua1TaiKhoan()
-        {
-            //Xem bảng 
 
-            ////DBA PRIVILEGE = SYSDBA; TNS_ADMIN = C:\Users\ACER\Oracle\network\admin; USER ID = SYS; DATA SOURCE = localhost:1521 / XE
-            ////string conStr = "DATA SOURCE = localhost:1521 / XE; USER ID = SYSDBA;PASSWORD=Man2082002@";
-            //string conStr = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID = GIAMDOC;PASSWORD=123 ;Connection Timeout=120;";
-
-            //con = new OracleConnection(conStr);
-            ////MessageBox.Show("888jhhh8559");
-            //con.Open();
-            //OracleCommand getEmps = con.CreateCommand();
-            //getEmps.CommandText = "Select * FROM NHANVIEN";
-            //getEmps.CommandType = CommandType.Text;
-            //OracleDataReader empDR = getEmps.ExecuteReader();
-            //DataTable empDT = new DataTable();
-            //empDT.Load(empDR);
-            //danhsachuserroledg.DataSource = empDT;
-            //con.Close();
-
-            //OracleConnection con_ds = new OracleConnection();
-            //con_ds.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID = SYSTEM;PASSWORD=Man2082002@ ;Connection Timeout=120;";
-            //DataSet dataSet_ds = new DataSet();
-            //OracleCommand cmd_ds;
-            //if (timkiemuserroletb.Text == "")
-            //    cmd_ds = new OracleCommand("Select * from all_users", con_ds);
-            //else
-            //    cmd_ds = new OracleCommand("Select * from all_users where username = '" + timkiemuserroletb.Text.ToUpper() + "'", con_ds);
-            //cmd_ds.CommandType = CommandType.Text;
-            //con_ds.Open();
-            //using (OracleDataReader reader = cmd_ds.ExecuteReader())
-            //{
-            //    DataTable dataTable = new DataTable();
-            //    dataTable.Load(reader);
-            //    //danhsachuserdg = null;
-            //    danhsachuserdg.DataSource = dataTable;
-            //}
-
-            ////danh sách các role 
-            //OracleCommand cmd_role;
-            //if (timkiemuserroletb.Text == "")
-            //    cmd_role = new OracleCommand("SELECT * FROM dba_roles", con_ds);
-            //else
-            //    cmd_role = new OracleCommand("SELECT * FROM dba_roles where role = '" + timkiemuserroletb.Text.ToUpper() + "'", con_ds);
-
-            //using (OracleDataReader reader = cmd_role.ExecuteReader())
-            //{
-            //    DataTable dataTable = new DataTable();
-            //    dataTable.Load(reader);
-            //    danhsachroledg.DataSource = dataTable;
-            //}
-        }
-
+        //kiểm tra user có tồn tại
         private int CheckUser(string username)
         {
             OracleConnection con = new OracleConnection();
@@ -231,6 +185,8 @@ namespace DA_ATBM
             return 1; //đã tồn tại 
         }
 
+
+        //kiểm tra roles có tồn tại
         private int CheckRole(string rolename)
         {
             OracleConnection con = new OracleConnection();
@@ -245,12 +201,25 @@ namespace DA_ATBM
                 return 0; //chưa tồn tại
             return 1; //đã tồn tại 
         }
+
         private void nhavienrb_CheckedChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //cấp quyền
             NHANVIEN.Enabled = true;
             PHONGBAN.Enabled = false;
             DEAN.Enabled = false;
             PHANCONG.Enabled = false;
+
+            //Thu quyền
+            NHANVIEN_TQ.Enabled = true;
+            PHONGBAN_TQ.Enabled = false;
+            DEAN_TQ.Enabled = false;
+            PHANCONG_TQ.Enabled = false;
         }
 
         private void phongban_CheckedChanged(object sender, EventArgs e)
@@ -889,7 +858,7 @@ namespace DA_ATBM
 
 
 
-
+// Thuc hien thu quyền trên các bảng
         
 
 
@@ -946,6 +915,10 @@ namespace DA_ATBM
         }
 
 
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+            
+        }
 
 
         private void NV1_CheckedChanged(object sender, EventArgs e)
@@ -1180,15 +1153,15 @@ namespace DA_ATBM
                 }
             }
 
-            if (NV1.Checked)//thu quyền UPDATE trên bảng NHANVIEN
+            if (NV1.Checked)//thu quyền SELECT trên bảng NHANVIEN
             {
                 //những cột viết tắt để tạo view không bị lỗi view quá dài
                 string[] short_name = { "MNV", "TNV", "GT", "NGS", "DC", "SDT", "LG", "PC", "VT", "MQL", "PHG" };
                 //MVN: MANV, TNV: TENNV, GT: PHAI, NGS:NGAYSINH, DC: DIACHI, STD: SODT, PC: PHUCAP, VT: VAITRO, MQL: MANQL
-                //kiểm tra cấp quyền UPDATE trên những cột nào
+                //kiểm tra cấp quyền select trên những cột nào
                 string column = "";
-                //chọn ra những cột để UPDATE
-                string UPDATE_column = "";
+                //chọn ra những cột để select
+                string select_column = "";
 
                 //nếu cấp quyền đọc trên toàn bảng
                 if (NHANVIEN_TQ.CheckedItems.Count != 0 && NHANVIEN_TQ.CheckedItems.Count != 11)
@@ -1205,7 +1178,7 @@ namespace DA_ATBM
                 }
                 else
                     column = "NHANVIEN";
-                //kiểm tra có cấp quyền UPDATE trên bảng column??
+                //kiểm tra có cấp quyền select trên bảng column??
                 if (CheckPrivilege(column, "UPDATE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
                 {
                     MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
@@ -1221,13 +1194,13 @@ namespace DA_ATBM
 
                 ThongTinQuyen();
             }
-            else if (PB1.Checked) //thu quyền UPDATE trên bảng PHONGBAN
+            else if (PB1.Checked) //thu quyền SELECT trên bảng PHONGBAN
             {
 
-                //kiểm tra cấp quyền UPDATE trên những cột nào
+                //kiểm tra cấp quyền select trên những cột nào
                 //những cột viết tắt để tạo view không bị lỗi view quá dài
                 string[] short_name = { "MPB", "TPB", "TRPHG" };
-                //kiểm tra cấp quyền UPDATE trên những cột nào
+                //kiểm tra cấp quyền select trên những cột nào
                 string column = "";
                 if (PHONGBAN_TQ.CheckedItems.Count != 0 && PHONGBAN_TQ.CheckedItems.Count != 3)
                 {
@@ -1244,7 +1217,7 @@ namespace DA_ATBM
                 else
                     column = "PHONGBAN";
 
-                //kiểm tra có cấp quyền UPDATE trên view column?
+                //kiểm tra có cấp quyền select trên view column?
                 if (CheckPrivilege(column, "UPDATE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
                 {
                     MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
@@ -1258,13 +1231,13 @@ namespace DA_ATBM
                     MessageBox.Show("Thu quyền thành công.");
                 }
             }
-            else if (DA1.Checked) //thu quyền UPDATE trên bảng PHONGBAN
+            else if (DA1.Checked) //thu quyền SELECT trên bảng PHONGBAN
             {
 
-                //kiểm tra cấp quyền UPDATE trên những cột nào
+                //kiểm tra cấp quyền select trên những cột nào
                 //những cột viết tắt để tạo view không bị lỗi view quá dài
                 string[] short_name = { "MDA", "TDA", "NGBD", "PG" };
-                //kiểm tra cấp quyền UPDATE trên những cột nào
+                //kiểm tra cấp quyền select trên những cột nào
                 string column = "";
                 if (DEAN_TQ.CheckedItems.Count != 0 && DEAN_TQ.CheckedItems.Count != 3)
                 {
@@ -1281,7 +1254,7 @@ namespace DA_ATBM
                 else
                     column = "DEAN";
 
-                //kiểm tra có cấp quyền UPDATE trên view column?
+                //kiểm tra có cấp quyền select trên view column?
                 if (CheckPrivilege(column, "UPDATE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
                 {
                     MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
@@ -1295,13 +1268,13 @@ namespace DA_ATBM
                     MessageBox.Show("Thu quyền thành công.");
                 }
             }
-            else if (PC1.Checked) //thu quyền UPDATE trên bảng PHONGBAN
+            else if (PC1.Checked) //thu quyền SELECT trên bảng PHONGBAN
             {
 
-                //kiểm tra cấp quyền UPDATE trên những cột nào
+                //kiểm tra cấp quyền select trên những cột nào
                 //những cột viết tắt để tạo view không bị lỗi view quá dài
                 string[] short_name = { "MNV", "MDA", "TG" };
-                //kiểm tra cấp quyền UPDATE trên những cột nào
+                //kiểm tra cấp quyền select trên những cột nào
                 string column = "";
                 if (PHANCONG_TQ.CheckedItems.Count != 0 && PHANCONG_TQ.CheckedItems.Count != 3)
                 {
@@ -1318,7 +1291,7 @@ namespace DA_ATBM
                 else
                     column = "PHANCONG";
 
-                //kiểm tra có cấp quyền UPDATE trên view column?
+                //kiểm tra có cấp quyền select trên view column?
                 if (CheckPrivilege(column, "UPDATE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
                 {
                     MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
@@ -1360,31 +1333,8 @@ namespace DA_ATBM
 
             if (NV1.Checked)//thu quyền INSERT trên bảng NHANVIEN
             {
-                //những cột viết tắt để tạo view không bị lỗi view quá dài
-                string[] short_name = { "MNV", "TNV", "GT", "NGS", "DC", "SDT", "LG", "PC", "VT", "MQL", "PHG" };
-                //MVN: MANV, TNV: TENNV, GT: PHAI, NGS:NGAYSINH, DC: DIACHI, STD: SODT, PC: PHUCAP, VT: VAITRO, MQL: MANQL
-                //kiểm tra cấp quyền INSERT trên những cột nào
-                string column = "";
-                //chọn ra những cột để INSERT
-                string INSERT_column = "";
-
-                //nếu cấp quyền đọc trên toàn bảng
-                if (NHANVIEN_TQ.CheckedItems.Count != 0 && NHANVIEN_TQ.CheckedItems.Count != 11)
-                {
-                    for (int i = 0; i < NHANVIEN_TQ.Items.Count; i++)
-                    {
-                        if (NHANVIEN_TQ.GetItemCheckState(i) == CheckState.Checked)
-                        {
-                            column += short_name[i] + "_";
-                        }
-                    }
-                    //them HS vào cuối để biết là view từ bàng HS
-                    column += "NV";
-                }
-                else
-                    column = "NHANVIEN";
-                //kiểm tra có cấp quyền INSERT trên bảng column??
-                if (CheckPrivilege(column, "INSERT", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                
+                if (CheckPrivilege("NHANVIEN", "INSERT", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
                 {
                     MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
                     //con.Close();
@@ -1393,7 +1343,7 @@ namespace DA_ATBM
                 else
                 {
                     //thực hiện thu quyền
-                    Revoke(column, "INSERT", tenuserroletq.Text.ToUpper());
+                    Revoke("NHANVIEN", "INSERT", tenuserroletq.Text.ToUpper());
                     MessageBox.Show("Thu quyền thành công.");
                 }
 
@@ -1402,28 +1352,8 @@ namespace DA_ATBM
             else if (PB1.Checked) //thu quyền INSERT trên bảng PHONGBAN
             {
 
-                //kiểm tra cấp quyền INSERT trên những cột nào
-                //những cột viết tắt để tạo view không bị lỗi view quá dài
-                string[] short_name = { "MPB", "TPB", "TRPHG" };
-                //kiểm tra cấp quyền INSERT trên những cột nào
-                string column = "";
-                if (PHONGBAN_TQ.CheckedItems.Count != 0 && PHONGBAN_TQ.CheckedItems.Count != 3)
-                {
-                    for (int i = 0; i < PHONGBAN_TQ.Items.Count; i++)
-                    {
-                        if (PHONGBAN_TQ.GetItemCheckState(i) == CheckState.Checked)
-                        {
-                            column += short_name[i] + "_";
-                        }
-                    }
-                    //them  vào cuối để biết là view từ bàng Lop
-                    column += "PB";
-                }
-                else
-                    column = "PHONGBAN";
-
                 //kiểm tra có cấp quyền INSERT trên view column?
-                if (CheckPrivilege(column, "INSERT", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                if (CheckPrivilege("PHONGBAN", "INSERT", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
                 {
                     MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
                     //con.Close();
@@ -1432,35 +1362,16 @@ namespace DA_ATBM
                 else
                 {
                     //thực hiện thu quyền
-                    Revoke(column, "INSERT", tenuserroletq.Text.ToUpper());
+                    Revoke("PHONGBAN", "INSERT", tenuserroletq.Text.ToUpper());
                     MessageBox.Show("Thu quyền thành công.");
                 }
             }
-            else if (DA1.Checked) //thu quyền INSERT trên bảng PHONGBAN
+            else if (DA1.Checked) //thu quyền INSERT trên bảng DOAN
             {
 
-                //kiểm tra cấp quyền INSERT trên những cột nào
-                //những cột viết tắt để tạo view không bị lỗi view quá dài
-                string[] short_name = { "MDA", "TDA", "NGBD", "PG" };
-                //kiểm tra cấp quyền INSERT trên những cột nào
-                string column = "";
-                if (DEAN_TQ.CheckedItems.Count != 0 && DEAN_TQ.CheckedItems.Count != 3)
-                {
-                    for (int i = 0; i < DEAN_TQ.Items.Count; i++)
-                    {
-                        if (DEAN_TQ.GetItemCheckState(i) == CheckState.Checked)
-                        {
-                            column += short_name[i] + "_";
-                        }
-                    }
-                    //them  vào cuối để biết là view từ bàng Lop
-                    column += "DA";
-                }
-                else
-                    column = "DEAN";
-
+                
                 //kiểm tra có cấp quyền INSERT trên view column?
-                if (CheckPrivilege(column, "INSERT", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                if (CheckPrivilege("DEAN", "INSERT", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
                 {
                     MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
                     //con.Close();
@@ -1469,35 +1380,15 @@ namespace DA_ATBM
                 else
                 {
                     //thực hiện thu quyền
-                    Revoke(column, "INSERT", tenuserroletq.Text.ToUpper());
+                    Revoke("DEAN", "INSERT", tenuserroletq.Text.ToUpper());
                     MessageBox.Show("Thu quyền thành công.");
                 }
             }
-            else if (PC1.Checked) //thu quyền INSERT trên bảng PHONGBAN
+            else if (PC1.Checked) //thu quyền INSERT trên bảng PHANCONG
             {
 
-                //kiểm tra cấp quyền INSERT trên những cột nào
-                //những cột viết tắt để tạo view không bị lỗi view quá dài
-                string[] short_name = { "MNV", "MDA", "TG" };
-                //kiểm tra cấp quyền INSERT trên những cột nào
-                string column = "";
-                if (PHANCONG_TQ.CheckedItems.Count != 0 && PHANCONG_TQ.CheckedItems.Count != 3)
-                {
-                    for (int i = 0; i < PHANCONG_TQ.Items.Count; i++)
-                    {
-                        if (PHANCONG_TQ.GetItemCheckState(i) == CheckState.Checked)
-                        {
-                            column += short_name[i] + "_";
-                        }
-                    }
-                    //them  vào cuối để biết là view từ bàng Lop
-                    column += "PC";
-                }
-                else
-                    column = "PHANCONG";
-
-                //kiểm tra có cấp quyền INSERT trên view column?
-                if (CheckPrivilege(column, "INSERT", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                
+                if (CheckPrivilege("PHANCONG", "INSERT", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
                 {
                     MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
                     //con.Close();
@@ -1506,7 +1397,7 @@ namespace DA_ATBM
                 else
                 {
                     //thực hiện thu quyền
-                    Revoke(column, "INSERT", tenuserroletq.Text.ToUpper());
+                    Revoke("PHANCONG", "INSERT", tenuserroletq.Text.ToUpper());
                     MessageBox.Show("Thu quyền thành công.");
                 }
             }
@@ -1538,31 +1429,8 @@ namespace DA_ATBM
 
             if (NV1.Checked)//thu quyền DELETE trên bảng NHANVIEN
             {
-                //những cột viết tắt để tạo view không bị lỗi view quá dài
-                string[] short_name = { "MNV", "TNV", "GT", "NGS", "DC", "SDT", "LG", "PC", "VT", "MQL", "PHG" };
-                //MVN: MANV, TNV: TENNV, GT: PHAI, NGS:NGAYSINH, DC: DIACHI, STD: SODT, PC: PHUCAP, VT: VAITRO, MQL: MANQL
-                //kiểm tra cấp quyền DELETE trên những cột nào
-                string column = "";
-                //chọn ra những cột để DELETE
-                string DELETE_column = "";
-
-                //nếu cấp quyền đọc trên toàn bảng
-                if (NHANVIEN_TQ.CheckedItems.Count != 0 && NHANVIEN_TQ.CheckedItems.Count != 11)
-                {
-                    for (int i = 0; i < NHANVIEN_TQ.Items.Count; i++)
-                    {
-                        if (NHANVIEN_TQ.GetItemCheckState(i) == CheckState.Checked)
-                        {
-                            column += short_name[i] + "_";
-                        }
-                    }
-                    //them HS vào cuối để biết là view từ bàng HS
-                    column += "NV";
-                }
-                else
-                    column = "NHANVIEN";
-                //kiểm tra có cấp quyền DELETE trên bảng column??
-                if (CheckPrivilege(column, "DELETE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                
+                if (CheckPrivilege("NHANVIEN", "DELETE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
                 {
                     MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
                     //con.Close();
@@ -1571,37 +1439,16 @@ namespace DA_ATBM
                 else
                 {
                     //thực hiện thu quyền
-                    Revoke(column, "DELETE", tenuserroletq.Text.ToUpper());
+                    Revoke("NHANVIEN", "DELETE", tenuserroletq.Text.ToUpper());
                     MessageBox.Show("Thu quyền thành công.");
                 }
 
                 ThongTinQuyen();
             }
-            else if (PB1.Checked) //thu quyền DELETE trên bảng PHONGBAN
-            {
+                 else if (PB1.Checked) //thu quyền DELETE trên bảng PHONGBAN
+                 {
 
-                //kiểm tra cấp quyền DELETE trên những cột nào
-                //những cột viết tắt để tạo view không bị lỗi view quá dài
-                string[] short_name = { "MPB", "TPB", "TRPHG" };
-                //kiểm tra cấp quyền DELETE trên những cột nào
-                string column = "";
-                if (PHONGBAN_TQ.CheckedItems.Count != 0 && PHONGBAN_TQ.CheckedItems.Count != 3)
-                {
-                    for (int i = 0; i < PHONGBAN_TQ.Items.Count; i++)
-                    {
-                        if (PHONGBAN_TQ.GetItemCheckState(i) == CheckState.Checked)
-                        {
-                            column += short_name[i] + "_";
-                        }
-                    }
-                    //them  vào cuối để biết là view từ bàng Lop
-                    column += "PB";
-                }
-                else
-                    column = "PHONGBAN";
-
-                //kiểm tra có cấp quyền DELETE trên view column?
-                if (CheckPrivilege(column, "DELETE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                if (CheckPrivilege("PHONGBAN", "DELETE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
                 {
                     MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
                     //con.Close();
@@ -1610,35 +1457,13 @@ namespace DA_ATBM
                 else
                 {
                     //thực hiện thu quyền
-                    Revoke(column, "DELETE", tenuserroletq.Text.ToUpper());
+                    Revoke("PHONGBAN", "DELETE", tenuserroletq.Text.ToUpper());
                     MessageBox.Show("Thu quyền thành công.");
                 }
             }
-            else if (DA1.Checked) //thu quyền DELETE trên bảng PHONGBAN
+            else if (DA1.Checked) //thu quyền DELETE trên bảng DEAN
             {
-
-                //kiểm tra cấp quyền DELETE trên những cột nào
-                //những cột viết tắt để tạo view không bị lỗi view quá dài
-                string[] short_name = { "MDA", "TDA", "NGBD", "PG" };
-                //kiểm tra cấp quyền DELETE trên những cột nào
-                string column = "";
-                if (DEAN_TQ.CheckedItems.Count != 0 && DEAN_TQ.CheckedItems.Count != 3)
-                {
-                    for (int i = 0; i < DEAN_TQ.Items.Count; i++)
-                    {
-                        if (DEAN_TQ.GetItemCheckState(i) == CheckState.Checked)
-                        {
-                            column += short_name[i] + "_";
-                        }
-                    }
-                    //them  vào cuối để biết là view từ bàng Lop
-                    column += "DA";
-                }
-                else
-                    column = "DEAN";
-
-                //kiểm tra có cấp quyền DELETE trên view column?
-                if (CheckPrivilege(column, "DELETE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+                if (CheckPrivilege("DEAN", "DELETE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
                 {
                     MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
                     //con.Close();
@@ -1647,35 +1472,15 @@ namespace DA_ATBM
                 else
                 {
                     //thực hiện thu quyền
-                    Revoke(column, "DELETE", tenuserroletq.Text.ToUpper());
+                    Revoke("DEAN", "DELETE", tenuserroletq.Text.ToUpper());
                     MessageBox.Show("Thu quyền thành công.");
                 }
             }
-            else if (PC1.Checked) //thu quyền DELETE trên bảng PHONGBAN
+            else if (PC1.Checked) //thu quyền DELETE trên bảng PHANCONG
             {
 
-                //kiểm tra cấp quyền DELETE trên những cột nào
-                //những cột viết tắt để tạo view không bị lỗi view quá dài
-                string[] short_name = { "MNV", "MDA", "TG" };
-                //kiểm tra cấp quyền DELETE trên những cột nào
-                string column = "";
-                if (PHANCONG_TQ.CheckedItems.Count != 0 && PHANCONG_TQ.CheckedItems.Count != 3)
-                {
-                    for (int i = 0; i < PHANCONG_TQ.Items.Count; i++)
-                    {
-                        if (PHANCONG_TQ.GetItemCheckState(i) == CheckState.Checked)
-                        {
-                            column += short_name[i] + "_";
-                        }
-                    }
-                    //them  vào cuối để biết là view từ bàng Lop
-                    column += "PC";
-                }
-                else
-                    column = "PHANCONG";
-
-                //kiểm tra có cấp quyền DELETE trên view column?
-                if (CheckPrivilege(column, "DELETE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
+      
+                if (CheckPrivilege("PHANCONG", "DELETE", tenuserroletq.Text.ToUpper()) == 0)//chưa được cấp quyền
                 {
                     MessageBox.Show("Chưa được cấp quyền nên không thể thu quyền.");
                     //con.Close();
@@ -1684,7 +1489,7 @@ namespace DA_ATBM
                 else
                 {
                     //thực hiện thu quyền
-                    Revoke(column, "DELETE", tenuserroletq.Text.ToUpper());
+                    Revoke("PHANCONG", "DELETE", tenuserroletq.Text.ToUpper());
                     MessageBox.Show("Thu quyền thành công.");
                 }
             }
@@ -1692,6 +1497,8 @@ namespace DA_ATBM
             //load lại thong tin quyền
             ThongTinQuyen();
         }
+
+        
     }
 
 }
