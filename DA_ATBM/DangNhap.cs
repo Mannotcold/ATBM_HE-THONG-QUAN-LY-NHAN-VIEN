@@ -65,33 +65,7 @@ namespace DA_ATBM
                 //create role Truong_De_An;
                 //create role QL_Truc_Tiep;
                 //create role Nhan_Vien;
-                //switch (role)
-                //{
-                //    case "Ban_Giam_Doc":
-                //        frmGiaoDienThanhTra menu = new frmGiaoDienThanhTra();
-                //        menu.ShowDialog();
-                //        break;
-                //    case "BACSI":
-                //        frmGiaoDienYBS frmGiaoDienYBS = new frmGiaoDienYBS();
-                //        frmGiaoDienYBS.ShowDialog();
-                //        break;
-                //}
-
-                //if (role == "BAN_GIAM_DOC")
-                //{
-                //    MessageBox.Show("12345");
-                //    Form formKhachHang = new QuanLy();
-                //    this.Hide();
-                //    formKhachHang.ShowDialog();
-                //    this.Close();
-                //}
-                //else if (role == "NV")
-                //{
-                //    //Form formKhachHang = new TestAPP.NhanVien.Menu(username);
-                //    this.Hide();
-                //    //formKhachHang.ShowDialog();
-                //    this.Close();
-                //}
+                
                 switch (role)
                 {
                     case "BAN_GIAM_DOC":
