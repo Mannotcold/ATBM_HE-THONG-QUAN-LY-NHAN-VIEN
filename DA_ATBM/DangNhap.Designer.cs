@@ -56,6 +56,7 @@ namespace DA_ATBM
             this.checkBoxShowPass.Size = new System.Drawing.Size(15, 14);
             this.checkBoxShowPass.TabIndex = 15;
             this.checkBoxShowPass.UseVisualStyleBackColor = true;
+            this.checkBoxShowPass.CheckedChanged += new System.EventHandler(this.checkBoxShowPass_CheckedChanged_1);
             // 
             // textBoxMK
             // 
@@ -126,6 +127,7 @@ namespace DA_ATBM
             this.Controls.Add(this.textBoxTK);
             this.Name = "DangNhap";
             this.Text = "DangNhap";
+            this.Load += new System.EventHandler(this.DangNhap_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

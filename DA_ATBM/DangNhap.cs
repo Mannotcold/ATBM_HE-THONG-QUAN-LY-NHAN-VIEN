@@ -42,17 +42,16 @@ namespace DA_ATBM
                 return;
             }
             string conString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;" + "USER ID=" + textBoxTK.Text + ";PASSWORD=" + textBoxMK.Text + ";DATA SOURCE=localhost:1521/XE";
+
+            
             try
             {
                 OracleConnection con = new OracleConnection();
                 con.ConnectionString = conString;
                 con.Open();
-                OracleCommand cmd_checkrole = new OracleCommand();
+
                 string role = "";
                 string strSQL = "select GRANTED_ROLE from user_role_privs";
-              
-
-                cmd_checkrole.CommandType = CommandType.Text;
                 OracleCommand oCmd = new OracleCommand(strSQL, con);
                 OracleDataReader dr;
                 dr = oCmd.ExecuteReader();
@@ -62,26 +61,26 @@ namespace DA_ATBM
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                //MessageBox.Show(ex.ToString());
                 MessageBox.Show("Connection error please check your id or password");
             }
         }
 
-        private void checkBoxShowPass_CheckedChanged(object sender, EventArgs e)
+
+
+
+        private void DangNhap_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void checkBoxShowPass_CheckedChanged_1(object sender, EventArgs e)
         {
             if (checkBoxShowPass.Checked)
             {
                 textBoxMK.UseSystemPasswordChar = false;
             }
             else textBoxMK.UseSystemPasswordChar = true;
-        }
-
-        private void frmDangNhap_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("Bạn có thật sự muốn thoát khỏi chương trình?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
-            {
-                e.Cancel = true;
-            }
         }
     }
 }
