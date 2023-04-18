@@ -57,15 +57,7 @@ namespace DA_ATBM
                 dr = oCmd.ExecuteReader();
                 dr.Read();
                 role = dr["GRANTED_ROLE"].ToString();
-                MessageBox.Show(role);
-                //create role Ban_Giam_Doc;
-                //create role Truong_Phong;
-                //create role Tai_Chinh;
-                //create role Nhan_Su;
-                //create role Truong_De_An;
-                //create role QL_Truc_Tiep;
-                //create role Nhan_Vien;
-                
+                //MessageBox.Show(role);
                 switch (role)
                 {
                     case "BAN_GIAM_DOC":
