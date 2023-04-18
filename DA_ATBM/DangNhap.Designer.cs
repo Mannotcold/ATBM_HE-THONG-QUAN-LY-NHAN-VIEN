@@ -84,6 +84,7 @@ namespace DA_ATBM
             this.buttonLogin.TabIndex = 12;
             this.buttonLogin.Text = "Đăng nhập";
             this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // label2
             // 
