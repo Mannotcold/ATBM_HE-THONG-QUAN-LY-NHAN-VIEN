@@ -100,6 +100,18 @@ namespace DA_ATBM
                         quanLy.ShowDialog();
                         this.Close();
                         break;
+                    case "TRUONG_PHONG":
+                        break;
+                    case "TAI_CHINH":
+                        break;
+                    case "NHAN_SU":
+                        break;
+                    case "TRUONG_DE_AN":
+                        break;
+                    case "QL_TRUC_TIEP":
+                        break;
+                    case "NHAN_VIEN":
+                        break;
                 }
             }
             catch (Exception ex)
