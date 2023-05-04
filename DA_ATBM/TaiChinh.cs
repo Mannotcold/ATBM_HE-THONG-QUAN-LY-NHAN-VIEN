@@ -28,13 +28,13 @@ namespace DA_ATBM
         private void DanhSachNhanVien()
         {
             OracleConnection con_ds = new OracleConnection();
-            con_ds.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID = QUANLY;PASSWORD=12345 ;Connection Timeout=120;";
+            con_ds.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID = NV014;PASSWORD=NV014 ;Connection Timeout=120;";
             DataSet dataSet_ds = new DataSet();
             OracleCommand cmd_ds;
             if (timkiemuserroletb.Text == "")
-                cmd_ds = new OracleCommand("Select * from NHANVIEN", con_ds);
+                cmd_ds = new OracleCommand("Select * from quanly.NHANVIEN", con_ds);
             else
-                cmd_ds = new OracleCommand("Select * from NHANVIEN where MaNV = '" + timkiemuserroletb.Text.ToUpper() + "'", con_ds);
+                cmd_ds = new OracleCommand("Select * from quanly.NHANVIEN where MaNV = '" + timkiemuserroletb.Text.ToUpper() + "'", con_ds);
             cmd_ds.CommandType = CommandType.Text;
             con_ds.Open();
             using (OracleDataReader reader = cmd_ds.ExecuteReader())
@@ -44,6 +44,52 @@ namespace DA_ATBM
                 danhsachuserdg.DataSource = dataTable;
             }
             con_ds.Close();
+        }
+
+        private void danhsachuserdg_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i;
+            i = danhsachuserdg.CurrentRow.Index;
+            textBox1.Text = danhsachuserdg.Rows[i].Cells[0].Value.ToString();
+            textBox2.Text = danhsachuserdg.Rows[i].Cells[6].Value.ToString();
+            textBox3.Text = danhsachuserdg.Rows[i].Cells[7].Value.ToString();
+        }
+
+        //Cap nhat luong hoac phu cap
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CapNhatLuong_PhuCap();
+        }
+
+        private void CapNhatLuong_PhuCap()
+        {
+            OracleConnection con_ttq = new OracleConnection();
+            con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=NV014;PASSWORD=NV014;Connection Timeout=120;";
+
+            DataSet dataSet_ttq = new DataSet();
+            OracleCommand cmd_ttq;
+            cmd_ttq = new OracleCommand("update quanly.NHANVIEN set LUONG = '" + textBox2.Text + "', PHUCAP = '" + textBox3.Text + "' where MaNV = '" + textBox1.Text + "'", con_ttq);
+            //dba_sys_privs 
+            //user_tab_privs
+            cmd_ttq.CommandType = CommandType.Text;
+            con_ttq.Open();
+            using (OracleDataReader reader = cmd_ttq.ExecuteReader())
+            {
+                DataTable dataTable = new DataTable();
+                dataTable.Load(reader);
+                thongtinquyendg.DataSource = dataTable;
+                int kq = cmd_ttq.ExecuteNonQuery();
+                if (kq > 0)
+                {
+                    MessageBox.Show("Cập nhật thành công! ");
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật thất bại! .");
+                }
+            }
+            DanhSachNhanVien();
+            con_ttq.Close();
         }
     }
 }
