@@ -69,6 +69,10 @@ namespace DA_ATBM
                     case "TRUONG_PHONG":
                         break;
                     case "TAI_CHINH":
+                        Form taichinh = new TaiChinh();
+                        this.Hide();
+                        taichinh.ShowDialog();
+                        this.Close();
                         break;
                     case "NHAN_SU":
                         break;

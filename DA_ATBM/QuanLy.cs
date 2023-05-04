@@ -23,7 +23,6 @@ namespace DA_ATBM
         //Hiển thị danh sách user/role
         private void button1_Click(object sender, EventArgs e)
         {
-            
             DanhSachUser();
 
         }
