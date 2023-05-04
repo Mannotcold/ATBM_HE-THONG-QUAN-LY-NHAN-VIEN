@@ -41,9 +41,9 @@ namespace DA_ATBM
             DataSet dataSet_ds = new DataSet();
             OracleCommand cmd_ds;
             if (timkiemuserroletb.Text == "")
-                cmd_ds = new OracleCommand("Select * from quanly.NHANVIEN", con_ds);
+                cmd_ds = new OracleCommand("Select * from quanly.TC_NHANVIEN", con_ds);
             else
-                cmd_ds = new OracleCommand("Select * from quanly.NHANVIEN where MaNV = '" + timkiemuserroletb.Text.ToUpper() + "'", con_ds);
+                cmd_ds = new OracleCommand("Select * from quanly.TC_NHANVIEN where MaNV = '" + timkiemuserroletb.Text.ToUpper() + "'", con_ds);
             cmd_ds.CommandType = CommandType.Text;
             con_ds.Open();
             using (OracleDataReader reader = cmd_ds.ExecuteReader())
@@ -85,7 +85,7 @@ namespace DA_ATBM
             {
                 DataTable dataTable = new DataTable();
                 dataTable.Load(reader);
-                thongtinquyendg.DataSource = dataTable;
+                BangPhanCong.DataSource = dataTable;
                 int kq = cmd_ttq.ExecuteNonQuery();
                 if (kq > 0)
                 {
@@ -99,6 +99,34 @@ namespace DA_ATBM
             DanhSachNhanVien();
             con_ttq.Close();
         }
+
+        //Tim kiem phan cong
+        private void timkiemuserbtn_Click(object sender, EventArgs e)
+        {
+            DanhSachPhanCong();
+        }
+
+        private void DanhSachPhanCong()
+        {
+            OracleConnection con_ds = new OracleConnection();
+            con_ds.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID =" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
+            DataSet dataSet_ds = new DataSet();
+            OracleCommand cmd_ds;
+            if (timkiemusertb.Text == "")
+                cmd_ds = new OracleCommand("Select * from quanly.TC_PHANCONG", con_ds);
+            else
+                cmd_ds = new OracleCommand("Select * from quanly.TC_PHANCONG where MaNV = '" + timkiemusertb.Text.ToUpper() + "'", con_ds);
+            cmd_ds.CommandType = CommandType.Text;
+            con_ds.Open();
+            using (OracleDataReader reader = cmd_ds.ExecuteReader())
+            {
+                DataTable dataTable = new DataTable();
+                dataTable.Load(reader);
+                BangPhanCong.DataSource = dataTable;
+            }
+            con_ds.Close();
+        }
+
 
         private void Thoat_Click(object sender, EventArgs e)
         {

@@ -37,15 +37,11 @@ namespace DA_ATBM
             this.timkiemuserroletb = new System.Windows.Forms.TextBox();
             this.danhsachuserdg = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.timkiemrole = new System.Windows.Forms.Button();
-            this.timkiemroles = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.timkiemuserbtn = new System.Windows.Forms.Button();
             this.timkiemuserlbl = new System.Windows.Forms.Label();
             this.timkiemusertb = new System.Windows.Forms.TextBox();
-            this.thongtinquyendg = new System.Windows.Forms.DataGridView();
+            this.BangPhanCong = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.Thoat = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -59,7 +55,7 @@ namespace DA_ATBM
             this.tab1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachuserdg)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.thongtinquyendg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BangPhanCong)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +63,6 @@ namespace DA_ATBM
             // 
             this.tab.Controls.Add(this.tab1);
             this.tab.Controls.Add(this.tabPage2);
-            this.tab.Controls.Add(this.tabPage1);
             this.tab.Location = new System.Drawing.Point(12, 66);
             this.tab.Name = "tab";
             this.tab.SelectedIndex = 0;
@@ -137,46 +132,17 @@ namespace DA_ATBM
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.timkiemrole);
-            this.tabPage2.Controls.Add(this.timkiemroles);
-            this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.timkiemuserbtn);
             this.tabPage2.Controls.Add(this.timkiemuserlbl);
             this.tabPage2.Controls.Add(this.timkiemusertb);
-            this.tabPage2.Controls.Add(this.thongtinquyendg);
+            this.tabPage2.Controls.Add(this.BangPhanCong);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(557, 464);
+            this.tabPage2.Size = new System.Drawing.Size(557, 448);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Thông tin quyền";
+            this.tabPage2.Text = "Xem phân công";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // timkiemrole
-            // 
-            this.timkiemrole.Location = new System.Drawing.Point(462, 11);
-            this.timkiemrole.Name = "timkiemrole";
-            this.timkiemrole.Size = new System.Drawing.Size(75, 23);
-            this.timkiemrole.TabIndex = 8;
-            this.timkiemrole.Text = "Tìm kiếm";
-            this.timkiemrole.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.timkiemrole.UseVisualStyleBackColor = true;
-            // 
-            // timkiemroles
-            // 
-            this.timkiemroles.Location = new System.Drawing.Point(344, 14);
-            this.timkiemroles.Name = "timkiemroles";
-            this.timkiemroles.Size = new System.Drawing.Size(100, 20);
-            this.timkiemroles.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(301, 17);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Roles:";
             // 
             // timkiemuserbtn
             // 
@@ -187,15 +153,16 @@ namespace DA_ATBM
             this.timkiemuserbtn.Text = "Tìm kiếm";
             this.timkiemuserbtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.timkiemuserbtn.UseVisualStyleBackColor = true;
+            this.timkiemuserbtn.Click += new System.EventHandler(this.timkiemuserbtn_Click);
             // 
             // timkiemuserlbl
             // 
             this.timkiemuserlbl.AutoSize = true;
             this.timkiemuserlbl.Location = new System.Drawing.Point(6, 17);
             this.timkiemuserlbl.Name = "timkiemuserlbl";
-            this.timkiemuserlbl.Size = new System.Drawing.Size(32, 13);
+            this.timkiemuserlbl.Size = new System.Drawing.Size(37, 13);
             this.timkiemuserlbl.TabIndex = 3;
-            this.timkiemuserlbl.Text = "User:";
+            this.timkiemuserlbl.Text = "MaNV";
             // 
             // timkiemusertb
             // 
@@ -204,14 +171,14 @@ namespace DA_ATBM
             this.timkiemusertb.Size = new System.Drawing.Size(100, 20);
             this.timkiemusertb.TabIndex = 2;
             // 
-            // thongtinquyendg
+            // BangPhanCong
             // 
-            this.thongtinquyendg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.thongtinquyendg.Location = new System.Drawing.Point(6, 40);
-            this.thongtinquyendg.Name = "thongtinquyendg";
-            this.thongtinquyendg.RowHeadersWidth = 51;
-            this.thongtinquyendg.Size = new System.Drawing.Size(540, 417);
-            this.thongtinquyendg.TabIndex = 0;
+            this.BangPhanCong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.BangPhanCong.Location = new System.Drawing.Point(6, 40);
+            this.BangPhanCong.Name = "BangPhanCong";
+            this.BangPhanCong.RowHeadersWidth = 51;
+            this.BangPhanCong.Size = new System.Drawing.Size(540, 402);
+            this.BangPhanCong.TabIndex = 0;
             // 
             // label5
             // 
@@ -223,16 +190,6 @@ namespace DA_ATBM
             this.label5.Size = new System.Drawing.Size(580, 25);
             this.label5.TabIndex = 3;
             this.label5.Text = "CHÀO MÙNG NHÂN VIÊN TÀI CHÍNH ĐẾN VỚI ỨNG DỤNG";
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(557, 464);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -333,7 +290,7 @@ namespace DA_ATBM
             ((System.ComponentModel.ISupportInitialize)(this.danhsachuserdg)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.thongtinquyendg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BangPhanCong)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -350,15 +307,11 @@ namespace DA_ATBM
         private System.Windows.Forms.TextBox timkiemuserroletb;
         private System.Windows.Forms.DataGridView danhsachuserdg;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button timkiemrole;
-        private System.Windows.Forms.TextBox timkiemroles;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button timkiemuserbtn;
         private System.Windows.Forms.Label timkiemuserlbl;
         private System.Windows.Forms.TextBox timkiemusertb;
-        private System.Windows.Forms.DataGridView thongtinquyendg;
+        private System.Windows.Forms.DataGridView BangPhanCong;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label6;
