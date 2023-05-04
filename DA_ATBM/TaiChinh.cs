@@ -13,11 +13,20 @@ using Oracle.ManagedDataAccess.Types;
 
 namespace DA_ATBM
 {
+    
     public partial class TaiChinh : Form
     {
+        private string MK, TK;
         public TaiChinh()
         {
             InitializeComponent();
+        }
+
+        public TaiChinh(string tk, string mk)
+        {
+            InitializeComponent();
+            this.TK = tk;
+            this.MK = mk;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,7 +37,7 @@ namespace DA_ATBM
         private void DanhSachNhanVien()
         {
             OracleConnection con_ds = new OracleConnection();
-            con_ds.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID = NV014;PASSWORD=NV014 ;Connection Timeout=120;";
+            con_ds.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID =" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
             DataSet dataSet_ds = new DataSet();
             OracleCommand cmd_ds;
             if (timkiemuserroletb.Text == "")
@@ -64,13 +73,12 @@ namespace DA_ATBM
         private void CapNhatLuong_PhuCap()
         {
             OracleConnection con_ttq = new OracleConnection();
-            con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=NV014;PASSWORD=NV014;Connection Timeout=120;";
+            con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
 
             DataSet dataSet_ttq = new DataSet();
             OracleCommand cmd_ttq;
             cmd_ttq = new OracleCommand("update quanly.NHANVIEN set LUONG = '" + textBox2.Text + "', PHUCAP = '" + textBox3.Text + "' where MaNV = '" + textBox1.Text + "'", con_ttq);
-            //dba_sys_privs 
-            //user_tab_privs
+            
             cmd_ttq.CommandType = CommandType.Text;
             con_ttq.Open();
             using (OracleDataReader reader = cmd_ttq.ExecuteReader())
@@ -90,6 +98,11 @@ namespace DA_ATBM
             }
             DanhSachNhanVien();
             con_ttq.Close();
+        }
+
+        private void Thoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

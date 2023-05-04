@@ -47,7 +47,7 @@ namespace DA_ATBM
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Thoat = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -244,14 +244,15 @@ namespace DA_ATBM
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // Thoat
             // 
-            this.button3.Location = new System.Drawing.Point(498, 554);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Thoát";
-            this.button3.UseVisualStyleBackColor = true;
+            this.Thoat.Location = new System.Drawing.Point(498, 554);
+            this.Thoat.Name = "Thoat";
+            this.Thoat.Size = new System.Drawing.Size(75, 23);
+            this.Thoat.TabIndex = 8;
+            this.Thoat.Text = "Thoát";
+            this.Thoat.UseVisualStyleBackColor = true;
+            this.Thoat.Click += new System.EventHandler(this.Thoat_Click);
             // 
             // panel1
             // 
@@ -321,7 +322,7 @@ namespace DA_ATBM
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 589);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.Thoat);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tab);
             this.Name = "TaiChinh";
@@ -366,6 +367,6 @@ namespace DA_ATBM
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Thoat;
     }
 }

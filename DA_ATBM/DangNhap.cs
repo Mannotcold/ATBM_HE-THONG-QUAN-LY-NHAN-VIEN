@@ -42,8 +42,8 @@ namespace DA_ATBM
                 return;
             }
             string conString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;" + "USER ID=" + textBoxTK.Text + ";PASSWORD=" + textBoxMK.Text + ";DATA SOURCE=localhost:1521/XE";
-
-            
+            string TK = textBoxTK.Text;
+            string MK = textBoxMK.Text;
             try
             {
                 OracleConnection con = new OracleConnection();
@@ -69,7 +69,7 @@ namespace DA_ATBM
                     case "TRUONG_PHONG":
                         break;
                     case "TAI_CHINH":
-                        Form taichinh = new TaiChinh();
+                        Form taichinh = new TaiChinh(TK,MK);
                         this.Hide();
                         taichinh.ShowDialog();
                         this.Close();
