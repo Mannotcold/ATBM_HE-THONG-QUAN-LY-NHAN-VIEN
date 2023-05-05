@@ -77,6 +77,10 @@ namespace DA_ATBM
                     case "NHAN_SU":
                         break;
                     case "TRUONG_DE_AN":
+                        Form truongdean = new TruongDeAn(TK, MK);
+                        this.Hide();
+                        truongdean.ShowDialog();
+                        this.Close();
                         break;
                     case "QL_TRUC_TIEP":
                         break;
