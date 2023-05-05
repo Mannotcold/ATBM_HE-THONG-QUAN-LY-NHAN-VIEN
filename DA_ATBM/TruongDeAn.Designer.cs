@@ -65,6 +65,7 @@ namespace DA_ATBM
             this.Thoat.TabIndex = 11;
             this.Thoat.Text = "Thoát";
             this.Thoat.UseVisualStyleBackColor = true;
+            this.Thoat.Click += new System.EventHandler(this.Thoat_Click);
             // 
             // panel1
             // 
@@ -117,6 +118,7 @@ namespace DA_ATBM
             // 
             this.textBox1.Location = new System.Drawing.Point(79, 13);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 9;
             // 
@@ -193,6 +195,7 @@ namespace DA_ATBM
             this.danhsachdeangv.RowHeadersWidth = 51;
             this.danhsachdeangv.Size = new System.Drawing.Size(402, 229);
             this.danhsachdeangv.TabIndex = 0;
+            this.danhsachdeangv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.danhsachdeangv_CellContentClick);
             // 
             // tab1
             // 
@@ -225,11 +228,13 @@ namespace DA_ATBM
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(336, 55);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
             this.dateTimePicker1.TabIndex = 13;
+            this.dateTimePicker1.Value = new System.DateTime(2023, 5, 5, 0, 0, 0, 0);
             // 
             // label4
             // 
@@ -258,6 +263,7 @@ namespace DA_ATBM
             this.Xoa.TabIndex = 10;
             this.Xoa.Text = "Xóa";
             this.Xoa.UseVisualStyleBackColor = true;
+            this.Xoa.Click += new System.EventHandler(this.Xoa_Click);
             // 
             // Them
             // 
@@ -279,6 +285,7 @@ namespace DA_ATBM
             this.Controls.Add(this.tab);
             this.Name = "TruongDeAn";
             this.Text = "TruongDeAn";
+            this.Load += new System.EventHandler(this.TruongDeAn_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachdeangv)).EndInit();

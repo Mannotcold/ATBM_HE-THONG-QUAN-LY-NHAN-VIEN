@@ -54,10 +54,33 @@ namespace DA_ATBM
 
         private void Them_Click(object sender, EventArgs e)
         {
+            CountMADA();
             DialogResult rs = MessageBox.Show("Bạn có muốn thêm hay không?", "Thêm đề án", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (rs == DialogResult.Yes)
             {
+               
+                try
+                {
+                    OracleConnection con_ttq = new OracleConnection();
+                    con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
 
+
+                    DataSet dataSet_ttq = new DataSet();
+                    OracleCommand cmd_ttq;
+                    cmd_ttq = new OracleCommand("insert into quanly.TDA_DEAN (MADA, TENDA, NGAYBD, PHONG) values ('" + MADA + "','" + textBox3.Text + "',date'" + dateTimePicker1.Text + "','" + textBox2.Text + "')", con_ttq);
+
+                    cmd_ttq.CommandType = CommandType.Text;
+                    con_ttq.Open();
+                    OracleDataReader reader = cmd_ttq.ExecuteReader();
+                    MessageBox.Show("Thêm đề án thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DanhSachDeAN();
+                    con_ttq.Close();
+                }
+                catch (Exception exp)
+                {
+                    MessageBox.Show("Thêm đề án không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    DanhSachDeAN();
+                }
             }
             else
             {
@@ -70,36 +93,122 @@ namespace DA_ATBM
             DialogResult rs = MessageBox.Show("Bạn có muốn cập nhật hay không", "Cập nhật đề án", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (rs == DialogResult.Yes)
             {
-                OracleConnection con_ttq = new OracleConnection();
-                con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
-
-                DataSet dataSet_ttq = new DataSet();
-                OracleCommand cmd_ttq;
-                cmd_ttq = new OracleCommand("update quanly.TDA_DEAN set TENDA = '" + textBox3.Text + "', PHONG = '" + textBox2.Text + "', NGAYBD = '" + dateTimePicker1.Text + "' where MaDA = '" + textBox1.Text + "'", con_ttq);
-
-                cmd_ttq.CommandType = CommandType.Text;
-                con_ttq.Open();
-                using (OracleDataReader reader = cmd_ttq.ExecuteReader())
+                try
                 {
-                    DataTable dataTable = new DataTable();
-                    dataTable.Load(reader);
-                    danhsachdeangv.DataSource = dataTable;
-                    int kq = cmd_ttq.ExecuteNonQuery();
-                    if (kq > 0)
+                    OracleConnection con_ttq = new OracleConnection();
+                    con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
+
+                    DataSet dataSet_ttq = new DataSet();
+                    OracleCommand cmd_ttq;
+                    cmd_ttq = new OracleCommand("update quanly.TDA_DEAN set TENDA = '" + textBox3.Text + "', PHONG = '" + textBox2.Text + "', NGAYBD = date'" + dateTimePicker1.Text + "' where MaDA = '" + textBox1.Text + "'", con_ttq);
+
+                    cmd_ttq.CommandType = CommandType.Text;
+                    con_ttq.Open();
+                    using (OracleDataReader reader = cmd_ttq.ExecuteReader())
                     {
-                        MessageBox.Show("Cập nhật thành công! ");
+                        MessageBox.Show("Cập nhật đề án thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    else
-                    {
-                        MessageBox.Show("Cập nhật thất bại! .");
-                    }
+                    DanhSachDeAN();
+                    con_ttq.Close();
                 }
-                DanhSachDeAN();
-                con_ttq.Close();
+                catch (Exception exp)
+                {
+                    MessageBox.Show("Cập nhật đề án không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    DanhSachDeAN();
+                }
+                
             }
             else
             {
                 
+            }
+        }
+
+        private void danhsachdeangv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i;
+            i = danhsachdeangv.CurrentRow.Index;
+            textBox1.Text = danhsachdeangv.Rows[i].Cells[0].Value.ToString();
+            textBox2.Text = danhsachdeangv.Rows[i].Cells[3].Value.ToString();
+            textBox3.Text = danhsachdeangv.Rows[i].Cells[1].Value.ToString();
+            dateTimePicker1.Text = danhsachdeangv.Rows[i].Cells[2].Value.ToString();
+        }
+        string MADA;
+        private void CountMADA()
+        {
+            OracleConnection con_ttq = new OracleConnection();
+            con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
+
+            DataSet dataSet_ttq = new DataSet();
+            OracleCommand cmd_ttq;
+            cmd_ttq = new OracleCommand("select COUNT(*) from quanly.TDA_DEAN", con_ttq);
+
+            cmd_ttq.CommandType = CommandType.Text;
+            con_ttq.Open();
+            using (OracleDataReader reader = cmd_ttq.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    int mada = reader.GetInt32(0) + 1;
+                    MADA = "DA0" + mada.ToString();
+                }
+
+            }
+            con_ttq.Close();
+        }
+        private void TruongDeAn_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Xoa_Click(object sender, EventArgs e)
+        {
+            DialogResult rs = MessageBox.Show("Bạn có muốn cập nhật hay không", "Cập nhật đề án", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (rs == DialogResult.Yes)
+            {
+                try
+                {
+                    OracleConnection con_ttq = new OracleConnection();
+                    con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
+
+                    DataSet dataSet_ttq = new DataSet();
+                    OracleCommand cmd_ttq;
+                    cmd_ttq = new OracleCommand("delete from quanly.TDA_DEAN where MaDA = '" + textBox1.Text + "'", con_ttq);
+
+                    cmd_ttq.CommandType = CommandType.Text;
+                    con_ttq.Open();
+                    using (OracleDataReader reader = cmd_ttq.ExecuteReader())
+                    {
+                        MessageBox.Show("Xoa đề án thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    DanhSachDeAN();
+                    con_ttq.Close();
+                }
+                catch (Exception exp)
+                {
+                    MessageBox.Show("Xóa đề án không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    DanhSachDeAN();
+                }
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void Thoat_Click(object sender, EventArgs e)
+        {
+            DialogResult rs = MessageBox.Show("Bạn có muốn thoát không", "Thoát", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (rs == DialogResult.Yes)
+            {
+
+                this.Close();
+
+            }
+            else
+            {
+
             }
         }
 

@@ -72,32 +72,43 @@ namespace DA_ATBM
 
         private void CapNhatLuong_PhuCap()
         {
-            OracleConnection con_ttq = new OracleConnection();
-            con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
-
-            DataSet dataSet_ttq = new DataSet();
-            OracleCommand cmd_ttq;
-            cmd_ttq = new OracleCommand("update quanly.NHANVIEN set LUONG = '" + textBox2.Text + "', PHUCAP = '" + textBox3.Text + "' where MaNV = '" + textBox1.Text + "'", con_ttq);
             
-            cmd_ttq.CommandType = CommandType.Text;
-            con_ttq.Open();
-            using (OracleDataReader reader = cmd_ttq.ExecuteReader())
+            DialogResult rs = MessageBox.Show("Bạn có muốn cập nhật hay không", "Cập nhật đề án", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (rs == DialogResult.Yes)
             {
-                DataTable dataTable = new DataTable();
-                dataTable.Load(reader);
-                BangPhanCong.DataSource = dataTable;
-                int kq = cmd_ttq.ExecuteNonQuery();
-                if (kq > 0)
+                try
                 {
-                    MessageBox.Show("Cập nhật thành công! ");
+                    OracleConnection con_ttq = new OracleConnection();
+                    con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
+
+                    DataSet dataSet_ttq = new DataSet();
+                    OracleCommand cmd_ttq;
+                    cmd_ttq = new OracleCommand("update quanly.NHANVIEN set LUONG = '" + textBox2.Text + "', PHUCAP = '" + textBox3.Text + "' where MaNV = '" + textBox1.Text + "'", con_ttq);
+
+                    cmd_ttq.CommandType = CommandType.Text;
+                    con_ttq.Open();
+                    using (OracleDataReader reader = cmd_ttq.ExecuteReader())
+                    {
+                        DataTable dataTable = new DataTable();
+                        dataTable.Load(reader);
+                        BangPhanCong.DataSource = dataTable;
+                        MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    DanhSachNhanVien();
+                    con_ttq.Close();
+
                 }
-                else
+                catch (Exception exp)
                 {
-                    MessageBox.Show("Cập nhật thất bại! .");
+                    MessageBox.Show("Cập nhật không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    
                 }
+
             }
-            DanhSachNhanVien();
-            con_ttq.Close();
+            else
+            {
+
+            }
         }
 
         //Tim kiem phan cong
