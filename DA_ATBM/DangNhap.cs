@@ -97,7 +97,7 @@ namespace DA_ATBM
                         this.Close();
                         break;
                     case "NHAN_VIEN":
-                        Form nhanvien = new NhanSu(TK, MK);
+                        Form nhanvien = new NhanVien(TK, MK);
                         this.Hide();
                         nhanvien.ShowDialog();
                         this.Close();

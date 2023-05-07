@@ -333,7 +333,9 @@ namespace DA_ATBM
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Application.Run(new NhanVien());
+            Form nhanvien = new NhanVien(TK, MK);
+            nhanvien.ShowDialog();
+            this.Close();
         }
 
 
