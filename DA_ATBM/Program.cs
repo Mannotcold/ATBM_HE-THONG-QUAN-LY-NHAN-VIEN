@@ -16,7 +16,8 @@ namespace DA_ATBM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DangNhap());
+            //Application.Run(new DangNhap());
+            Application.Run(new NhanSu());
         }
     }
 }
