@@ -291,20 +291,42 @@ namespace DA_ATBM
 
             if (MANVNHANSU.Text != "")
             {
-                ChinhSuaNhanVien_LUONG_PC_NULL_TENNV();
-                ChinhSuaNhanVien_LUONG_PC_NULL_PHAI();
-                ChinhSuaNhanVien_LUONG_PC_NULL_NGAYSINH();
-                ChinhSuaNhanVien_LUONG_PC_NULL_DIACHI();
-                ChinhSuaNhanVien_LUONG_PC_NULL_SDT();
-                ChinhSuaNhanVien_LUONG_PC_NULL_VAITRO();
-                ChinhSuaNhanVien_LUONG_PC_NULL_MANQL();
-                ChinhSuaNhanVien_LUONG_PC_NULL_PHG();
+
+                if (TENNVNHANSU.Text != "")
+                {
+                    ChinhSuaNhanVien_LUONG_PC_NULL_TENNV();
+                }
+                if (PHAINHANSU.Text != "")
+                {
+                    ChinhSuaNhanVien_LUONG_PC_NULL_PHAI();
+                }
+                if (NGAYSINHNHANSU.Text != "")
+                {
+                    ChinhSuaNhanVien_LUONG_PC_NULL_NGAYSINH();
+                }
+                if (DIACHINHANSU.Text != "")
+                {
+                    ChinhSuaNhanVien_LUONG_PC_NULL_DIACHI();
+                }
+                if (SDTNHANSU.Text != "")
+                {
+                    ChinhSuaNhanVien_LUONG_PC_NULL_SDT();
+                }
+                if (VAITRONHANSU.Text != "")
+                {
+                    ChinhSuaNhanVien_LUONG_PC_NULL_VAITRO();
+                }
+                if (MANQLNHANSU.Text != "")
+                {
+                    ChinhSuaNhanVien_LUONG_PC_NULL_MANQL();
+                }
+                if (PHGNHANSU.Text != "")
+                {
+                    ChinhSuaNhanVien_LUONG_PC_NULL_PHG();
+                }
                 MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
-            else
-            {
-                MessageBox.Show("Mã nhân viên không hợp lệ Cập nhật không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
+            
         }
         //thực hiện quyền như là một nhân viên thông thường (vai trò “Nhân viên”).
 
