@@ -69,6 +69,8 @@
             this.timkiemuserlbl = new System.Windows.Forms.Label();
             this.ThongtinNV = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.TtPhongBan = new System.Windows.Forms.DataGridView();
             this.tabPage1.SuspendLayout();
             this.tab1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -76,6 +78,7 @@
             this.xemttcanhan_nhansu.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ThongtinNV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TtPhongBan)).BeginInit();
             this.SuspendLayout();
             // 
             // Thoat
@@ -102,6 +105,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button5);
+            this.tabPage1.Controls.Add(this.TtPhongBan);
             this.tabPage1.Controls.Add(this.textTRPHG);
             this.tabPage1.Controls.Add(this.textTENPB);
             this.tabPage1.Controls.Add(this.textMAPB);
@@ -120,21 +125,21 @@
             // 
             // textTRPHG
             // 
-            this.textTRPHG.Location = new System.Drawing.Point(201, 156);
+            this.textTRPHG.Location = new System.Drawing.Point(268, 139);
             this.textTRPHG.Name = "textTRPHG";
             this.textTRPHG.Size = new System.Drawing.Size(154, 22);
             this.textTRPHG.TabIndex = 21;
             // 
             // textTENPB
             // 
-            this.textTENPB.Location = new System.Drawing.Point(201, 116);
+            this.textTENPB.Location = new System.Drawing.Point(268, 99);
             this.textTENPB.Name = "textTENPB";
             this.textTENPB.Size = new System.Drawing.Size(154, 22);
             this.textTENPB.TabIndex = 20;
             // 
             // textMAPB
             // 
-            this.textMAPB.Location = new System.Drawing.Point(201, 76);
+            this.textMAPB.Location = new System.Drawing.Point(268, 59);
             this.textMAPB.Name = "textMAPB";
             this.textMAPB.Size = new System.Drawing.Size(154, 22);
             this.textMAPB.TabIndex = 19;
@@ -142,9 +147,9 @@
             // 
             // button7_nv
             // 
-            this.button7_nv.Location = new System.Drawing.Point(395, 142);
+            this.button7_nv.Location = new System.Drawing.Point(462, 119);
             this.button7_nv.Name = "button7_nv";
-            this.button7_nv.Size = new System.Drawing.Size(89, 30);
+            this.button7_nv.Size = new System.Drawing.Size(89, 36);
             this.button7_nv.TabIndex = 16;
             this.button7_nv.Text = "Cập nhật";
             this.button7_nv.UseVisualStyleBackColor = true;
@@ -153,7 +158,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(53, 156);
+            this.label4.Location = new System.Drawing.Point(120, 139);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(114, 16);
             this.label4.TabIndex = 15;
@@ -161,9 +166,9 @@
             // 
             // button6_nv
             // 
-            this.button6_nv.Location = new System.Drawing.Point(395, 93);
+            this.button6_nv.Location = new System.Drawing.Point(462, 68);
             this.button6_nv.Name = "button6_nv";
-            this.button6_nv.Size = new System.Drawing.Size(89, 27);
+            this.button6_nv.Size = new System.Drawing.Size(89, 35);
             this.button6_nv.TabIndex = 14;
             this.button6_nv.Text = "Thêm";
             this.button6_nv.UseVisualStyleBackColor = true;
@@ -172,7 +177,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(67, 116);
+            this.label7.Location = new System.Drawing.Point(134, 99);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(100, 16);
             this.label7.TabIndex = 12;
@@ -181,7 +186,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(82, 76);
+            this.label8.Location = new System.Drawing.Point(149, 59);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(95, 16);
             this.label8.TabIndex = 10;
@@ -490,6 +495,26 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(245, 194);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(238, 37);
+            this.button5.TabIndex = 26;
+            this.button5.Text = "Xem thông tin phòng ban ";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // TtPhongBan
+            // 
+            this.TtPhongBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TtPhongBan.Location = new System.Drawing.Point(81, 238);
+            this.TtPhongBan.Margin = new System.Windows.Forms.Padding(4);
+            this.TtPhongBan.Name = "TtPhongBan";
+            this.TtPhongBan.RowHeadersWidth = 51;
+            this.TtPhongBan.Size = new System.Drawing.Size(583, 297);
+            this.TtPhongBan.TabIndex = 25;
+            // 
             // NhanSu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -512,6 +537,7 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ThongtinNV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TtPhongBan)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -560,5 +586,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.DataGridView TtPhongBan;
     }
 }

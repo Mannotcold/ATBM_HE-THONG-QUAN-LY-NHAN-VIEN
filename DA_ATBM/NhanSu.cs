@@ -27,8 +27,28 @@ namespace DA_ATBM
             this.TK = tk;
             this.MK = mk;
         }
+        private void XemTTPhongBan()
+        {
+            OracleConnection con_ttPB = new OracleConnection();
+            con_ttPB.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID =" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
+            DataSet dataSet_ds = new DataSet();
+            OracleCommand cmd_ttpb;
+            cmd_ttpb = new OracleCommand("select * from quanly.PHONGBAN_VIEW", con_ttPB);
+            cmd_ttpb.CommandType = CommandType.Text;
+            con_ttPB.Open();
+            using (OracleDataReader reader = cmd_ttpb.ExecuteReader())
+            {
+                DataTable dataTable = new DataTable();
+                dataTable.Load(reader);
+                TtPhongBan.DataSource = dataTable;
+            }
+            con_ttPB.Close();
+        }
+        private void button5_Click(object sender, EventArgs e)
+        {
+            XemTTPhongBan();
+        }
 
-       
         private void ChinhsuaTENPB()
         {
             if (textTENPB.Text != "")
@@ -104,7 +124,7 @@ namespace DA_ATBM
         private void button6_nv_Click(object sender, EventArgs e)
         {
             ThemPB();
-            MessageBox.Show("Thêm phong ban thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Thêm thành công");
         }
 
 
@@ -337,10 +357,6 @@ namespace DA_ATBM
             nhanvien.ShowDialog();
             this.Close();
         }
-
-
-
-
 
 
 
