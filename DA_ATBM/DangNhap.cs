@@ -67,6 +67,10 @@ namespace DA_ATBM
                         this.Close();
                         break;
                     case "TRUONG_PHONG":
+                        Form truongphong = new TruongPhong(TK, MK);
+                        this.Hide();
+                        truongphong.ShowDialog();
+                        this.Close();
                         break;
                     case "TAI_CHINH":
                         Form taichinh = new TaiChinh(TK,MK);
@@ -75,6 +79,10 @@ namespace DA_ATBM
                         this.Close();
                         break;
                     case "NHAN_SU":
+                        Form nhansu = new NhanSu(TK, MK);
+                        this.Hide();
+                        nhansu.ShowDialog();
+                        this.Close();
                         break;
                     case "TRUONG_DE_AN":
                         Form truongdean = new TruongDeAn(TK, MK);
@@ -83,8 +91,16 @@ namespace DA_ATBM
                         this.Close();
                         break;
                     case "QL_TRUC_TIEP":
+                        Form qltructiep = new QuanLyTrucTiep(TK, MK);
+                        this.Hide();
+                        qltructiep.ShowDialog();
+                        this.Close();
                         break;
                     case "NHAN_VIEN":
+                        Form nhanvien = new NhanSu(TK, MK);
+                        this.Hide();
+                        nhanvien.ShowDialog();
+                        this.Close();
                         break;
                 }
             }
