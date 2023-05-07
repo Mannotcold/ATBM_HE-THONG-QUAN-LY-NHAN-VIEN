@@ -310,6 +310,7 @@
             this.ngaysinh_nv.Name = "ngaysinh_nv";
             this.ngaysinh_nv.Size = new System.Drawing.Size(199, 22);
             this.ngaysinh_nv.TabIndex = 0;
+            this.ngaysinh_nv.TextChanged += new System.EventHandler(this.ngaysinh_nv_TextChanged);
             // 
             // NhanVien
             // 

@@ -194,7 +194,7 @@ namespace DA_ATBM
             con_csTRPHG.Open();
             OracleCommand cmd_csTRPHG;
             OracleCommand cmd_commit;
-            cmd_csTRPHG = new OracleCommand("update quanly.NHANVIEN_VIEW_luong_phucap_null set NGAYSINH = '" + NGAYSINHNHANSU.Text.ToUpper() + "' WHERE MANV = '" + MANVNHANSU.Text.ToUpper() + "'", con_csTRPHG);
+            cmd_csTRPHG = new OracleCommand("update quanly.NHANVIEN_VIEW_luong_phucap_null set NGAYSINH = date'" + NGAYSINHNHANSU.Text.ToUpper() + "' WHERE MANV = '" + MANVNHANSU.Text.ToUpper() + "'", con_csTRPHG);
             cmd_csTRPHG.CommandType = CommandType.Text;
             cmd_commit = new OracleCommand("commit", con_csTRPHG);
             cmd_commit.CommandType = CommandType.Text;

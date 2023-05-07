@@ -167,6 +167,11 @@ namespace DA_ATBM
             Chinhsuasodtnv();
         }
 
+        private void ngaysinh_nv_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void Chinhsuasodtnv()
         {
             OracleConnection con_cssdt = new OracleConnection();
