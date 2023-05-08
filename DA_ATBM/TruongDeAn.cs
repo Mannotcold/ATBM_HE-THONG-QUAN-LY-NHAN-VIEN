@@ -212,6 +212,12 @@ namespace DA_ATBM
             }
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form nhanvien = new NhanVien(TK, MK);
+            nhanvien.Show();
+        }
+
         private void Lammoi_Click(object sender, EventArgs e)
         {
             timkiemuserroletb.Text = null;

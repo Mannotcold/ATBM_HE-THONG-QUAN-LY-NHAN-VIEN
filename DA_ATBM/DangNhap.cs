@@ -58,14 +58,15 @@ namespace DA_ATBM
                 dr.Read();
                 role = dr["GRANTED_ROLE"].ToString();
                 //MessageBox.Show(role);
+                ////if (TK == "quanly" && MK == "12345")
+                ////{
+                ////    Form quanLy = new QuanLy();
+                ////    this.Hide();
+                ////    quanLy.ShowDialog();
+                ////    this.Close();
+                ////}
                 switch (role)
                 {
-                    case "BAN_GIAM_DOC":
-                        Form quanLy = new QuanLy();
-                        this.Hide();
-                        quanLy.ShowDialog();
-                        this.Close();
-                        break;
                     case "TRUONG_PHONG":
                         Form truongphong = new TruongPhong(TK, MK);
                         this.Hide();
@@ -103,11 +104,12 @@ namespace DA_ATBM
                         this.Close();
                         break;
                 }
+                
             }
             catch (Exception ex)
             {
                 //MessageBox.Show(ex.ToString());
-                MessageBox.Show("Connection error please check your id or password");
+                MessageBox.Show("Đăng nhập không thành công! Vui lòng kiểm tra lại tài khoản, mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 

@@ -138,6 +138,11 @@ namespace DA_ATBM
             con_ds.Close();
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form nhanvien = new NhanVien(TK, MK);
+            nhanvien.Show();
+        }
 
         private void Thoat_Click(object sender, EventArgs e)
         {

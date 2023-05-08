@@ -1710,6 +1710,24 @@ namespace DA_ATBM
             }
             con.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OracleConnection con_ttaudit = new OracleConnection();
+            con_ttaudit.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID =quanly;Password=12345;Connection Timeout=120;";
+            DataSet dataSet_ds = new DataSet();
+            OracleCommand cmd_ttaudit;
+            cmd_ttaudit = new OracleCommand("SELECT DBUID, LSQLTEXT, NTIMESTAMP# FROM SYS.FGA_LOG$", con_ttaudit);
+            cmd_ttaudit.CommandType = CommandType.Text;
+            con_ttaudit.Open();
+            using (OracleDataReader reader = cmd_ttaudit.ExecuteReader())
+            {
+                DataTable dataTable = new DataTable();
+                dataTable.Load(reader);
+                ThongtinAudit.DataSource = dataTable;
+            }
+            con_ttaudit.Close();
+        }
     }
 
 }

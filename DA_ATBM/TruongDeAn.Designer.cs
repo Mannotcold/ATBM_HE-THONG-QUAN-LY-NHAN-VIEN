@@ -31,6 +31,8 @@ namespace DA_ATBM
         {
             this.Thoat = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -45,12 +47,11 @@ namespace DA_ATBM
             this.timkiemuserroletb = new System.Windows.Forms.TextBox();
             this.danhsachdeangv = new System.Windows.Forms.DataGridView();
             this.tab1 = new System.Windows.Forms.TabPage();
-            this.tab = new System.Windows.Forms.TabControl();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.Lammoi = new System.Windows.Forms.Button();
-            this.Xoa = new System.Windows.Forms.Button();
             this.Them = new System.Windows.Forms.Button();
+            this.Xoa = new System.Windows.Forms.Button();
+            this.Lammoi = new System.Windows.Forms.Button();
+            this.tab = new System.Windows.Forms.TabControl();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.danhsachdeangv)).BeginInit();
             this.tab1.SuspendLayout();
@@ -59,7 +60,7 @@ namespace DA_ATBM
             // 
             // Thoat
             // 
-            this.Thoat.Location = new System.Drawing.Point(374, 516);
+            this.Thoat.Location = new System.Drawing.Point(432, 517);
             this.Thoat.Name = "Thoat";
             this.Thoat.Size = new System.Drawing.Size(75, 23);
             this.Thoat.TabIndex = 11;
@@ -81,6 +82,25 @@ namespace DA_ATBM
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(482, 84);
             this.panel1.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(256, 58);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Ngày bắt đầu";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(336, 55);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePicker1.TabIndex = 13;
+            this.dateTimePicker1.Value = new System.DateTime(2023, 5, 5, 0, 0, 0, 0);
             // 
             // textBox3
             // 
@@ -217,43 +237,15 @@ namespace DA_ATBM
             this.tab1.Text = "Xử lý nhân viên";
             this.tab1.UseVisualStyleBackColor = true;
             // 
-            // tab
+            // Them
             // 
-            this.tab.Controls.Add(this.tab1);
-            this.tab.Location = new System.Drawing.Point(12, 47);
-            this.tab.Name = "tab";
-            this.tab.SelectedIndex = 0;
-            this.tab.Size = new System.Drawing.Size(505, 463);
-            this.tab.TabIndex = 9;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(336, 55);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
-            this.dateTimePicker1.TabIndex = 13;
-            this.dateTimePicker1.Value = new System.DateTime(2023, 5, 5, 0, 0, 0, 0);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(256, 58);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Ngày bắt đầu";
-            // 
-            // Lammoi
-            // 
-            this.Lammoi.Location = new System.Drawing.Point(416, 408);
-            this.Lammoi.Name = "Lammoi";
-            this.Lammoi.Size = new System.Drawing.Size(75, 23);
-            this.Lammoi.TabIndex = 9;
-            this.Lammoi.Text = "Làm mới";
-            this.Lammoi.UseVisualStyleBackColor = true;
-            this.Lammoi.Click += new System.EventHandler(this.Lammoi_Click);
+            this.Them.Location = new System.Drawing.Point(9, 408);
+            this.Them.Name = "Them";
+            this.Them.Size = new System.Drawing.Size(75, 23);
+            this.Them.TabIndex = 11;
+            this.Them.Text = "Thêm";
+            this.Them.UseVisualStyleBackColor = true;
+            this.Them.Click += new System.EventHandler(this.Them_Click);
             // 
             // Xoa
             // 
@@ -265,21 +257,42 @@ namespace DA_ATBM
             this.Xoa.UseVisualStyleBackColor = true;
             this.Xoa.Click += new System.EventHandler(this.Xoa_Click);
             // 
-            // Them
+            // Lammoi
             // 
-            this.Them.Location = new System.Drawing.Point(9, 408);
-            this.Them.Name = "Them";
-            this.Them.Size = new System.Drawing.Size(75, 23);
-            this.Them.TabIndex = 11;
-            this.Them.Text = "Thêm";
-            this.Them.UseVisualStyleBackColor = true;
-            this.Them.Click += new System.EventHandler(this.Them_Click);
+            this.Lammoi.Location = new System.Drawing.Point(416, 408);
+            this.Lammoi.Name = "Lammoi";
+            this.Lammoi.Size = new System.Drawing.Size(75, 23);
+            this.Lammoi.TabIndex = 9;
+            this.Lammoi.Text = "Làm mới";
+            this.Lammoi.UseVisualStyleBackColor = true;
+            this.Lammoi.Click += new System.EventHandler(this.Lammoi_Click);
+            // 
+            // tab
+            // 
+            this.tab.Controls.Add(this.tab1);
+            this.tab.Location = new System.Drawing.Point(12, 47);
+            this.tab.Name = "tab";
+            this.tab.SelectedIndex = 0;
+            this.tab.Size = new System.Drawing.Size(505, 463);
+            this.tab.TabIndex = 9;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(25, 517);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(121, 22);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "Thông tin cá nhân";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // TruongDeAn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(529, 547);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.Thoat);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tab);
@@ -321,5 +334,6 @@ namespace DA_ATBM
         private System.Windows.Forms.Button Them;
         private System.Windows.Forms.Button Xoa;
         private System.Windows.Forms.Button Lammoi;
+        private System.Windows.Forms.Button button4;
     }
 }
