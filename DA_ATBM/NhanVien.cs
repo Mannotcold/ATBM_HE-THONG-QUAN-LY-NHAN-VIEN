@@ -131,7 +131,7 @@ namespace DA_ATBM
             con_csngs.Open();
             OracleCommand cmd_csngs;
             OracleCommand cmd_commit;
-            cmd_csngs = new OracleCommand("update quanly.nhanvienupdate_v set ngaysinh = date'"+ ngaysinh_nv.Text.ToUpper() +"'", con_csngs);
+            cmd_csngs = new OracleCommand("update quanly.nhanvienupdate_v set ngaysinh = date'"+ dateTimePicker1.Text.ToUpper() +"'", con_csngs);
             cmd_csngs.CommandType = CommandType.Text;
             cmd_commit = new OracleCommand("commit", con_csngs);
             cmd_commit.CommandType = CommandType.Text;
@@ -191,6 +191,30 @@ namespace DA_ATBM
             {
 
             }
+        }
+
+        private void button5_nv_Click_1(object sender, EventArgs e)
+        {
+            Chinhsuangaysinhnv();
+        }
+
+        private void button6_nv_Click_1(object sender, EventArgs e)
+        {
+            Chinhsuadiachinv();
+        }
+
+        private void button7_nv_Click_1(object sender, EventArgs e)
+        {
+            Chinhsuasodtnv();
+        }
+
+        private void thongtincanhan_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i;
+            i = thongtincanhan.CurrentRow.Index;
+            dateTimePicker1.Text = thongtincanhan.Rows[i].Cells[3].Value.ToString();
+            diachi_nv.Text = thongtincanhan.Rows[i].Cells[4].Value.ToString();
+            sodienthoai_nv.Text = thongtincanhan.Rows[i].Cells[5].Value.ToString();
         }
 
         private void Chinhsuasodtnv()

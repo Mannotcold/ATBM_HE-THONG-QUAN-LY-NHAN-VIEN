@@ -112,8 +112,9 @@ namespace DA_ATBM
             this.danhsachroledg = new System.Windows.Forms.DataGridView();
             this.quanlyfrm = new System.Windows.Forms.TabControl();
             this.Audit = new System.Windows.Forms.TabPage();
-            this.ThongtinAudit = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
+            this.ThongtinAudit = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
             this.tabPage3.SuspendLayout();
             this.cauquyengb.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -1037,6 +1038,7 @@ namespace DA_ATBM
             // 
             // Audit
             // 
+            this.Audit.Controls.Add(this.button3);
             this.Audit.Controls.Add(this.button2);
             this.Audit.Controls.Add(this.ThongtinAudit);
             this.Audit.Location = new System.Drawing.Point(4, 22);
@@ -1047,6 +1049,17 @@ namespace DA_ATBM
             this.Audit.Text = "Audit";
             this.Audit.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(6, 416);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(114, 23);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Xem Audit Standard";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // ThongtinAudit
             // 
             this.ThongtinAudit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1056,16 +1069,16 @@ namespace DA_ATBM
             this.ThongtinAudit.Size = new System.Drawing.Size(543, 370);
             this.ThongtinAudit.TabIndex = 1;
             // 
-            // button2
+            // button3
             // 
-            this.button2.Location = new System.Drawing.Point(237, 415);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Xem Audit";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button3.Location = new System.Drawing.Point(435, 416);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(114, 23);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Xem FGA";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // QuanLy
             // 
@@ -1199,6 +1212,7 @@ namespace DA_ATBM
         private System.Windows.Forms.TabPage Audit;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView ThongtinAudit;
+        private System.Windows.Forms.Button button3;
     }
 }
 

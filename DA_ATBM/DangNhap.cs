@@ -58,13 +58,13 @@ namespace DA_ATBM
                 dr.Read();
                 role = dr["GRANTED_ROLE"].ToString();
                 //MessageBox.Show(role);
-                ////if (TK == "quanly" && MK == "12345")
-                ////{
-                ////    Form quanLy = new QuanLy();
-                ////    this.Hide();
-                ////    quanLy.ShowDialog();
-                ////    this.Close();
-                ////}
+                if (TK == "quanly" && MK == "12345")
+                {
+                    Form quanLy = new QuanLy();
+                    this.Hide();
+                    quanLy.ShowDialog();
+                    this.Close();
+                }
                 switch (role)
                 {
                     case "TRUONG_PHONG":
