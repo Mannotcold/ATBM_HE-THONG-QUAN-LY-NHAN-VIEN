@@ -15,10 +15,14 @@ namespace DA_ATBM
     public partial class QuanLy : Form
     {
         OracleConnection con;
-        public QuanLy()
+        public QuanLy(string tk, string mk)
         {
             InitializeComponent();
+            this.TK = tk;
+            this.MK = mk;
         }
+
+        private string MK, TK;
 
         //Hiển thị danh sách user/role
         private void button1_Click(object sender, EventArgs e)
@@ -30,7 +34,7 @@ namespace DA_ATBM
         private void DanhSachUser()
         {
             OracleConnection con_ds = new OracleConnection();
-            con_ds.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID = QUANLY;PASSWORD=12345 ;Connection Timeout=120;";
+            con_ds.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID = " + TK + ";PASSWORD=" + MK + " ;Connection Timeout=120;";
             DataSet dataSet_ds = new DataSet();
             OracleCommand cmd_ds;
             if (timkiemuserroletb.Text == "")
@@ -91,7 +95,7 @@ namespace DA_ATBM
         private void ThongTinQuyen()
         {
             OracleConnection con_ttq = new OracleConnection();
-            con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=QUANLY;PASSWORD=12345;Connection Timeout=120;";
+            con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
 
             DataSet dataSet_ttq = new DataSet();
             OracleCommand cmd_ttq;
@@ -116,7 +120,7 @@ namespace DA_ATBM
         private void ThongTinQuyenRoles()
         {
             OracleConnection con_ttq = new OracleConnection();
-            con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=QUANLY;PASSWORD=12345;Connection Timeout=120;";
+            con_ttq.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
 
             DataSet dataSet_ttq = new DataSet();
             OracleCommand cmd_ttq;
@@ -155,7 +159,7 @@ namespace DA_ATBM
         private int CheckView(string viewname)
         {
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=QuanLy;Password=12345;Connection Timeout=120;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
             con.Open();
             OracleCommand cmd_checkview = new OracleCommand();
             cmd_checkview.Connection = con;
@@ -172,7 +176,7 @@ namespace DA_ATBM
         private int CheckUser(string username)
         {
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QuanLy;Password=12345;Connection Timeout=10;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=10;";
             con.Open();
             OracleCommand cmd_checkuser = new OracleCommand();
             cmd_checkuser.Connection = con;
@@ -189,7 +193,7 @@ namespace DA_ATBM
         private int CheckRole(string rolename)
         {
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QuanLy;Password=12345;Connection Timeout=120;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
             con.Open();
             OracleCommand cmd_checkrole = new OracleCommand();
             cmd_checkrole.Connection = con;
@@ -248,7 +252,7 @@ namespace DA_ATBM
         private void insertbtn_Click(object sender, EventArgs e)
         {
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
             if (capquyenrolerb.Checked)
             {
                 if (CheckRole(tenuserroletb.Text.ToUpper()) == 0)
@@ -338,7 +342,7 @@ namespace DA_ATBM
         private void deletebtn_Click(object sender, EventArgs e)
         {
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
             if (capquyenrolerb.Checked)
             {
                 if (CheckRole(tenuserroletb.Text.ToUpper()) == 0)
@@ -429,7 +433,7 @@ namespace DA_ATBM
         private void selectbtn_Click(object sender, EventArgs e)
         {
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
 
             if (capquyenrolerb.Checked)
             {
@@ -677,7 +681,7 @@ namespace DA_ATBM
         private void updatebtn_Click(object sender, EventArgs e)
         {
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
 
             if (capquyenrolerb.Checked)
             {
@@ -865,7 +869,7 @@ namespace DA_ATBM
         private void Revoke(string tablename, string privilege, string grantee)
         {
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
             con.Open();
             OracleCommand cmd_revoke = new OracleCommand();
             cmd_revoke.Connection = con;
@@ -878,7 +882,7 @@ namespace DA_ATBM
         private int CheckPrivilege(string tablename, string privilege, string grantee)
         {
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
             con.Open();
 
             if (privilege != "UPDATE")
@@ -1507,7 +1511,7 @@ namespace DA_ATBM
                 return;
             }
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
             con.Open();
             if (CheckRole(tenroletb.Text.ToUpper()) == 0 && CheckUser(tenroletb.Text.ToUpper()) == 0)
             {
@@ -1541,7 +1545,7 @@ namespace DA_ATBM
                 return;
             }
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
             con.Open();
             if (CheckRole(tenroletb.Text.ToUpper()) == 0)
             {
@@ -1577,7 +1581,7 @@ namespace DA_ATBM
                 return;
             }
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
             con.Open();
             if (CheckRole(tendangnhaptb.Text.ToUpper()) == 0 && CheckUser(tendangnhaptb.Text.ToUpper()) == 0)
             {
@@ -1619,7 +1623,7 @@ namespace DA_ATBM
                 return;
             }
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
             con.Open();
             if (CheckUser(tendangnhaptb.Text.ToUpper()) == 0)
             {
@@ -1651,7 +1655,7 @@ namespace DA_ATBM
                 return;
             }
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
             con.Open();
             if (CheckUser(tendangnhaptb.Text.ToUpper()) == 0)
             {
@@ -1687,7 +1691,7 @@ namespace DA_ATBM
                 return;
             }
             OracleConnection con = new OracleConnection();
-            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=QUANLY;Password=12345;Connection Timeout=120;";
+            con.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = doanatbmhttt)(SERVICE_NAME = XE)));;User ID=" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
             con.Open();
             if (CheckRole(caproletb.Text.ToUpper()) == 0 && CheckUser(chousertb.Text.ToUpper()) == 0)
             {
@@ -1714,7 +1718,7 @@ namespace DA_ATBM
         private void button2_Click(object sender, EventArgs e)
         {
             OracleConnection con_ttaudit = new OracleConnection();
-            con_ttaudit.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID =quanly;Password=12345;Connection Timeout=120;";
+            con_ttaudit.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID =" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
             DataSet dataSet_ds = new DataSet();
             OracleCommand cmd_ttaudit;
             cmd_ttaudit = new OracleCommand("select username, EXTENDED_TIMESTAMP ,obj_name, action_name, sql_text from dba_audit_trail", con_ttaudit);
@@ -1732,7 +1736,7 @@ namespace DA_ATBM
         private void button3_Click(object sender, EventArgs e)
         {
             OracleConnection con_ttaudit = new OracleConnection();
-            con_ttaudit.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID =quanly;Password=12345;Connection Timeout=120;";
+            con_ttaudit.ConnectionString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = Oracle Man)(SERVICE_NAME = XE)));;User ID =" + TK + ";PASSWORD=" + MK + ";Connection Timeout=120;";
             DataSet dataSet_ds = new DataSet();
             OracleCommand cmd_ttaudit;
             cmd_ttaudit = new OracleCommand("SELECT DBUID, LSQLTEXT, NTIMESTAMP# FROM SYS.FGA_LOG$", con_ttaudit);
